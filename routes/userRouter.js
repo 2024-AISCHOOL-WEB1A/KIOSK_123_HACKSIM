@@ -63,7 +63,20 @@ router.post('/login', (req, res) => {
     });
 });
 
-// 로그아웃 (<script>문 사용시 ;을 제대로 적어주지 않으면 기능 수행되지 않음)
+// 로그아웃 여부 확인
+router.get('/logout-confirm', (req, res) => {
+    res.send(`
+        <script>
+            if (confirm('로그아웃하시겠습니까?')) {
+                window.location.href = '/user/logout';
+            } else {
+                window.history.back();
+            }
+        </script>
+    `);
+});
+
+// 로그아웃 
 router.get('/logout', (req, res) => {
     console.log('로그아웃')
     req.session.destroy()
@@ -72,19 +85,41 @@ router.get('/logout', (req, res) => {
 
 // 회원정보 수정
 router.post('/update', (req, res) => {
-    console.log('회원정보 수정', req.body)
+    console.log('회원정보 수정', req.body);
 
-    let { nick, pw } = req.body
-    let sql = "UPDATE KIOSK_USER_TB SET USER_NICK = ? WHERE USER_PW = ?"
-    conn.query(sql, [ nick, pw ], (err, rows) => {
-        console.log('rows', rows)
-        if (rows.affectedRows > 0) {
-            res.redirect('/')
+    let { nick, pw } = req.body;
+    let currentNick = req.session.nick;
+
+    // 입력 값 확인
+    if (!nick || !pw) {
+        return res.send('<script>alert("별명과 비밀번호를 모두 입력해주세요."); window.history.back();</script>');
+    }
+
+    let sql = "UPDATE KIOSK_USER_TB SET USER_NICK = ? WHERE USER_PW = ? AND USER_NICK = ?";
+    conn.query(sql, [nick, pw, currentNick], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.send('<script>alert("오류가 발생했습니다. 다시 시도해주세요."); window.history.back();</script>');
+        }
+
+        // 변경된 행이 있는 경우
+        if (result.affectedRows > 0) {
+            // 세션을 종료하여 사용자가 새로운 정보를 보도록 함
+            req.session.destroy((err) => {
+                if (err) {
+                    console.error(err);
+                    return res.send('<script>alert("로그아웃 중 오류가 발생했습니다."); window.history.back();</script>');
+                }
+                // 로그아웃 후 메인페이지로 리디렉션
+                res.redirect('/');
+            });
         } else {
             res.send(`<script>
                 alert("별명 혹은 비밀번호를 다시 입력해주세요.")
-                window.location.href="/update"</script>`)
+                window.location.href="/update"
+            </script>`);
         }
-    })
-})
+    });
+});
+
 module.exports = router
