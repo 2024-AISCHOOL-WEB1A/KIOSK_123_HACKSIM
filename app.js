@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const nunjuck = require('nunjucks')
+const nunjucks = require('nunjucks')
 
 // ===================================== 세션 관련 라이브러리 불러오기 =====================================
 const session = require('express-session')
@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended : true}))
 
 // ===================================== ('/',라우터 연결) 부분 =====================================
 app.use('/', mainRouter)
-app.use('/', userRouter)
+app.use('/user', userRouter)
 app.use('/', kioskRouter)
 
 // ===================================== port 연결 부분 =====================================
