@@ -8,7 +8,28 @@
 </head>
 <body>
     <canvas id="canvas" width="800" height="1500"></canvas>
-    <button id="resetBtn">초기화</button>
+
+    <div id="gameModal" class="gameModal">
+        <div class="modalContent">
+            <span class="gameModalClose">&times;</span>
+            <img id="modalGameImage" src=""/>
+            <h3 id="modalGameText"></h3>
+
+            <h5>여기 설명 작성하기 태그는 편하게 변경</h5>
+
+            <div class="controls">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+
+            <div class="controls">
+                <button id="resetBtn">다시하기</button>
+                <button id="mainBtn">처음으로</button>
+            </div>
+
+        </div>
+    </div>
+
     <script src="/touchGame.js"></script>
 </body>
 </html>

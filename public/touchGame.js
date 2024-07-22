@@ -1,18 +1,29 @@
-const resetBtn = document.getElementById('resetBtn');
+// ==================================================== 게임 관련 ==========================================
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 let isDrawing = false;  // 선이 그려지는 중인가?
 let startX, startY;     // 시작 좌표
-
 const images = [];
 let lines = []; // 그려진 선들의 배열
-let img_text_name = [];
+// ==================================================== 게임 관련 ===========================================
 
-resetBtn.addEventListener('touchstart',() => {
-    console.log("test");
-    location.href='/game';
-})
+// ==================================================== 모달 관련 ===========================================
+const gameModal = document.getElementById('gameModal');
+const closeBtn = document.querySelector('.gameModalClose');
+
+const modalGameImage = document.getElementById('modalGameImage');
+const modalGameText = document.getElementById('modalGameText');
+const resetBtn = document.getElementById('resetBtn');
+const mainBtn = document.getElementById('mainBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let imgTextName;
+let currentIndex;
+let resCnt;
+
+// =========================================================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('/game/data')
@@ -26,14 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function roadimagesData(imagesDatas){
+    resCnt = 0;
+    currentIndex = 0;
+    imgTextName = [];
     imagesDatas.forEach((data, index) => {
         const img = new Image();
         img.onload = function() {
             img.name = data.GAME_ANSWER;
-            img_text_name.push(data.GAME_ANSWER);
+            imgTextName.push(data.GAME_ANSWER);
             images[index] = img;
             if (images.length === imagesDatas.length) {
-                img_text_name = shuffleArray(img_text_name);
+                imgTextName = shuffleArray(imgTextName);
                 drawImages();
             }
         };
@@ -64,7 +78,7 @@ function drawImages() {
         ctx.strokeStyle = '#000';
 
         ctx.strokeRect(x + 505, y + 73, 230, 40);
-        ctx.fillText(img_text_name[index], x + 620, y + 100);
+        ctx.fillText(imgTextName[index], x + 620, y + 100);
     });
 }
 
@@ -152,13 +166,15 @@ canvas.addEventListener('touchend', function(event) {
         
         if (mouseX >= imgX && mouseX <= imgX + imgWidth && 
             mouseY >= imgY && mouseY <= imgY + imgHeight) {
-                upName = img_text_name[index];
+                upName = imgTextName[index];
                 console.log(`마우스 업된 위치의 이미지 이름: ${upName}`);
         }
     });
 
-    if(upName == downName && upName !='' && downName != '') alert("정답입니다.")
-    else{
+    if(upName == downName && upName !='' && downName != ''){
+        alert("정답입니다.")
+        resCnt+=1;
+    }else{
         if (lines.length > 0) {
             alert("오답입니다. 다시한번 시도해보세요");
             const lastLine = lines.pop();
@@ -174,4 +190,51 @@ canvas.addEventListener('touchend', function(event) {
             });
         }
     }
+    if(resCnt == 5){
+        modalGameImage.src = images[0].src;
+        modalGameText.innerText = images[0].name;
+        gameModal.style.display = 'flex'; // 모달을 보이게 설정
+    }
+});
+
+// ==================================================== 모달 관련 ===========================================
+
+// 게임 초기화
+resetBtn.addEventListener('touchstart', () => {
+    gameModal.style.display = 'none';
+    location.href='/game';
+})
+
+// 메인화면으로 이동
+mainBtn.addEventListener('touchstart', () => {
+    gameModal.style.display = 'none';
+    location.href='/';
+})
+
+closeBtn.addEventListener('touchstart', () => {
+    gameModal.style.display = 'none'; // 모달을 숨김
+});
+
+window.addEventListener('touchstart', (event) => {
+    if (event.target === gameModal) {
+        gameModal.style.display = 'none'; // 모달 외부를 클릭했을 때 모달을 숨김
+    }
+});
+
+// modalImage 변경하기
+function showImage(index) {
+    modalGameImage.src = images[index].src;
+    modalGameText.innerText = images[index].name;
+}
+
+// 모달 이미지 prev
+prevBtn.addEventListener('touchstart', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    showImage(currentIndex);
+});
+
+// 모달 이미지 next
+nextBtn.addEventListener('touchstart', () => {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    showImage(currentIndex);
 });
