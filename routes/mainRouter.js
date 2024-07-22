@@ -31,4 +31,8 @@ router.get('/update', (req,res)=>{
 router.get('/delete', (req,res)=>{
     res.render('delete')
 })
+
+router.get('/game', (req,res)=>{
+    res.render('touchGame')
+})
 module.exports = router

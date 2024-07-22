@@ -10,6 +10,7 @@ const fileStore = require('session-file-store')(session)
 const mainRouter = require('./routes/mainRouter')
 const userRouter = require('./routes/userRouter')
 const kioskRouter = require('./routes/kioskRouter')
+const gameRouter = require('./routes/gameRouter')
 
 // ===================================== 넌적스 세팅 부분 =====================================
 app.set('view engine', 'html')
@@ -30,10 +31,14 @@ app.use(session({
 // ===================================== POST 값 받아오기 허용 부분 =====================================
 app.use(express.urlencoded({extended : true}))
 
+// ===================================== PUBLIC폴더 접근 경로 설정 부분 =====================================
+app.use(express.static('public'))
+
 // ===================================== ('/',라우터 연결) 부분 =====================================
 app.use('/', mainRouter)
 app.use('/user', userRouter)
 app.use('/', kioskRouter)
+app.use('/game',gameRouter)
 
 // ===================================== port 연결 부분 =====================================
 app.listen(3000, ()=>{
