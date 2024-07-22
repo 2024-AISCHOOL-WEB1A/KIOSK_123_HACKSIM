@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
-    
+    <h3>회원탈퇴</h3>
+    <form id="deleteForm" action="user/delete" method="post">
+        별명 : <input type="text" name="nick"> <br/>
+        비밀번호 : <input type="password" name="pw">
+        <input type="submit" value="회원탈퇴">
+    </form>
+    <script>
+        document.getElementById('deleteForm').addEventListener('submit', function(event) {
+            const confirmation = confirm("회원정보가 삭제됩니다. 정말로 탈퇴하시겠습니까?");
+            if (!confirmation) {
+                // 사용자가 "아니오"를 클릭한 경우, 기본 제출 동작을 막음
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>

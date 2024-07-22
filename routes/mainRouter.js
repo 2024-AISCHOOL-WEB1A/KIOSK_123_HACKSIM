@@ -25,11 +25,11 @@ router.get('/myPage', (req,res)=>{
 })
 
 router.get('/update', (req,res)=>{
-    res.render('update')
+    res.render('update', {nick : req.session.nick} )
 })
 
 router.get('/delete', (req,res)=>{
-    res.render('delete')
+    res.render('delete', {nick : req.session.nick} )
 })
 
 router.get('/game', (req,res)=>{
