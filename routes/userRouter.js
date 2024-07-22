@@ -13,7 +13,7 @@ router.post('/join', (req, res) => {
         console.log(err);
         console.log('insert 완료', rows)
         if (rows) {
-            res.redirect('/login')
+            res.redirect('/')
         } else {
             res.send(`<script>
                         alert('다시 시도해주세요')
@@ -30,10 +30,10 @@ router.post('/login', (req, res) => {
     console.log('login', req.body)
     let { userNick, userPw } = req.body
 
-    let sql = 'SELECT USER_NICK, USER_PW FROM KIOSK_USER_TB WHERE USER_NICK = ? AND USER_PW = ?'
+    let sql = 'SELECT USER_NICK FROM KIOSK_USER_TB WHERE USER_NICK = ? AND USER_PW = ?'
     conn.query(sql, [userNick, userPw], (err, rows) => {
         console.log('rows', rows)
-        if (rows.lenghth > 0) {
+        if (rows.length > 0) {
             req.session.nick = userNick;
             res.redirect('/')
         } else {
@@ -46,9 +46,9 @@ router.post('/login', (req, res) => {
 router.post('/update', (req, res) => {
     console.log('회원정보 수정', req.body)
 
-    let { newNick, nick, pw } = req.body
-    let sql = "update KIOSK_USER_DB set nick=? where and pw=?"
-    conn.query(sql, [nick, pw, newNick], (err, rows) => {
+    let { nick, pw } = req.body
+    let sql = "UPDATE KIOSK_USER_TB SET USER_NICK = ? WHERE USER_PW = ?"
+    conn.query(sql, [ nick, pw ], (err, rows) => {
         console.log('rows', rows)
         if (rows.affectedRows > 0) {
             res.redirect('/')

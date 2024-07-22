@@ -4,7 +4,12 @@ const router = express.Router()
 // 페이지 렌더링 관련 Router 작성
 
 router.get('/', (req, res) =>{
-    res.render('main')
+    if (req.session.nick){
+        console.log('session', req.session.nick)
+    res.render('main', {nick: req.session.nick})
+    } else {
+        res.render('main')
+    }
 })
 
 router.get('/join', (req, res)=>{
