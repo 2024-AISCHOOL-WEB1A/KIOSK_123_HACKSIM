@@ -122,4 +122,37 @@ router.post('/update', (req, res) => {
     });
 });
 
+// 회원탈퇴
+router.post('/delete', (req, res) => {
+    console.log('delete', req.body);
+    let { nick, pw } = req.body;
+
+    if (!nick || !pw) {
+        return res.send('<script>alert("별명과 비밀번호를 입력해주세요."); window.history.back();</script>');
+    }
+
+    let sql = 'DELETE FROM KIOSK_USER_TB WHERE USER_NICK = ? AND USER_PW = ?';
+    conn.query(sql, [nick, pw], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.send('<script>alert("오류가 발생했습니다. 다시 시도해주세요."); window.history.back();</script>');
+        }
+
+        if (result.affectedRows > 0) {
+            req.session.destroy((err) => {
+                if (err) {
+                    console.error(err);
+                    return res.send('<script>alert("로그아웃 중 오류가 발생했습니다."); window.history.back();</script>');
+                }
+                res.redirect('/');
+            });
+        } else {
+            res.send('<script>alert("별명이나 비밀번호가 일치하지 않습니다."); window.history.back();</script>');
+        }
+    });
+});
+
+
+
+
 module.exports = router
