@@ -7,10 +7,18 @@
 </head>
 <body>
     <a href="/"><h1>메인화면</h1></a>
+
+    {% if nick %}
+
     <a href="myPage">마이페이지</a>
+
+    {% else %}
 
     <a href="login">로그인 및 회원가입</a>
 
+    {% endif %}
 
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

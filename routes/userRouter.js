@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
     conn.query(sql, [userNick, userPw], (err, rows) => {
         console.log('rows', rows)
         if (rows.lenghth > 0) {
-            // req.session.nick = userNick;
+            req.session.nick = userNick;
             res.redirect('/')
         } else {
             res.send('<script>("아이디 혹은 비밀번호를 잘못입력하셨습니다.")</script>')
@@ -47,8 +47,8 @@ router.post('/update', (req, res) => {
     console.log('회원정보 수정', req.body)
 
     let { newNick, nick, pw } = req.body
-    let sql = "update KIOSK_USER_DB set nick=? where nick=? and pw=?"
-    conn.query(sql, [newNick, nick, pw], (err, rows) => {
+    let sql = "update KIOSK_USER_DB set nick=? where and pw=?"
+    conn.query(sql, [nick, pw, newNick], (err, rows) => {
         console.log('rows', rows)
         if (rows.affectedRows > 0) {
             res.redirect('/')
