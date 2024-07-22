@@ -9,16 +9,13 @@
     <a href="/"><h1>메인화면</h1></a>
 
     {% if nick %}
-
     <a href="myPage">마이페이지</a>
-
+    <a href="/user/logout">로그아웃</a>
+    <br/>
+    <h3>{{nick}}님 환영합니다</h3>
     {% else %}
-
     <a href="login">로그인 및 회원가입</a>
-
     {% endif %}
 
-    {% block content %}
-    {% endblock %}
 </body>
 </html>
