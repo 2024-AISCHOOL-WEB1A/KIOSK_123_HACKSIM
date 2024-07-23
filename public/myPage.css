@@ -1,3 +1,32 @@
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* 모든 요소에 폰트 적용 */
+* {
+    font-family: 'Freesentation-9Black', sans-serif;
+    font-weight: 900;
+}
+
+/* 기본 폰트 사이즈 설정 */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* 열 방향으로 정렬 */
+    justify-content: center;
+    /* 수직 중앙 정렬 */
+    align-items: center;
+    /* 수평 중앙 정렬 */
+    background-color: #f0f0f0;
+    font-size: 20px;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -56,13 +85,25 @@ body {
     align-items: center;
 }
 
-.profile-img {
-    margin-bottom: 20px;
+.profile-img-wrapper {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.profile-img-wrapper img {
+    border-radius: 30%;
+    width: 90%;
+    height: 90%;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 .profile-info {
+    margin-top: 15px;
     text-align: center;
-    margin-bottom: -40px;
+    margin-bottom: -50px;
 }
 
 .profile-info .name {
@@ -87,12 +128,13 @@ body {
     flex-direction: column;
     align-items: center;
     flex: 1;
+    margin-top: 10px;
 }
 
 .menu #item1 {
     background-color: #ffffff;
     color: black;
-    padding: 20px 55px;
+    padding: 30px 60px;
     margin: 25px 0;
     border-radius: 15px;
     text-decoration: none;
@@ -108,7 +150,7 @@ body {
 .menu #item2 {
     background-color: #ffffff;
     color: black;
-    padding: 20px 50px;
+    padding: 30px 55px;
     margin: 25px 0;
     border-radius: 15px;
     text-decoration: none;
