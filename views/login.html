@@ -11,29 +11,33 @@
 <body>
     <div class="container">
         <div class="images">
-            <img src="/" class="grandfather">
-            <img src="/public/pic/Group 20" class="grandmother">
+            <img src="/pic/Group 21.png" class="grandfather">
+            <img src="/pic/Group 20.png" class="grandmother">
         </div>
-    <form action="/user/login/" method="POST">
-        ID<input type="text" name="nick">
-        PW<input type="text" name="pw">
-        <input type="submit" value="로그인">
-    </form>
-    <a href="/join">회원가입</a>
+        <form id="loginFrm">
+            <label for="nick"><b>별명</b></label>
+            <input type="text" id="nick" name="nick" required>
+            <label for="pw"><b>비밀번호</b></label>
+            <input type="password" id="pw" name="pw" required>
+            <input type="submit" value="로그인">
+        </form>
+        <a href="/join"><b>처음이라면 여기 눌러주세요!</b></a>
+    </div>
 
-    <script>
-        function showModal(event) {
-            event.preventDefault();
-            const grandfather = document.querySelector('.grandfather');
-            const grandmother = document.querySelector('.grandmother');
-            grandfather.classList.add('move-right');
-            grandmother.classList.add('move-left');
-            setTimeout(() => {
-                const modal = document.getElementById('loginModal');
-                modal.style.display = 'flex';
-            }, 1000);
-        }
-    </script>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <img src="/pic/good.png" class="good">
+            <div class="modal-box">
+                <p><b>환영합니다!</b></p>
+                <div class="button-container">
+                    <button onclick="location.href='/mypage'"><b>마이페이지로 이동</b></button>
+                    <button onclick="location.href='/'"><b></b>메인페이지로 이동</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/login.js"></script>
 </body>
 
 </html>

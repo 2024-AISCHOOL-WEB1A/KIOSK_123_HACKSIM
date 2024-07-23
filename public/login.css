@@ -173,7 +173,7 @@ a:hover {
     }
 
     100% {
-        transform: translateX(180px);
+        transform: translateX(220px);
     }
 }
 
@@ -183,7 +183,7 @@ a:hover {
     }
 
     100% {
-        transform: translateX(-200px);
+        transform: translateX(-230px);
     }
 }
 
