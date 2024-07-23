@@ -56,17 +56,8 @@ body {
     align-items: center;
 }
 
-.profile-img-wrapper {
-    background-color: white;
-    border-radius: 50%;
-    padding: 5px;
-    margin-bottom: 15px;
-}
-
-.profile-img-wrapper img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+.profile-img {
+    margin-bottom: 20px;
 }
 
 .profile-info {
