@@ -37,7 +37,7 @@
             const pwck = document.querySelector('input[name="pwck"]').value;
 
             if (pw !== pwck) {
-                alert('비밀번호가 일치하지 않습니다. 비밀번호 확인을 체크해주세요.');
+                alert('입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다. 확인 후 다시 입력해주세요.');
                 event.preventDefault(); // 폼 제출을 방지합니다.
                 return false;
             }
@@ -47,7 +47,7 @@
 
 </head>
 <body>
-    <form action="/user/join" method="post">
+    <form action="/user/join" method="post" onsubmit="return checkPassword(event)">
         별명 : <input type="text" name="nick">
         <input type="button" value="중복확인" onclick="checkNick()"> <br/>
         비밀번호 : <input type="password" name="pw"><br>
