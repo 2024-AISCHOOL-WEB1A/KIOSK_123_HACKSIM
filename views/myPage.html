@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/myPage.css">
+    <title>마이 페이지</title>
+    <link rel="stylesheet" href="/mypage.css">
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <img src="/public/Image/남자.png" alt="Profile Picture">
-            <div class="name">홍길동</div>
+        <div class="header">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="./pic/Group 22.png" alt="프로필 이미지">
+                </div>
+                <div class="profile-info">
+                    <span class="name">홍길동</span><br><br>
+                    <div id="nameTag">학습자님 환영합니다!</div>
+                </div>
+            </div>
         </div>
         <div class="menu">
-            <a href="update" class="item"><img src="/public/Image/내정보.png" alt="">내 정보 관리</a>
-            <a href="stdNote" class="item"><img src="/public/Image/학습노트.png" alt="">학습노트 가기</a>
+            <a href="#" id="item1"><img src="./Image/내정보.png" alt="">내 정보 관리</a>
+            <a href="#" id="item2"><img src="./Image/학습노트.png" alt="">학습노트 가기</a>
         </div>
     </div>
 </body>
