@@ -2,75 +2,107 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    display:flex;
-    flex-direction: row;
+    display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    font-family: 'Jalnan';
+    font-family: 'Jalnan', sans-serif;
+    background-color: #f4f4f4;
+    font-size: 20px; /* 기본 폰트 크기 조정 */
 }
 
 @font-face {
     font-family: 'Jalnan'; 
-    src : url('/public/font/JalnanGothicTTF.ttf') format('truetype')
+    src: url('/public/font/JalnanGothicTTF.ttf') format('truetype');
 }
 
-.container {
-    display: block;
+.hospital-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 40px; /* 패딩 조정 */
+    max-width: 600px; /* 최대 너비 조정 */
+    width: 100%;
+    position: relative;
 }
 
-#ba_learn_bt, #di_learn_bt{
-    height: 250px;
-    width: 180px;
-    font-size: 30px;
-    border-radius: 5%;
-    transition: background-color 0.7s ease, transform 0.3s ease;
-    border: 3px solid #4951be;
-    font-family: 'Jalnan';
-}
-#head_learn_bt{
-    font-family: 'Jalnan';
-    border-radius: 5%;
-    border: 3px solid #4951be;
-    font-size: 15px;
+.head-button {
     position: absolute;
-    left: 0;
+    top: 20px;
+    left: 20px;
+}
+
+header h1 {
+    font-size: 32px; /* 타이틀 폰트 크기 조정 */
+    margin: 20px 0 10px 0;
+}
+
+header h2 {
+    font-size: 24px; /* 서브 타이틀 폰트 크기 조정 */
+    margin: 10px 0;
+}
+
+header h3 {
+    font-size: 20px; /* 설명 텍스트 폰트 크기 조정 */
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.option {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 120px; /* 버튼 너비 조정 */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.option:hover {
+    transform: scale(1.1);
+}
+
+.option img {
+    width: 60px; /* 아이콘 크기 조정 */
+    height: 60px;
+}
+
+.option p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px; /* 버튼 텍스트 폰트 크기 조정 */
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 16px; /* 푸터 폰트 크기 조정 */
+    color: #777;
+}
+
+#head_learn_bt {
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    border: 3px solid #4951be;
+    font-size: 20px; /* 버튼 폰트 크기 조정 */
+    background: none;
+    cursor: pointer;
+    padding: 10px 20px; /* 버튼 패딩 조정 */
 }
 
 button:hover {
-    background-color: #dae5ef; /* 버튼 호버 시 색상 변경 */
+    background-color: #dae5ef;
 }
 
 button:active {
-    transform: translateY(4px); /* 버튼 클릭 시 약간 아래로 이동 */
-}
-
-h1{
-    font-size: 50px;
-}
-
-h3{
-    margin-bottom: 80px;
-}
-
-.hospital-container{
-    
-    border: 10px solid black;
-    position: relative;
-    /* background-repeat : no-repeat; */
-    z-index: 1;
-    background: linear-gradient(to bottom, rgba(83, 139, 195, 0.486) 90%, rgba(5, 4, 27, 0.744) 10%);
-    margin: 20px;
-    box-shadow: 0 0 0 20px rgba(83, 139, 195, 0.486);
-}
-
-.hospital-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    filter: blur(5px); /* 배경 이미지를 흐리게 처리 */
-    z-index: -1; /* 배경이 컨텐츠 뒤에 오도록 설정 */
+    transform: translateY(4px);
 }

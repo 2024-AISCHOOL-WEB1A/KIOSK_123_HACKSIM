@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/hospitalKiosk.css"
+    <title>디지털배움터</title>
+    <link rel="stylesheet" href="/public/hospitalKiosk.css">
 </head>
 <body>
     <div class="hospital-container">
-        <div class="head-button">
-            <button onclick="handleButtonClick('button1')" id="head_learn_bt">이전으로</button>    
+        <header>
+            <div class="head-button">
+                <button onclick="handleButtonClick('button1')" id="head_learn_bt">이전으로</button>
+            </div>
+            <h1>디지털배움터</h1>
+            <h2>스마트기기 활용 교육</h2>
+            <h3>어떤 체험을 진행하시겠습니까?</h3>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/public/hospital.png" alt="병원 아이콘">
+                <p>병원</p>
+            </div>
+            <div class="option">
+                <img src="/public/shopping.png" alt="쇼핑 아이콘">
+                <p>쇼핑</p>
+            </div>
         </div>
-        <h1>1, 2, 3</h1>
-        <h1>스마트기기 활용 교육</h1>
-        <h3>어떤 체험을 진행하시겠습니까?</h3>
-        <div class="hospital-button-container">
-            <button onclick="handleButtonClick('button1')" id="ba_learn_bt">기초학습</button>
-            <button onclick="handleButtonClick('button2')" id="di_learn_bt">심화학습</button>
-        </div>
+        <footer>
+            <p>NIA 한국지능정보사회진흥원</p>
+        </footer>
     </div>
 </body>
 </html>
