@@ -4,16 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function checkNick() {
+            const nick = document.querySelector('input[name="nick"]').value;
+            if (!nick) {
+                alert('별명을 입력해주세요');
+                return;
+            }
+            fetch('/user/checkNick', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nick: nick })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    alert('이미 존재하는 별명입니다');
+                    document.querySelector('input[type="submit"][value="회원가입"]').disabled = true;
+                } else {
+                    alert('사용 가능한 별명입니다');
+                    document.querySelector('input[type="submit"][value="회원가입"]').disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        function checkPassword(event) {
+            const pw = document.querySelector('input[name="pw"]').value;
+            const pwck = document.querySelector('input[name="pwck"]').value;
+
+            if (pw !== pwck) {
+                alert('비밀번호가 일치하지 않습니다. 비밀번호 확인을 체크해주세요.');
+                event.preventDefault(); // 폼 제출을 방지합니다.
+                return false;
+            }
+            return true;
+        }
+    </script>
+
 </head>
 <body>
     <form action="/user/join" method="post">
-        별명 : <input type="text" name="nick"><br>
+        별명 : <input type="text" name="nick">
+        <input type="button" value="중복확인" onclick="checkNick()"> <br/>
         비밀번호 : <input type="password" name="pw"><br>
+        비밀번호 확인 : <input type="password" name="pwck"><br>
         출생연도 : <input type="text" name="btd"><br>
         성별
         남성<input type="radio" name="gen" value="male">
         여성<input type="radio" name="gen" value="female"><br>
-        <input type="submit" value="회원가입">
+        <input type="submit" value="회원가입" disabled>
     </form>
 </body>
 </html>
