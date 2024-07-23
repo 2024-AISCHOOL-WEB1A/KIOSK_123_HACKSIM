@@ -170,7 +170,13 @@ router.post('/delete', (req, res) => {
     });
 });
 
-
+router.get('/session-test', (req, res) => {
+    if (req.session.nick) {
+        res.send(`로그인된 사용자: ${req.session.nick}`);
+    } else {
+        res.send('로그인되지 않았습니다.');
+    }
+});
 
 
 module.exports = router
