@@ -43,8 +43,8 @@ function roadimagesData(imagesDatas){
     imagesDatas.forEach((data, index) => {
         const img = new Image();
         img.onload = function() {
-            img.name = data.GAME_ANSWER;
-            imgTextName.push(data.GAME_ANSWER);
+            img.name = data.IMG_NAME;
+            imgTextName.push(data.IMG_NAME);
             images[index] = img;
             if (images.length === imagesDatas.length) {
                 imgTextName = shuffleArray(imgTextName);
@@ -55,7 +55,8 @@ function roadimagesData(imagesDatas){
         img.onerror = function() {
             console.error(`Failed to load image: ${data.IMG_PATH}`);
         };
-        img.src = data.IMG_PATH;
+        let imgPath = data.IMG_GROUP + data.IMG_PATH;
+        img.src = imgPath;
     });
 }
 
