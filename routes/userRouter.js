@@ -2,6 +2,27 @@ const express = require('express')
 const router = express.Router()
 const conn = require('../config/db')
 
+// 별명 중복 확인 라우트
+router.post('/checkNick', (req, res) => {
+    const { nick } = req.body;
+    if (!nick) {
+        return res.json({ exists: false });
+    }
+
+    let checkNickSql = "SELECT * FROM KIOSK_USER_TB WHERE USER_NICK = ?";
+    conn.query(checkNickSql, [nick], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: '오류가 발생했습니다. 다시 시도해주세요.' });
+        }
+        if (results.length > 0) {
+            return res.json({ exists: true });
+        } else {
+            return res.json({ exists: false });
+        }
+    });
+});
+
 // 회원가입
 router.post('/join', (req, res) => {
     console.log('join 실행', req.body);
@@ -11,7 +32,6 @@ router.post('/join', (req, res) => {
     if (!nick || !pw) {
         return res.send("<script>alert('별명과 비밀번호를 입력해주세요'); window.history.back();</script>");
     }
-
     let checkNickSql = "SELECT * FROM KIOSK_USER_TB WHERE USER_NICK = ?";
     conn.query(checkNickSql, [nick], (err, results) => {
         if (err) {
@@ -22,14 +42,12 @@ router.post('/join', (req, res) => {
         if (results.length > 0) {
             return res.send("<script>alert('이미 존재하는 별명입니다'); window.history.back();</script>");
         }
-
-        let sql = "INSERT INTO KIOSK_USER_TB VALUES (?, ?, ?, ?)";
+        let sql = "INSERT INTO KIOSK_USER_TB (USER_NICK, USER_PW, USER_BTD, USER_GENDER) VALUES (?, ?, ?, ?)";
         conn.query(sql, [nick, pw, btd, gen], (err, rows) => {
             if (err) {
                 console.error(err);
                 return res.send("<script>alert('오류가 발생했습니다. 다시 시도해주세요.'); window.history.back();</script>");
             }
-
             console.log('insert 완료', rows);
             res.redirect('/');
         });
