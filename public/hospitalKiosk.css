@@ -2,10 +2,16 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    flex-direction: column;
+    display:flex;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Jalnan';
+}
+
+@font-face {
+    font-family: 'Jalnan'; 
+    src : url('/public/font/JalnanGothicTTF.ttf') format('truetype')
 }
 
 .container {
@@ -18,8 +24,18 @@ body, html {
     font-size: 30px;
     border-radius: 5%;
     transition: background-color 0.7s ease, transform 0.3s ease;
-    border: 2px solid #4951be;
+    border: 3px solid #4951be;
+    font-family: 'Jalnan';
 }
+#head_learn_bt{
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    border: 3px solid #4951be;
+    font-size: 15px;
+    position: absolute;
+    left: 0;
+}
+
 button:hover {
     background-color: #dae5ef; /* 버튼 호버 시 색상 변경 */
 }
@@ -29,9 +45,28 @@ button:active {
 }
 
 h1{
-    font-size: 40px;
+    font-size: 50px;
 }
 
 h3{
     margin-bottom: 80px;
+}
+
+.hospital-container{
+    position: relative;
+    /* background-repeat : no-repeat; */
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(83, 139, 195, 0.486) 90%, rgba(5, 4, 27, 0.744) 10%);
+}
+
+.hospital-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    filter: blur(5px); /* 배경 이미지를 흐리게 처리 */
+    z-index: -1; /* 배경이 컨텐츠 뒤에 오도록 설정 */
 }
