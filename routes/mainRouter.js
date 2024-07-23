@@ -35,4 +35,10 @@ router.get('/delete', (req,res)=>{
 router.get('/game', (req,res)=>{
     res.render('touchGame')
 })
+
+router.get('/learningNote', (req, res)=>{
+    res.render('learningNote')
+})
+
+
 module.exports = router
