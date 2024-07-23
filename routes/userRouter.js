@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
         console.log('rows', rows);
         if (rows.length > 0) {
             req.session.nick = nick;
-            res.redirect('/');
+            res.json(rows)
         } else {
             res.send('<script>alert("아이디 혹은 비밀번호를 잘못 입력하셨습니다."); window.history.back();</script>');
         }
