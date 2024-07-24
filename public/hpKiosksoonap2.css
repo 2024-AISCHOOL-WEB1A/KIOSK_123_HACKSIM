@@ -40,3 +40,15 @@ body, html {
     top: 10px; /* 버튼 위치 조정 */
     left: 0px; /* 버튼 위치 조정 */
 }
+
+.info {
+    background-color: #e6f7ff;
+    border: 1px solid #cceeff;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.info.infoLeft {
+    color: gray;
+}
