@@ -129,7 +129,7 @@ body {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .menu #startUpdateBtn {
@@ -163,6 +163,10 @@ body {
     justify-content: center;
 }
 
+.menu #deleteBtn {
+    margin-top: 10px;
+}
+
 .menu #startUpdateBtn img {
     width: 70px;
     height: 70px;
@@ -183,5 +187,9 @@ body {
 }
 .menu #startNoteBtn:hover {
     /* background-color: #0056b3; */
+    transform: scale(1.05);
+}
+
+.menu #deleteBtn:hover {
     transform: scale(1.05);
 }
