@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123고객센터</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b4a8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1080px;
+            max-height: 1920px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        .header {
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .header .logo {
+            align-items: center;
+        }
+
+        .header .menu {
+            gap: 20px;
+        }
+
+        .content {
+            padding: 40px 20px;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tags .tag {
+            background-color: #b4a8ff;
+            padding: 20px 20px;
+            border-radius: 20px;
+            font-size: 30px;
+            color: #000000;
+            font-weight: bolder;
+        }
+
+        .articles {
+            text-align: center;
+
+        }
+
+        .articles .article {
+            margin-bottom: 40px;
+        }
+
+        .articles .article h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .articles .article p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .navbar .menu {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        .content h1 {
+            font-size: 36px;
+        }
+
+        .content p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="" alt="logo">
+                <!-- </div>
+            <div class="menu">
+                <a href="#">즐겨찾기</a>
+                <a href="#">이전으로</a>
+                <a href="#">홈으로</a>
+            </div>
+        </div> -->
+                <div class="content">
+                    <h1>무엇을 도와드릴까요?</h1> <br>버튼을 누르거나 화면을 하단으로 내려보세요<br>
+                </div>
+
+                <div class="tags">
+                    <a href="#kiosk_education" class="tag">화면 사용 방법</a>
+                    <a href="#signup" class="tag">회원가입</a>
+                    <a href="#login" class="tag">로그인</a>
+                    <a href="#bookmark" class="tag">즐겨찾기</a>
+                    <a href="#learning" class="tag">키오스크학습</a>
+                    <a href="#game" class="tag">게임</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="container articles">
+
+            <div id="kiosk_education" class="article">
+                <img src="home.png">
+                <h1>화면 사용 방법</h1>
+                <p>화면을 손이나 마우스로 버튼을 누르면 페이지가 작동합니다</p>
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+
+            <div id="signup" class="article">
+                <img src="user.png">
+                <h1>회원 가입</h1>
+
+                <img src="회원가입방법이미지.png" alt="회원가입방법이미지들어갈예정">
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <div id="login" class="article">
+                <img src="login.png">
+                <h1>로그인</h1>
+
+                <img src="로그인방법이미지.png" alt="로그인방법이미지들어갈예정">
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <div id="bookmark" class="article">
+                <img src="bookmark.png">
+                <h1>즐겨찾기</h1>
+
+                <img src="즐겨찾기방법이미지.png" alt="즐겨찾기방법이미지들어갈예정">
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <div id="learning" class="article">
+                <img src="learning.png">
+                <h1>키오스크 학습</h1>
+
+                <img src="키오스크학습방법이미지.png" alt="키오스크방법이미지들어갈예정">
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <div id="game" class="article">
+                <img src="game.png">
+                <h1>게임</h1>
+
+                <img src="게임방법이미지.png" alt="게임방법이미지들어갈예정">
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+</body>
+
+</html>
