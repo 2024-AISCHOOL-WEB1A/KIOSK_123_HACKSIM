@@ -23,7 +23,7 @@ startGameBtn.addEventListener('click', ()=> {
 startLoginBtn.addEventListener('click', () => {
     location.href = '/login'
 })
-//Google Cloud Translation API 사용한 번역기능 추가
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('translateButton').addEventListener('click', toggleTranslation);
 
