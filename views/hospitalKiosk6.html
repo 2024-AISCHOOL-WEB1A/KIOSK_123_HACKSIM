@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+    <link rel="stylesheet" href="/public/hospitalKiosk6.css">
+</head>
+<body>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/public/hospitalImg/learn_rebg.png" alt="" class="room-icon">
+                <h2>아래 접수 정보를 확인해주세요</h2>
+                
+                <!-- 테이블 추가 -->
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>정보</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>환자 이름</td>
+                            <td>강*찬</td>
+                        </tr>
+                        <tr>
+                            <td>생년월일</td>
+                            <td>1953년</td>
+                        </tr>
+                        <tr>
+                            <td>성별</td>
+                            <td>남자</td>
+                        </tr>
+                        <tr>
+                            <td>진료실</td>
+                            <td>1진료실 (선영* 원장)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- 버튼 추가 -->
+                <button class="complete-btn">접수 완료</button>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
