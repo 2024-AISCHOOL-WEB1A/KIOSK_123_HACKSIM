@@ -23,3 +23,4 @@ startGameBtn.addEventListener('click', ()=> {
 startLoginBtn.addEventListener('click', () => {
     location.href = '/login'
 })
+

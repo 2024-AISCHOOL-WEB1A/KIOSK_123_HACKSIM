@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
     <title>Document</title>
-    
 </head>
 <body>
+
     <div class="container">
         <div class="header">
             <img src="/pic/Group 22.png" alt="로고 이미지">
             <div class="title">
-                <p>키오스크 실습 교육 플랫폼</p>
+                <p id="titleText">키오스크 실습 교육 플랫폼</p>
             </div>
         </div>
         <div class="tabs">
@@ -23,33 +23,109 @@
         <div class="games">
             <div class="game">
                 <img src="pic/kiosk.png" id="kiosk">
-                <div class="game-title">키오스크 <br>실습 교육</div>
+                <div class="game-title" id="kioskTitle">키오스크 <br>실습 교육</div>
                 <button class="game-button">시작하기</button>
             </div>
             <div class="game">
                 <img src="pic/game.png" alt="game">
-                <div class="game-title">낱말 학습 <br> 게임</div>
-                <button class="game-button" id="startGameBtn">시작하기</button>
+                <div class="game-title" id="wordGameTitle">낱말 학습 <br> 게임</div>
+                <button class="game-button">시작하기</button>
             </div>
 
             <div class="game">
                 <img src="pic/login1.png" alt="#">
-                <div class="game-title">로그인/<br>회원가입</div>
-                <button class="game-button" id="startLoginBtn">시작하기</button>
+                <div class="game-title" id="loginTitle">로그인/<br>회원가입</div>
+                <button class="game-button">시작하기</button>
                 <!-- <a href="login.html" class="game-button">시작하기</a> -->
             </div>
 
             <div class="game">
                 <img src="pic/question1.png" class="question">
-                <div class="game-title1">도움말</div>
+                <div class="game-title1" id="helpTitle">도움말</div>
                 <button class="game-button1">시작하기</button>
             </div>
         </div>
         <div class="footer">
-            © 일단 이거 세번만 해볼까요?
+            <button id="translateButton">Translate to English</button>
+            <p>© 일단 이거 세번만 해볼까요?</p>
         </div>
     </div>
+    <!-- Google Cloud Translation API 사용한 번역기능 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('translateButton').addEventListener('click', toggleTranslation);
 
-    <script src="/main.js"></script>
+        let isKorean = true;
+        const koreanTexts = [
+            "키오스크 실습 교육 플랫폼",
+            "키오스크 실습 교육",
+            "시작하기",
+            "낱말 학습 게임",
+            "로그인/회원가입",
+            "도움말"
+        ];
+        let englishTexts = [];
+
+        async function toggleTranslation() {
+            if (isKorean) {
+                await translateToEnglish();
+            } else {
+                applyTranslations(koreanTexts);
+                document.getElementById('translateButton').innerText = 'Translate to English';
+                isKorean = true;
+            }
+        }
+
+        async function translateToEnglish() {
+            if (englishTexts.length === 0) {
+                const promises = koreanTexts.map(text => translateText(text));
+
+                try {
+                    const results = await Promise.all(promises);
+                    englishTexts = results.map(result => result.translatedText);
+                    applyTranslations(englishTexts);
+                    document.getElementById('translateButton').innerText = 'Translate to Korean';
+                    isKorean = false;
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                applyTranslations(englishTexts);
+                document.getElementById('translateButton').innerText = 'Translate to Korean';
+                isKorean = false;
+            }
+        }
+
+        function applyTranslations(translations) {
+            document.getElementById('titleText').innerText = translations[0];
+            document.getElementById('kioskTitle').innerHTML = translations[1].replace("\n", "<br>");
+            document.querySelectorAll('.game-button')[0].innerText = translations[2];
+            document.getElementById('wordGameTitle').innerHTML = translations[3].replace("\n", "<br>");
+            document.querySelectorAll('.game-button')[1].innerText = translations[2];
+            document.getElementById('loginTitle').innerHTML = translations[4].replace("\n", "<br>");
+            document.querySelectorAll('.game-button')[2].innerText = translations[2];
+            document.getElementById('helpTitle').innerText = translations[5];
+            document.querySelectorAll('.game-button1')[0].innerText = translations[2];
+        }
+
+        async function translateText(text) {
+            const apiKey = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 실제 API 키로 교체하세요
+            try {
+                const response = await axios.post(`https://translation.googleapis.com/language/translate/v2`, {}, {
+                    params: {
+                        q: text,
+                        target: 'en',
+                        key: apiKey
+                    }
+                });
+                return { translatedText: response.data.data.translations[0].translatedText };
+            } catch (error) {
+                console.error('Error:', error);
+                return { translatedText: text }; // 실패 시 원본 텍스트 반환
+            }
+        }
+    });
+    </script>
 </body>
 </html>
