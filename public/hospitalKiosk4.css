@@ -138,6 +138,7 @@ h2 {
 }
 
 .submit-btn {
+    font-family: 'Jalnan';
     background-color: #053f79cc; /* 버튼 배경색 */
     color: white; /* 버튼 텍스트 색상 */
     border: none;
