@@ -121,9 +121,9 @@ footer {
     font-size: 18px; /* 버튼 폰트 크기 조정 */
     background-color: #053f79cc; /* 군청색 배경 */
     cursor: pointer;
-    padding: 5px 5px; /* 버튼 패딩 조정 */
+    padding: 5px 10px; /* 버튼 패딩 조정 */
     color: white;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
@@ -147,7 +147,7 @@ button:active {
     background-color: #053f79cc; /* 군청색 배경 */
     cursor: pointer;
     color: white;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     padding: 10px 20px; /* 버튼 패딩 조정 */
     transform: translateX(57%);
     position: absolute;

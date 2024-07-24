@@ -87,7 +87,7 @@ h2 {
     cursor: pointer;
     padding: 5px 10px; /* 버튼 패딩 조정 */
     color: white;
-    transition: background-color 0.3s ease, transform 0.5s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* button:hover {

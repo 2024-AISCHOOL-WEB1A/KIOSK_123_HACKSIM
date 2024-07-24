@@ -10,7 +10,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+                <button onclick="redirectToHospitalKiosk3()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -107,10 +107,20 @@
                 alert('개인정보 수집 동의 항목을 체크해 주세요.');
                 return;
             }
+            else{
+                window.location.href = 'hospitalKiosk5.html'
+            }
 
             const realInputField = document.getElementById('real-input');
             console.log('실제 입력된 값:', realInputField.value);
             // 여기에 실제 값을 서버로 보내는 코드 추가
+        }
+
+        function redirectToHospitalKiosk3() {
+            window.location.href = 'hospitalKiosk3.html'
+        }
+        function goToHospitalKiosk5() {
+            window.location.href = 'hospitalKiosk5.html'
         }
     </script>
 </body>

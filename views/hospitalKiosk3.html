@@ -12,14 +12,14 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+                <button onclick="redirectToHospitalKiosk2()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
                 <div class="option-left">
-                    <button class="option-button">
+                    <button class="option-button" onclick="goToHospitalKiosk4()">
                         <img src="/public/pic/kiosk.png" alt="">
                         <p>접수하기</p>
                     </button>
@@ -34,5 +34,15 @@
         <footer>
         </footer>
     </div>
+    <script>
+        function redirectToHospitalKiosk2() {
+            window.location.href = 'hospitalKiosk2.html'
+        }
+
+        function goToHospitalKiosk4() {
+            window.location.href = 'hospitalKiosk4.html'
+        }
+    </script>
+
 </body>
 </html>
