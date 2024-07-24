@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const results = await Promise.all(promises);
                 englishTexts = results.map(result => result.translatedText);
                 applyTranslations(englishTexts);
-                document.getElementById('translateButton').innerText = 'Translate to Korean';
+                document.getElementById('translateButton').innerText = '한국어로 번역';
                 isKorean = false;
             } catch (error) {
                 console.error('Error:', error);
             }
         } else {
             applyTranslations(englishTexts);
-            document.getElementById('translateButton').innerText = 'Translate to Korean';
+            document.getElementById('translateButton').innerText = '한국어로 번역';
             isKorean = false;
         }
     }
