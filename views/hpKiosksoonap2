@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배움병원</title>
+    <link rel="stylesheet" href="/hpKiosksoonap2.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="nav">
+                <a href="#" class="nav-link">처음으로</a>
+                <span class="title">배움병원</span>
+                <a href="#" class="nav-link">도움말</a>
+                <a href="#" class="nav-link">나가기</a>
+            </div> 
+        </header>
+        <main class="content">
+            <h1>결제 정보를 확인해주세요.</h1>
+            <div class="info">
+                <div class="info-row">
+                    <span class="info-label">진료일자</span>
+                    <span class="info-value">202*년 11월 01일</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">결제금액</span>
+                    <span class="info-value">7,000원</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">처방전</span>
+                    <span class="info-value">출력</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">보험제출서류</span>
+                    <button class="select-button">선택하기</button>
+                </div>
+            </div>
+            <div class="payment">
+                <img src="card_icon.png" alt="카드 아이콘" class="payment-icon">
+                <span class="payment-text">카드 결제</span>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

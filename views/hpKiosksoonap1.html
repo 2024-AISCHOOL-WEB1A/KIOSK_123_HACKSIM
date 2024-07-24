@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+    <link rel="stylesheet" href="/hpKiosksoonap1.css">
+</head>
+<body>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <h2>진료 기록 조회</h2>
+                <div class="input-section">
+                    <div class="radio-group">
+                        <label><input type="radio" name="contact" value="phone" id="phone">휴대폰번호</label>
+                        <label><input type="radio" name="contact" value="id" id="id" checked>주민등록번호</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="contact-input" oninput="formatInput()" />
+                        <input type="hidden" id="real-input" />
+                    </div>
+                    <div class="keypad">
+                        <div class="key-row">
+                            <button onclick="appendValue(1)">1</button>
+                            <button onclick="appendValue(2)">2</button>
+                            <button onclick="appendValue(3)">3</button>
+                        </div>
+                        <div class="key-row">
+                            <button onclick="appendValue(4)">4</button>
+                            <button onclick="appendValue(5)">5</button>
+                            <button onclick="appendValue(6)">6</button>
+                        </div>
+                        <div class="key-row">
+                            <button onclick="appendValue(7)">7</button>
+                            <button onclick="appendValue(8)">8</button>
+                            <button onclick="appendValue(9)">9</button>
+                        </div>
+                        <div class="key-row">
+                            <button class="empty-button"></button>
+                            <button onclick="appendValue(0)">0</button>
+                            <button class="backspace" onclick="removeValue()">◀</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="agreement">
+                        <input type="checkbox" name="agreement" id="agree">
+                        <label for="agree">개인정보 수집 동의(필수)</label>
+                    </div>
+                    <button class="submit-btn" onclick="submitForm()">입력완료</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+
+    <script>
+        function appendValue(value) {
+            const realInputField = document.getElementById('real-input');
+            realInputField.value += value;
+            formatInput();
+        }
+
+        function removeValue() {
+            const realInputField = document.getElementById('real-input');
+            realInputField.value = realInputField.value.slice(0, -1);
+            formatInput();
+        }
+
+        function formatInput() {
+            const inputField = document.getElementById('contact-input');
+            const realInputField = document.getElementById('real-input');
+            const radioPhone = document.getElementById('phone').checked;
+            let value = realInputField.value.replace(/[^0-9]/g, ''); // 숫자만 남김
+
+            if (radioPhone) {
+                // 휴대폰 번호 포맷
+                if (value.length > 3) value = value.slice(0, 3) + '-' + value.slice(3);
+                if (value.length > 7) value = value.slice(0, 7) + '-' + value.slice(7);
+                inputField.value = value.slice(0, 12); // 최대 길이 제한
+            } else {
+                // 주민등록번호 포맷
+                let maskedValue = value;
+                if (value.length > 6) maskedValue = value.slice(0, 6) + '-' + '*'.repeat(value.length - 6);
+                inputField.value = maskedValue.slice(0, 14); // 최대 길이 제한
+            }
+
+            realInputField.value = value.slice(0, 13); // 실제 입력된 값도 길이 제한
+        }
+
+        function handleButtonClick(buttonId) {
+            // 이전으로 버튼 클릭 시 동작 추가 (필요시)
+            console.log(buttonId + ' clicked');
+        }
+
+        function submitForm() {
+            const agreeCheckbox = document.getElementById('agree');
+            if (!agreeCheckbox.checked) {
+                alert('개인정보 수집 동의란을 체크해 주세요.');
+                return;
+            }
+
+            const realInputField = document.getElementById('real-input');
+            console.log('실제 입력된 값:', realInputField.value);
+            // 여기에 실제 값을 서버로 보내는 코드 추가
+        }
+    </script>
+</body>
+</html>
+
+</body>
+</html>
