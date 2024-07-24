@@ -113,8 +113,8 @@ router.post('/update', (req, res) => {
         return res.send('<script>alert("별명과 비밀번호를 모두 입력해주세요."); window.history.back();</script>');
     }
 
-    let sql = "UPDATE KIOSK_USER_TB SET USER_NICK = ? WHERE USER_PW = ? AND USER_NICK = ?";
-    conn.query(sql, [nick, pw, currentNick], (err, result) => {
+    let sql = "UPDATE KIOSK_USER_TB SET USER_NICK = ? WHERE USER_NICK = ? AND USER_PW = ?";
+    conn.query(sql, [nick, currentNick, pw], (err, result) => {
         if (err) {
             console.error(err);
             return res.send('<script>alert("오류가 발생했습니다. 다시 시도해주세요."); window.history.back();</script>');

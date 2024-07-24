@@ -43,7 +43,7 @@ body {
     /* 9:16 비율을 위한 예시 너비 */
     height: 800px;
     /* 9:16 비율을 위한 예시 높이 */
-    background-color: #b4a8ff;
+    background-color: #aa6fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
@@ -131,7 +131,7 @@ body {
     margin-top: 10px;
 }
 
-.menu #item1 {
+.menu #startUpdateBtn {
     background-color: #ffffff;
     color: black;
     padding: 30px 60px;
@@ -147,7 +147,7 @@ body {
     justify-content: center;
 }
 
-.menu #item2 {
+.menu #startNoteBtn{
     background-color: #ffffff;
     color: black;
     padding: 30px 55px;
@@ -162,25 +162,25 @@ body {
     justify-content: center;
 }
 
-.menu #item1 img {
+.menu #startUpdateBtn img {
     width: 70px;
     height: 70px;
     margin-right: 20px;
     /* 아이콘과 텍스트 사이의 간격 */
 }
 
-.menu #item2 img {
+.menu #startNoteBtn img {
     width: 70px;
     height: 70px;
     margin-right: 20px;
     /* 아이콘과 텍스트 사이의 간격 */
 }
 
-.menu #item1:hover {
+.menu #startUpdateBtn:hover {
     /* background-color: #0056b3; */
     transform: scale(1.05);
 }
-.menu #item2:hover {
+.menu #startNoteBtn:hover {
     /* background-color: #0056b3; */
     transform: scale(1.05);
 }

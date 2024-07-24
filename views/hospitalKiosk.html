@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+
     <title>Document</title>
     <link rel="stylesheet" href="/public/hospitalKiosk.css">
 </head>
 <body>
     <div class="hospital-container">
-        <div class="head-button">
-            <button onclick="handleButtonClick('button1')" id="head_learn_bt">이전으로</button>    
+        <header>
+            <div class="head-button">
+                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+            </div>
+            <h1>손주들</h1>
+            <h2>병원 키오스크 활용 교육</h2>
+            <h3>진행하고 싶은 체험을 아래에서 선택해주세요</h3>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/public/pic/kiosk.png" alt="#">
+                <p>기초 교육</p>
+            </div>
+            <div class="option">
+                <img src="/public/pic/question1.png" alt="#">
+                <p>심화 교육</p>
+            </div>
         </div>
-        <h1>1, 2, 3</h1>
-        <h1>스마트기기 활용 교육</h1>
-        <h3>어떤 체험을 진행하시겠습니까?</h3>
-        <div class="hospital-button-container">
-            <button onclick="handleButtonClick('button1')" id="ba_learn_bt">기초학습</button>
-            <button onclick="handleButtonClick('button2')" id="di_learn_bt">심화학습</button>
-        </div>
+        <footer>
+            <p>디지털 소외계층을 위한 키오스크 교육 플랫폼</p>
+        </footer>
     </div>
 </body>
 </html>
