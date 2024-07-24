@@ -39,10 +39,8 @@ body {
 
 .container {
     border: 10px solid white;
-    width: 450px;
+    width: 400px;
     /* 9:16 비율을 위한 예시 너비 */
-    height: 800px;
-    /* 9:16 비율을 위한 예시 높이 */
     background-color: #aa6fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;

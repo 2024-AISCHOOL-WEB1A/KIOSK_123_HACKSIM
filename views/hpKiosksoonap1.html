@@ -1,10 +1,18 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>디지털배움터</title>
-    <link rel="stylesheet" href="/public/hospitalKiosk4.css">
+    <link rel="stylesheet" href="/hpKiosksoonap1.css">
 </head>
 <body>
     <div class="hospital-container">
@@ -16,7 +24,7 @@
         </header>
         <div class="options">
             <div class="option">
-                <h2>진료 접수</h2>
+                <h2>진료 기록 조회</h2>
                 <div class="input-section">
                     <div class="radio-group">
                         <label><input type="radio" name="contact" value="phone" id="phone">휴대폰번호</label>
@@ -104,7 +112,7 @@
         function submitForm() {
             const agreeCheckbox = document.getElementById('agree');
             if (!agreeCheckbox.checked) {
-                alert('개인정보 수집 동의 항목을 체크해 주세요.');
+                alert('개인정보 수집 동의란을 체크해 주세요.');
                 return;
             }
 
@@ -113,5 +121,8 @@
             // 여기에 실제 값을 서버로 보내는 코드 추가
         }
     </script>
+</body>
+</html>
+
 </body>
 </html>
