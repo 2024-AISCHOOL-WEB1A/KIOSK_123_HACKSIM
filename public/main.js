@@ -2,6 +2,7 @@
 const buttons = document.querySelectorAll('.game-button, .game-button1');
 const startGameBtn = document.getElementById('startGameBtn');
 const startLoginBtn = document.getElementById('startLoginBtn');
+const startHelpBtn = document.getElementById('startHelpBtn');
 
 // 각 버튼에 클릭 이벤트 리스너를 추가합니다.
 buttons.forEach(button => {
@@ -22,6 +23,10 @@ startGameBtn.addEventListener('click', ()=> {
 
 startLoginBtn.addEventListener('click', () => {
     location.href = '/login'
+})
+
+startHelpBtn.addEventListener('click', () =>{
+    location.href = '/help'
 })
 
 document.addEventListener('DOMContentLoaded', function() {

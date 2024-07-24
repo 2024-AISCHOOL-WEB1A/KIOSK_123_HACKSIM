@@ -40,5 +40,9 @@ router.get('/learningNote', (req, res)=>{
     res.render('learningNote')
 })
 
+router.get('/help', (req, res)=>{
+    res.render('help')
+})
+
 
 module.exports = router
