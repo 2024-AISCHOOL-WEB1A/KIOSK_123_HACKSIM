@@ -42,7 +42,6 @@ app.use('/', mainRouter)
 app.use('/user', userRouter)
 app.use('/', kioskRouter)
 app.use('/game',gameRouter)
-
 // ===================================== port 연결 부분 =====================================
 app.listen(3000, ()=>{
     console.log("3000 port waiting...");
