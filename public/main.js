@@ -1,5 +1,6 @@
 // 모든 '시작하기' 버튼을 선택합니다.
 const buttons = document.querySelectorAll('.game-button, .game-button1');
+const startStdBtn = document.getElementById('startStdBtn')
 const startGameBtn = document.getElementById('startGameBtn');
 const startLoginBtn = document.getElementById('startLoginBtn');
 const startHelpBtn = document.getElementById('startHelpBtn');
@@ -16,6 +17,9 @@ buttons.forEach(button => {
         }, 300); // 300ms는 CSS 트랜지션 시간과 일치해야 합니다.
     });
 });
+startStdBtn.addEventListener('click', ()=>{
+    location.href = '/study'
+})
 
 startGameBtn.addEventListener('click', ()=> {
     location.href = '/game'

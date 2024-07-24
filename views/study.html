@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/study.css">
+</head>
+<body>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button onclick="" id="head_learn_bt">◀ 이전으로</button>
+            </div>
+            <div class="headText">
+                <img src="/public/pic/Group 22.png" alt="" id="headImg">
+                <h2>일단 이거 세번만 해볼까요?</h2>
+                <h3>어떤 키오스크 학습을 진행 하시겠습니까?</h3>
+            </div>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/public/pic/식당.png" alt="#">
+                <p>음식점</p>
+            </div>
+            <div class="option" onclick="goToHospitalKiosk2()">
+                <img src="/public/pic/병원.png" alt="#">
+                <p>병원</p>
+            </div>
+        </div>
+        <footer>
+            <p>디지털 소외계층을 위한 키오스크 교육 플랫폼</p>
+        </footer>
+    </div>
+
+    <script>
+        function goToHospitalKiosk2() {
+            window.location.href = 'hospitalKiosk2.html'
+        }
+    </script>
+</body>
+</html>
