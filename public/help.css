@@ -1,8 +1,15 @@
+
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #b4a8ff;
+    background-color: #aa6fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,27 +18,32 @@ body {
 
 .container {
     max-width: 1080px;
-    max-height: 1920px;
     width: 100%;
     margin: 0 auto;
-    padding: 0px;
+    padding: 20px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    position: relative;
+    /* 위치 기준 설정 */
 }
 
 .header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #ffffff;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .header .logo {
-    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .header .menu {
+    display: flex;
     gap: 20px;
 }
 
@@ -45,9 +57,29 @@ body {
 }
 
 .content img {
-    width: 100px;
-    height: auto;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    position: relative;
     margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    padding-left: 40px;
+}
+
+.search-box .icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
 }
 
 .tags {
@@ -59,29 +91,98 @@ body {
 }
 
 .tags .tag {
-    background-color: #b4a8ff;
-    padding: 20px 20px;
-    border-radius: 20px;
-    font-size: 30px;
+    font-family: 'Freesentation-9Black';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1rem;
+    background-color: #ffeb3b;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 10px;
     color: #000000;
-    font-weight: bolder;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-.articles {
-    text-align: center;
-
+.tags .tag:hover {
+    background-color: #e0e0e0;
 }
 
-.articles .article {
+.article {
     margin-bottom: 40px;
 }
 
-.articles .article h2 {
+.article h2 {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
-.articles .article p {
-    font-size: 16px;
-    line-height: 1.6;
+.article p {
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+.max-width {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.top-menu {
+    position: absolute;
+    /* 절대 위치 설정 */
+    top: 20px;
+    /* 상단에서 20px 떨어진 위치 */
+    right: 20px;
+    /* 오른쪽에서 20px 떨어진 위치 */
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.top-menu .left,
+.top-menu .right {
+    display: flex;
+    gap: 10px;
+}
+
+.top-menu button {
+    padding: 10px 50px;
+    color: white;
+    font-family: 'Freesentation-9Black';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background-color: rgb(253, 61, 61);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.top-menu button:hover {
+    background-color: #ffeb3b;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.section {
+    background-color: #faf8f8;
+    padding: 5px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.section img {
+    width: 50px;
+    height: 50%;
 }
