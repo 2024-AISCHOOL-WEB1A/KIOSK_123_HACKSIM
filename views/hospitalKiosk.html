@@ -6,7 +6,7 @@
     <title>디지털배움터</title>
 
     <title>Document</title>
-    <link rel="stylesheet" href="/public/hospitalKiosk.css">
+    <link rel="stylesheet" href="/hospitalKiosk.css">
 </head>
 <body>
     <div class="hospital-container">
@@ -14,17 +14,17 @@
             <div class="head-button">
                 <button onclick="" id="head_learn_bt">◀ 이전으로</button>
             </div>
-            <h1>손주들</h1>
+            <img src="/pic/Group 22.png" alt="">
             <h2>병원 키오스크 활용 교육</h2>
-            <h3>진행하고 싶은 체험을 아래에서 선택해주세요</h3>
+            <h3>진행하고 싶은 교육을 아래에서 선택해주세요</h3>
         </header>
         <div class="options">
-            <div class="option">
-                <img src="/public/pic/kiosk.png" alt="#">
+            <div class="option" id="KioskHpBasic">
+                <img src="/pic/kiosk.png" alt="#">
                 <p>기초 교육</p>
             </div>
             <div class="option" onclick="goToHospitalKiosk2()">
-                <img src="/public/pic/question1.png" alt="#">
+                <img src="/pic/question1.png" alt="#">
                 <p>심화 교육</p>
             </div>
         </div>
@@ -34,9 +34,10 @@
     </div>
 
     <script>
-        function goToHospitalKiosk2() {
-            window.location.href = 'hospitalKiosk2.html'
-        }
+        const KioskHpBasic = document.getElementById('KioskHpBasic')
+        KioskHpBasic.addEventListener('click', ()=>{
+            location.href='/hospital2'
+        })
     </script>
 </body>
 </html>
