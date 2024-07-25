@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-
+const path = require('path')
 // 페이지 렌더링 관련 Router 작성
-
+router.use(express.static(path.join(__dirname, '../views')));
 router.get('/', (req, res) =>{
     if (req.session.nick){
         console.log('session', req.session.nick)
@@ -54,6 +54,43 @@ router.get('/learningNote', (req, res)=>{
 router.get('/help', (req, res)=>{
     res.render('help')
 })
+
+router.get('/hospitalKiosk.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk.html'));
+});
+
+router.get('/hospitalKiosk2.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk2.html'));
+});
+
+router.get('/hospitalKiosk3.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk3.html'));
+});
+
+router.get('/hospitalKiosk4.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk4.html'));
+});
+
+router.get('/hospitalKiosk5.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk5.html'));
+});
+
+router.get('/hospitalKiosk6.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hospitalKiosk6.html'));
+});
+
+router.get('/hpKiosksoonap1.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hpKiosksoonap1.html'));
+});
+
+router.get('/hpKiosksoonap2.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hpKiosksoonap2.html'));
+});
+
+router.get('/hpKiosksoonap3.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'hpKiosksoonap3.html'));
+});
+
 
 
 module.exports = router
