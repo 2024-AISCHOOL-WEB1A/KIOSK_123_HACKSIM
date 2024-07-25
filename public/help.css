@@ -18,7 +18,8 @@ body {
 
 .container {
     max-width: 1080px;
-    width: 100%;
+    width: 100vmin; /* 100vh * (9/16) */
+    height: 150vmin;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -80,6 +81,20 @@ body {
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
+}
+
+.img {
+
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 20px 0; /* 위아래 여백 */
+    margin-top: 20px; /* 상단 마진 */
+}
+
+.img {
+    width: 700px; /* 이미지 너비 고정 */
+    height: auto; /* 비율 유지 */
+    display: block; /* 블록 요소로 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
 }
 
 .tags {
