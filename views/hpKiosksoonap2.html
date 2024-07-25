@@ -10,7 +10,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="redirectToHospitalKiosk5()" id="head_learn_bt">◀ 이전으로</button>
+                <button onclick="redirectTohpKiosksoonap1()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -48,7 +48,7 @@
                 </table>
                 
                 <!-- 버튼 추가 -->
-                <button class="acceptance-btn"><img src="/public/hospitalImg/cardimg.png">
+                <button class="acceptance-btn" onclick="showModal()"><img src="/public/hospitalImg/cardimg.png">
                     결제하기
                 </button>
             </div>
@@ -56,10 +56,42 @@
         <footer>
         </footer>
     </div>
+    
+    <!-- 모달 추가 -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1 class="modalh1">카드결제</h1>
+            <p class="modalp">카드를 넣어주세요. 결제가</p>
+            <p class="modalp">완료될 때까지 카드를 빼지 마세요</p>
+            <p class="modalc">결제 금액 <span class="numhighlight">9,800</span>원</p>
+            <img src="/public/hospitalImg/creditimg.png" alt="">
+            <button class="modalCardInsert" onclick="togoReceipt()">카드 투입</button>
+        </div>
+    </div>
+
     <script>
-        function redirectToHospitalKiosk5() {
-        window.location.href = 'hospitalKiosk5.html'
-    }
+        function redirectTohpKiosksoonap1() {
+            window.location.href = 'hpKiosksoonap1.html'
+        }
+
+        function showModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+
+        function togoReceipt() {
+            window.location.href = 'hpKiosksoonap3.html'
+        }
     </script>
 </body>
 </html>
