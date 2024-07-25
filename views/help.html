@@ -4,116 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>123고객센터</title>
-   
-        @media (min-width: 768px) {
-            .navbar .menu {
-                display: flex;
-                gap: 20px;
-            }
-        }
+    <title>고객센터</title>
 
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="" alt="logo">
-                <!-- </div>
-            <div class="menu">
-                <a href="#">즐겨찾기</a>
-                <a href="#">이전으로</a>
-                <a href="#">홈으로</a>
-            </div>
-        </div> -->
-                <div class="content">
-                    <h1>무엇을 도와드릴까요?</h1> <br>버튼을 누르거나 화면을 하단으로 내려보세요<br>
-                </div>
-
-                <div class="tags">
-                    <a href="#kiosk_education" class="tag">화면 사용 방법</a>
-                    <a href="#signup" class="tag">회원가입</a>
-                    <a href="#login" class="tag">로그인</a>
-                    <a href="#bookmark" class="tag">즐겨찾기</a>
-                    <a href="#learning" class="tag">키오스크학습</a>
-                    <a href="#game" class="tag">게임</a>
-                </div>
+        <div class="top-menu">
+            <div class="left">
+                <button onclick="location.href='#home'" class="buttonhome">홈으로</button>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
-        <div class="container articles">
-
-            <div id="kiosk_education" class="article">
-                <img src="home.png">
-                <h1>화면 사용 방법</h1>
-                <p>화면을 손이나 마우스로 버튼을 누르면 페이지가 작동합니다</p>
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-
-            <div id="signup" class="article">
-                <img src="user.png">
-                <h1>회원 가입</h1>
-
-                <img src="회원가입방법이미지.png" alt="회원가입방법이미지들어갈예정">
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <div id="login" class="article">
-                <img src="login.png">
-                <h1>로그인</h1>
-
-                <img src="로그인방법이미지.png" alt="로그인방법이미지들어갈예정">
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <div id="bookmark" class="article">
-                <img src="bookmark.png">
-                <h1>즐겨찾기</h1>
-
-                <img src="즐겨찾기방법이미지.png" alt="즐겨찾기방법이미지들어갈예정">
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <div id="learning" class="article">
-                <img src="learning.png">
-                <h1>키오스크 학습</h1>
-
-                <img src="키오스크학습방법이미지.png" alt="키오스크방법이미지들어갈예정">
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <div id="game" class="article">
-                <img src="game.png">
-                <h1>게임</h1>
-
-                <img src="게임방법이미지.png" alt="게임방법이미지들어갈예정">
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+        <div id="home" class="content">
+            <img src="/pic/Group 22.png" alt="logo" class="logo">
+            <h1>무엇을 도와드릴까요?</h1>
+            <p>화면을 클릭하거나 하단으로 내려보세요</p>
         </div>
+
+        <div class="tags">
+            <a class="tag" href="#usage">화면사용</a>
+            <a class="tag" href="#signup">회원가입</a>
+            <a class="tag" href="#login">로그인</a>
+        </div>
+
+        <div class="tags">
+            <a class="tag" href="#bookmark">학습진도저장</a>
+            <a class="tag" href="#kiosk">키오스크체험</a>
+            <a class="tag" href="#game">낱말게임</a>
+        </div>
+
+        <div class="sections">
+            <div id="usage" class="section">
+                <img src="pic/help/kiosk_education.png" alt="kiosk_education" class="icon">
+                <h2>화면사용방법</h2>
+                <img src="kiosk_education" alt="화면사용방법">
+            </div>
+            <div id="signup" class="section">
+                <img src="pic/help/user.png" alt="user" class="icon">
+                <h2>회원가입</h2>
+                <img src="user" alt="회원가입">
+            </div>
+            <div id="login" class="section">
+                <img src="pic/help/login.png" alt="login" class="icon">
+                <h2>로그인</h2>
+                <img src="login" alt="로그인">
+            </div>
+            <div id="bookmark" class="section">
+                <img src="pic/help/kiosk_education.png" alt="kiosk_education" class="icon">
+                <h2>학습진도저장</h2>
+                <img src="학습진도저장" alt="학습진도저장">
+            </div>
+            <div id="kiosk" class="section">
+                <img src="pic/help/learning.png" alt="learning" class="icon">
+                <h2>키오스크체험</h2>
+                <img src="learning" alt="키오스크체험">
+            </div>
+            <div id="game" class="section">
+                <img src="pic/help/game.png" alt="game" class="icon">
+                <h2>낱말게임</h2>
+                <img src="game" alt="낱말게임">
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
