@@ -212,7 +212,7 @@
             margin-bottom: 15px;
         }
 
-        #modalGameText {
+        .modalGameText {
             font-family: 'Freesentation-9Black', sans-serif;
             font-weight: 900;
             font-size: 24px;
@@ -338,8 +338,8 @@
         <div class="modalContent">
             <span class="gameModalClose">&times;</span>
             <img id="modalGameImage" src="" alt="게임 이미지" />
-            <h3 id="modalGameText">게임 제목</h3>
-            <h5 id="modalGameText">여기 설명 작성하기 태그는 편하게 변경</h5>
+            <h3 id="modalGameAns" class="modalGameText">게임 제목</h3>
+            <h5 id="modalGameEX" class="modalGameText">여기 설명 작성하기 태그는 편하게 변경</h5>
             <div class="controls">
                 <button id="prevBtn">이전</button>
                 <button id="nextBtn">다음</button>
@@ -386,7 +386,8 @@
         const startModal = document.getElementById('startModal');
 
         const modalGameImage = document.getElementById('modalGameImage');
-        const modalGameText = document.getElementById('modalGameText');
+        const modalGameAns = document.getElementById('modalGameAns');
+        const modalGameEX = document.getElementById('modalGameEX');
         const resetBtn = document.getElementById('resetBtn');
         const mainBtn = document.getElementById('mainBtn');
         const prevBtn = document.getElementById('prevBtn');
@@ -574,7 +575,8 @@
             }
             if (resCnt == 5) {
                 modalGameImage.src = images[0].src;
-                modalGameText.innerText = images[0].name;
+                modalGameAns.innerText = images[0].name;
+                modalGameEX.innerText = images[0].name;
                 gameModal.style.display = 'flex'; // 모달을 보이게 설정
             }
         });
@@ -606,7 +608,8 @@
         // modalImage 변경하기
         function showImage(index) {
             modalGameImage.src = images[index].src;
-            modalGameText.innerText = images[index].name;
+            modalGameAns.innerText = images[index].name;
+            modalGameEX.innerText = images[index].name;
         }
 
         // 모달 이미지 prev
