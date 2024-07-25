@@ -10,7 +10,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+                <button onclick="redirectToHospitalKiosk5()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -48,11 +48,19 @@
                 </table>
                 
                 <!-- 버튼 추가 -->
-                <button class="complete-btn">접수 완료</button>
+                <button class="complete-btn" onclick="completeWriteHospitalKiosk()">접수 완료</button>
             </div>
         </div>
         <footer>
         </footer>
     </div>
+    <script>
+        function redirectToHospitalKiosk5() {
+        window.location.href = 'hospitalKiosk5.html'
+    }
+        function completeWriteHospitalKiosk() {
+        window.location.href = 'hospitalKiosk.html'
+    }
+    </script>
 </body>
 </html>

@@ -12,7 +12,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+                <button onclick="redirectToHospitalKiosk()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주들</h1>
             <h2>심화 교육</h2>
@@ -32,7 +32,7 @@
                 <h3>③<span class="highlight">접수증 출력</span> 후 접수 완료</h3>
                 <h3>④<span class="highlight">휴대폰 번호</span>로 진료이력 조회</h3>
                 <h3>⑤진료비 확인 후 납부 완료</h3>
-                <button id="learn2_bt">학습하기</button>
+                <button id="learn2_bt" onclick="goToHospitalKiosk3()">학습하기</button>
             </div>
             </div>
         </div>
@@ -40,5 +40,16 @@
             <p>디지털 소외계층을 위한 키오스크 교육 플랫폼</p>
         </footer>
     </div>
+
+    <script>
+        function redirectToHospitalKiosk() {
+            window.location.href = 'hospitalKiosk.html'
+        }
+
+        function goToHospitalKiosk3() {
+            window.location.href = 'hospitalKiosk3.html'
+        }
+    </script>
+
 </body>
 </html>

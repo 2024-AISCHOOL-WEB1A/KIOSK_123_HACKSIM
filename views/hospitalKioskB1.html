@@ -4,45 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>디지털배움터</title>
-
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/hospitalKiosk3.css">
+    <link rel="stylesheet" href="/hospitalKioskB1.css">
 </head>
 <body>
     <div class="hospital-container">
         <header>
             <div class="head-button">
                 <button onclick="redirectToHospitalKiosk2()" id="head_learn_bt">◀ 이전으로</button>
+                <button><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+                <button id="head_learn_bt_right">처음으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
                 <div class="option-left">
-                    <button class="option-button" onclick="goToHospitalKiosk4()">
-                        <img src="/public/pic/kiosk.png" alt="">
+                    <button class="option-button">
+                        <img src="/pic/kiosk.png" alt="">
                         <p>접수하기</p>
                     </button>
                 </div>
                 <div class="option-right">
                     <button class="option-button">
-                        <img src="/public/pic/question.png" alt="">
+                        <img src="/pic/question.png" alt="">
                         <p>수납하기</p>
+                    </button>
                 </div>
             </div>
         </div>
-        <footer>
-        </footer>
+        <div class="caption-container">
+            <div class="caption-box">
+                진료 접수를 진행 해보겠습니다.<br> 화면 좌측의<br>
+                <span class="button-text">[접수하기]</span> 버튼을 눌러주세요.
+            </div>
+        </div>
     </div>
     <script>
-        function redirectToHospitalKiosk2() {
-            window.location.href = 'hospitalKiosk2.html'
-        }
-
-        function goToHospitalKiosk4() {
-            window.location.href = 'hospitalKiosk4.html'
-        }
     </script>
-
 </body>
 </html>

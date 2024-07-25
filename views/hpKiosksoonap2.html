@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>병원 키오스크 학습</title>
+        <link rel="stylesheet" href="/public/hpKiosksoonap2.css">
+    </head>
+
+    <body>
+        <div class="hospital-container">
+            <header>
+                <div class="head-button">
+                    <button onclick="handleButtonClick('button1')" id="head_learn_bt">◀ 이전으로</button>
+                </div>
+                <h1>손주병원</h1>
+            </header>
+            <main class="content">
+                <div class="info">
+                    <h2>결제 정보를 확인해주세요</h2>
+                    <table>
+                        <tr>
+                            <td class="infoLeft">진료일자</td>
+                            <td class="infoRight">2024년 07월 24일</td>
+                        </tr>
+                        <tr>
+                            <td class="infoLeft">결제금액</td>
+                            <td class="infoRight">7, 000원</td>
+                        </tr>
+                        <tr>
+                            <td class="infoLeft">처방전</td>
+                            <td class="infoRight">출력</td>
+                        </tr>
+                        <tr>
+                            <td class="infoLeft">수납여부</td>
+                            <td class="infoRight"><input type="checkbox" name="checkbox" id="checkBox"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>카드결제</h2>
+                </div>
+            </main>
+
+        </div>
+
+        <script>
+            function appendValue(value) {
+                const realInputField = document.getElementById('real-input');
+                realInputField.value += value;
+                formatInput();
+            }
+
+            function removeValue() {
+                const realInputField = document.getElementById('real-input');
+                realInputField.value = realInputField.value.slice(0, -1);
+                formatInput();
+            }
+
+            function formatInput() {
+                const inputField = document.getElementById('contact-input');
+                const realInputField = document.getElementById('real-input');
+                const radioPhone = document.getElementById('phone').checked;
+                let value = realInputField.value.replace(/[^0-9]/g, ''); // 숫자만 남김
+
+                if (radioPhone) {
+                    // 휴대폰 번호 포맷
+                    if (value.length > 3) value = value.slice(0, 3) + '-' + value.slice(3);
+                    if (value.length > 7) value = value.slice(0, 7) + '-' + value.slice(7);
+                    inputField.value = value.slice(0, 12); // 최대 길이 제한
+                } else {
+                    // 주민등록번호 포맷
+                    let maskedValue = value;
+                    if (value.length > 6) maskedValue = value.slice(0, 6) + '-' + '*'.repeat(value.length - 6);
+                    inputField.value = maskedValue.slice(0, 14); // 최대 길이 제한
+                }
+
+                realInputField.value = value.slice(0, 13); // 실제 입력된 값도 길이 제한
+            }
+
+            function handleButtonClick(buttonId) {
+                // 이전으로 버튼 클릭 시 동작 추가 (필요시)
+                console.log(buttonId + ' clicked');
+            }
+
+            function submitForm() {
+                const agreeCheckbox = document.getElementById('agree');
+                if (!agreeCheckbox.checked) {
+                    alert('개인정보 수집 동의란을 체크해 주세요.');
+                    return;
+                }
+
+                const realInputField = document.getElementById('real-input');
+                console.log('실제 입력된 값:', realInputField.value);
+                // 여기에 실제 값을 서버로 보내는 코드 추가
+            }
+        </script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>

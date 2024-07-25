@@ -22,7 +22,7 @@
         }
 
         canvas {
-            border: 15px groove #f0ec0a;
+            border: 15px ridge #f0ec0a;
             /* 연보라색 테두리 */
             border-radius: 10px;
             /* 둥근 모서리 */
@@ -161,7 +161,7 @@
             /* 그림자 추가 */
             width: 450px;
             /* 너비 설정 */
-            height: 400px;
+            /* height: 400px; */
             max-width: 500px;
             /* 최대 너비 */
             text-align: center;
@@ -268,13 +268,15 @@
         #startGameBtn {
             background-color: red;
             color: white;
-            font-size: 0.6em;
+            font-size: 1em;
             /* padding: 10px 20px; */
             border: none;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-
+            width: 150px;
+            height: 50px;
+            margin-top: 50px;
 
         }
 
@@ -288,15 +290,15 @@
 
         }
 
-        #starttext1{
+        #starttext1 {
             margin-top: 30px;
-            line-height:30px;
+            line-height: 30px;
         }
 
         .innerModal {
             background-color: #fff;
             /* 흰색 배경 */
-           
+
             border-radius: 10px;
             /* 둥근 모서리 */
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -319,13 +321,13 @@
 
             <img src="/pic/pic.png" alt="logo" class="startimg">
             <div class="innerModal">
-            <h5 id="starttext1">낱말-그림 게임</h5>
-            <div id="starttext">그림에 알맞은 음식메뉴에 선을 그어 연결해주세요.
-                <button id="startGameBtn">게임시작</button>
+                <h5 id="starttext1">낱말-그림 게임</h5>
+                <div id="starttext">그림에 알맞은 음식메뉴에 선을 그어 연결해주세요.
+                    <button id="startGameBtn">게임시작</button>
+                </div>
             </div>
-            </div>
-            
-            
+
+
         </div>
 
     </div>
