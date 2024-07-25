@@ -61,7 +61,6 @@ h3 {
     height: auto; /* 높이를 자동으로 조정 */
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    cursor: pointer;
     transition: transform 0.3s;
     margin-top: 10px;
     display: flex;
@@ -71,6 +70,7 @@ h3 {
 }
 
 .option-left {
+    margin-bottom: 150px;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -78,6 +78,7 @@ h3 {
 }
 
 .option-right {
+    margin-bottom: 150px;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -106,7 +107,7 @@ h3 {
     margin-top: 10px;
     font-weight: bold;
     color: #ffffff; /* 버튼 텍스트 색상 */
-    font-size: 24px; /* 버튼 텍스트 폰트 크기 조정 */
+    font-size: 32px; /* 버튼 텍스트 폰트 크기 조정 */
 }
 
 .option-button:hover {
@@ -135,12 +136,68 @@ footer {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+#head_learn_bt_right {
+    position: relative;
+    left: 322px;
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    font-size: 18px; /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc; /* 군청색 배경 */
+    cursor: pointer;
+    padding: 5px 10px; /* 버튼 패딩 조정 */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}
+
 button:hover {
     background-color: #dae5ef;
 }
 
 button:active {
     transform: translateY(4px);
+}
+
+.caption-container {
+    font-size: 30px;
+    position: absolute;
+    left: 50px;
+    display: flex;
+    top: 600px;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 0;
+}
+
+.caption-box {
+    border: 2px solid #1f5fbf;
+    border-radius: 8px;
+    padding : 50px 20px 50px 20px;
+    width: fit-content;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.caption-box::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #1f5fbf;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.button-text {
+    color: #1f5fbf;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
