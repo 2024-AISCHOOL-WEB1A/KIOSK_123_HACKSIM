@@ -19,12 +19,12 @@
             <h3>진행하고 싶은 체험을 아래에서 선택해주세요</h3>
         </header>
         <div class="options">
-            <div class="option">
-                <img src="/public/pic/kiosk.png" alt="#">
+            <div class="option" id="KioskHpBasic">
+                <img src="/public/pic/kiosk.png" alt="">
                 <p>기초 교육</p>
             </div>
             <div class="option" onclick="goToHospitalKiosk2()">
-                <img src="/public/pic/question1.png" alt="#">
+                <img src="/public/pic/question1.png" alt="">
                 <p>심화 교육</p>
             </div>
         </div>
@@ -34,9 +34,15 @@
     </div>
 
     <script>
+        const KioskHpBasic = document.getElementById('KioskHpBasic')
+        KioskHpBasic.addEventListener('click', ()=>{
+            location.href='/hospital2'
+        })
+
         function goToHospitalKiosk2() {
             window.location.href = 'hospitalKiosk2.html'
         }
+        
     </script>
 </body>
 </html>

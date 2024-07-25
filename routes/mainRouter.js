@@ -11,6 +11,17 @@ router.get('/', (req, res) =>{
         res.render('main')
     }
 })
+router.get('/hospital2', (req, res)=>{
+    res.render('hospitalKioskB1')
+})
+
+router.get('/hospital', (req, res)=>{
+    res.render('hospitalKiosk')
+})
+
+router.get('/study', (req,res)=>{
+    res.render('study')
+})
 
 router.get('/join', (req, res)=>{
     res.render('join')
