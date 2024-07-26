@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>접수하기 2</title>
+    <link rel="stylesheet" href="/hospitalKioskB3.css">
+</head>
+
+<body>
+    <div class="hospitalContainer">
+        <header>
+            <div class="headButton">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <h2>접수 내용을 확인하시고 진료실을 선택해주세요</h2>
+                <button class="learn5Bt">김*들(53년생) | 남자 | 최근 진료일 | 202*. 07. 28</button>
+                <h2 id="roomCh">진료실 선택</h2>
+                <button class="roomBt roomHighlight" id="roomBt1">
+                    <img src="/hospitalImg/green_c.png" alt="" class="roomIcon">
+                    <span class="roomNumber">1진료실</span> | 선영* 원장
+                </button>
+                <button class="roomBt" id="roomBt2">
+                    <img src="/hospitalImg/green_c.png" alt="" class="roomIcon">
+                    <span class="roomNumber">2진료실</span> | 배유* 원장
+                </button>
+            </div>
+            <div class="captionContainer" id="captionModal">
+                <div class="captionBox">
+                    접수자 정보를 확인하시고<br>
+                    진료를 받을<br>
+                    <span id="buttonText">[진료실]</span>을 선택해주세요,
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('roomBt1').addEventListener('click', () => {
+                location.href = '/hospitalB4';
+            });
+
+            const headLearnBtRight = document.getElementById('headLearnBtRight')
+            headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
+            
+        </script>
+    </div>
+</body>
+
+</html>

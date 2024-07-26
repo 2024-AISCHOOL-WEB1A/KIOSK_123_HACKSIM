@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>접수하기 3</title>
+    <link rel="stylesheet" href="/hospitalKioskB5.css">
+</head>
+<body>
+    <div class="hospitalContainer">
+        <header>
+            <div class="headButton">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <div class="captionContainer">
+                    <div class="captionBox">
+                        접수증이 출력되었다면<br> 접수증을 챙겨주세요.<br>
+                        접수증은 진료비 수납 시<br> 필요할 수 있으니 <span class="buttonText">[꼭]</span><br>
+                        가지고 있어주세요!<br><br>
+
+                        다음으로 <span class="buttonText">[수납하기]</span><br> 교육을 시작해보겠습니다.<br>
+                        <span class="buttonText">[확인]</span>버튼을 눌러<br> 초기화면으로 돌아가주세요.<br>
+                        <button id="completeBtn">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <script>
+        
+        const headLearnBt = document.getElementById('headLearnBt')
+        headLearnBt.addEventListener('click', ()=>{
+            location.href = '/hospitalB4'
+        })
+
+        const completeBtn = document.getElementById('completeBtn')
+        completeBtn.addEventListener('click', ()=>{
+            location.href = '/hospitalB1'
+        })
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'
+        })
+
+    </script>
+</body>
+</html>

@@ -20,7 +20,7 @@ body, html {
     src: url('/font/JalnanGothicTTF.ttf') format('truetype');
 }
 
-.hospital-container {
+.hospitalContainer {
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
@@ -71,7 +71,7 @@ body, html {
     height: 40px;
 }
 
-.head-button {
+.headButton {
     position: absolute;
     top: 10px; /* 버튼 위치 조정 */
     left: 0px; /* 버튼 위치 조정 */
@@ -118,11 +118,11 @@ h2 {
     overflow: hidden;
 }
 
-.input-section {
+.inputSection {
     width: 100%; /* 입력 섹션 너비 조정 */
 }
 
-.radio-group {
+.radioGroup {
     display: flex;
     justify-content: space-around; /* 좌우 정렬 */
     align-items: center; /* 중앙 정렬 */
@@ -137,7 +137,7 @@ h2 {
 }
 
 /* 빈 버튼 스타일 */
-.empty-button {
+.emptyButton {
     visibility: hidden; /* 버튼을 숨김 */
     width: 60px; /* 버튼 너비 설정 (기존 버튼과 동일) */
     height: 60px; /* 버튼 높이 설정 (기존 버튼과 동일) */
@@ -169,14 +169,14 @@ h2 {
 }
 
 /* 버튼 간의 간격 조정 */
-.key-row {
+.keyRow {
     display: flex;
     justify-content: center;
     gap: 10px; /* 버튼 간의 간격 조정 */
     margin: 10px 0; /* 버튼 상하 여백 조정 */
 }
 
-.submit-btn {
+.submitBtn {
     font-family: 'Jalnan';
     background-color: #053f79cc; /* 버튼 배경색 */
     color: white; /* 버튼 텍스트 색상 */
@@ -186,7 +186,7 @@ h2 {
     cursor: pointer;
     font-size: 22px;
 }
-.submit-btn:hover {
+.submitBtn:hover {
     background-color: #043a6a; /* 버튼 hover 상태 색상 */
 }
 
@@ -215,12 +215,12 @@ button:active {
     }
 }
 
-.input-field {
+.inputField {
     width: 100%; /* 입력 필드의 너비를 전체로 설정 */
     margin-bottom: 20px; /* 입력 필드와 다음 요소 사이의 간격 조정 */
 }
 
-.input-field input {
+.inputField input {
     width: 100%; /* 입력 필드의 너비를 전체로 설정 */
     padding: 10px; /* 입력 필드의 패딩 설정 */
     border: 0px solid transparent; /* 기본 테두리를 투명으로 설정 */
@@ -231,7 +231,7 @@ button:active {
     text-align: center; /* 입력 텍스트 중앙 정렬 */
 }
 
-.input-field input::placeholder {
+.inputField input::placeholder {
     color: #053f79; /* 플레이스홀더 텍스트 색상 */
     opacity: 0.5; /* 플레이스홀더 투명도 */
 }
@@ -306,7 +306,7 @@ label {
     height: 30px; /* 체크박스 높이 설정 */
 }
 
-.caption-container {
+.captionContainer {
     font-size: 30px;
     position: absolute;
     left: 10px;
@@ -317,7 +317,7 @@ label {
     padding: 20px 0;
 }
 
-.caption-box {
+.captionBox {
     border: 2px solid #1f5fbf;
     border-radius: 8px;
     padding : 50px 20px 50px 20px;
@@ -326,7 +326,7 @@ label {
     background-color: #ffffff;
 }
 
-.caption-box::before {
+.captionBox::before {
     content: '';
     position: absolute;
     left: -10px;
@@ -339,13 +339,13 @@ label {
     z-index: -1;
 }
 
-.button_text {
+.buttonText {
     color: #1f5fbf;
     font-weight: bold;
     font-size: 35px;
 }
 
-.close-btn {
+.closeBtn {
     margin-top: 15px;
     font-family: 'Jalnan';
     background-color: #053f79cc; /* 버튼 배경색 */
