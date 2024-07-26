@@ -178,5 +178,15 @@ router.get('/session-test', (req, res) => {
     }
 });
 
+// 로그인 상태 확인 라우트
+router.get('/session-status', (req, res) => {
+    if (req.session.nick) {
+        res.json({ loggedIn: true, nick: req.session.nick });
+    } else {
+        res.json({ loggedIn: false });
+    }
+});
+
+
 
 module.exports = router
