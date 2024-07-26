@@ -10,11 +10,11 @@
     <div class="img">
         <img src="/pic/Group 22.png" alt="Logo">
     </div>
-    <form action="/user/join" method="post" onsubmit="return checkPassword(event)">
+    <form id="joinForm" action="/user/join" method="post">
         별명 : <input type="text" name="nick">
         <input type="button" value="중복확인" onclick="checkNick()"> <br />
-        비밀번호 : <input type="text" name="pw"><br>
-        비밀번호 확인 : <input type="text" name="pwck"><br>
+        비밀번호 : <input type="password" name="pw"><br>
+        비밀번호 확인 : <input type="password" name="pwck"><br>
         출생연도 : <input type="text" name="btd"><br>
         <div class="gender">성별&nbsp&nbsp&nbsp&nbsp
             남성<input type="radio" name="gen" value="male">
@@ -22,8 +22,21 @@
         </div>
 
         <div class="button-group">
-            <input type="submit" value="회원가입" disabled>
+            <input type="submit" value="회원가입" id="submitBtn">
             <input type="button" value="돌아가기" id="goMainBtn">
+        </div>
+
+        <div id="joinModal" class="modal">
+            <div class="modal-content">
+                <img src="/pic/heart.png" class="good">
+                <div class="modal-box">
+                    <p><b>회원가입 성공!</b></p>
+                    <div class="button-container">
+                        <button id="toMyPage"><b>마이페이지로 이동</b></button>
+                        <button id="toMainPage"><b>메인페이지로 이동</b></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 
@@ -55,21 +68,37 @@
                     console.error('Error:', error);
                 });
         }
-        function checkPassword(event) {
+
+        function checkPassword() {
             const pw = document.querySelector('input[name="pw"]').value;
             const pwck = document.querySelector('input[name="pwck"]').value;
 
             if (pw !== pwck) {
                 alert('입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다. 확인 후 다시 입력해주세요.');
-                event.preventDefault(); // 폼 제출을 방지합니다.
                 return false;
             }
             return true;
         }
 
-        document.getElementById('goMainBtn').addEventListener('click', () => {
+        document.getElementById('joinForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop form from submitting normally
+            if (checkPassword()) {
+                document.getElementById('joinModal').style.display = 'block';
+            }
+        });
+
+        // Button event listeners
+        document.getElementById('toMyPage').addEventListener('click', function() {
+            location.href = '/mypage';
+        });
+
+        document.getElementById('toMainPage').addEventListener('click', function() {
             location.href = '/';
-        })
+        });
+
+        document.getElementById('goMainBtn').addEventListener('click', function() {
+            location.href = '/';
+        });
     </script>
 </body>
 </html>
