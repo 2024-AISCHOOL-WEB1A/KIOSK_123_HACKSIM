@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
     <title>Document</title>
+    <style>
+        /* 로그인 상태의 마이페이지 스타일 */
+        .my-page-title {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .my-page-button {
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -31,11 +44,10 @@
                 <button class="game-button" id="startGameBtn">시작하기</button>
             </div>
 
-            <div class="game">
+            <div class="game" id="loginGame">
                 <img src="pic/login1.png" alt="#">
                 <div class="game-title" id="loginTitle">로그인/<br>회원가입</div>
                 <button class="game-button" id="startLoginBtn">시작하기</button>
-                <!-- <a href="login.html" class="game-button">시작하기</a> -->
             </div>
 
             <div class="game">
@@ -51,5 +63,30 @@
     </div>
     <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            axios.get('/user/session-status')
+                .then(response => {
+                    if (response.data.loggedIn) {
+                        document.getElementById('loginTitle').innerHTML = '마이페이지';
+                        document.getElementById('loginTitle').classList.add('my-page-title');
+                        const startLoginBtn = document.getElementById('startLoginBtn');
+                        startLoginBtn.innerText = '시작하기';
+                        startLoginBtn.classList.add('my-page-button');
+                        startLoginBtn.addEventListener('click', function() {
+                            location.href = '/myPage';
+                        });
+                    } else {
+                        const startLoginBtn = document.getElementById('startLoginBtn');
+                        startLoginBtn.addEventListener('click', function() {
+                            location.href = '/login';
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('세션 상태 확인 중 오류 발생:', error);
+                });
+        });
+    </script>
 </body>
 </html>
