@@ -40,7 +40,7 @@ app.use(express.static('public'))
 // ===================================== ('/',라우터 연결) 부분 =====================================
 app.use('/', mainRouter)
 app.use('/user', userRouter)
-app.use('/', kioskRouter)
+app.use('/kiosk', kioskRouter)
 app.use('/game',gameRouter)
 // ===================================== port 연결 부분 =====================================
 app.listen(3000, ()=>{

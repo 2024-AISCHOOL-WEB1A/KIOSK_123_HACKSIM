@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
+const kioskRouter = require('./kioskRouter')
 // 페이지 렌더링 관련 Router 작성
 router.use(express.static(path.join(__dirname, '../views')));
 router.get('/', (req, res) =>{
@@ -107,6 +108,6 @@ router.get('/hpKiosksoonap3.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'hpKiosksoonap3.html'));
 });
 
-
+router.use('/kiosk', kioskRouter);
 
 module.exports = router
