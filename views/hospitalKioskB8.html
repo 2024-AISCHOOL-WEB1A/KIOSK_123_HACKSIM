@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수납하기 2</title>
+    <link rel="stylesheet" href="/hospitalKioskB8.css">
+</head>
+
+<body>
+    <audio src="/voice/hpPay.mp3" autoplay></audio>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/hospitalImg/learn_rebg.png" alt="" class="room-icon">
+                <h2>결제 정보를 확인해주세요</h2>
+
+                <!-- 테이블 추가 -->
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>정보</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>진료일자</td>
+                            <td>202*년 9월 14일</td>
+                        </tr>
+                        <tr>
+                            <td>결제금액</td>
+                            <td>9,800원</td>
+                        </tr>
+                        <tr>
+                            <td>처방전</td>
+                            <td>출력</td>
+                        </tr>
+                        <tr>
+                            <td>수납여부</td>
+                            <td><input type="checkbox" name="soopnapBox" id="spBox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="captionContainer" id="captionModal">
+                    <div class="captionBox">
+                        결제 정보를 확인하신 후<br>
+                        <span class="buttonText">[수납여부]</span> 를 체크하고<br>
+                        <span class="buttonText">[결제하기]</span> 버튼을
+                        <br>눌러주세요
+                    </div>
+                </div>
+
+                <!-- 버튼 추가 -->
+                <button class="acceptance_btn" onclick="showModal()"><img src="/hospitalImg/cardimg.png">
+                    결제하기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 보류 -->
+    <!-- <div class="captionContainer" id="cardInModal">
+        <div class="captionBox">
+            <span class="buttonText">[카드 투입]</span>버튼을 눌러<br>
+            결제를 완료해보세요!
+        </div>
+    </div> -->
+
+    <!-- 모달 추가 -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1 class="modalh1">카드결제</h1>
+            <p class="modalp">카드를 넣어주세요. 결제가</p>
+            <p class="modalp">완료될 때까지 카드를 빼지 마세요</p>
+            <p class="modalc">결제 금액 <span class="numhighlight">9,800</span>원</p>
+            <img src="/hospitalImg/creditimg.png" alt="">
+            <button class="modalCardInsert" onclick="togoReceipt()">카드 투입</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectTohpKiosksoonap1() {
+            window.location.href = 'hpKiosksoonap1.html'
+        }
+
+        // const cardInModal = document.getElementById('cardInModal')
+        // cardInModal.style.display = 'none'
+
+        function showModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+            document.getElementById('captionModal').style.display = 'none'
+            // cardInModal.style.display = 'flex';
+            checkCardInsert();
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+
+        function togoReceipt() {
+            window.location.href = 'hospitalB9'
+        }
+
+        function checkCardInsert() {
+            const cardInsertBtn = document.querySelector('.modalCardInsert');
+            cardInsertBtn.classList.add('highlight-red-border');
+        }
+
+        const headLearnBt = document.getElementById('headLearnBt')
+        headLearnBt.addEventListener('click', ()=>{
+            location.href='/hospitalB7'
+        })
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
+    </script>
+</body>
+
+</html>

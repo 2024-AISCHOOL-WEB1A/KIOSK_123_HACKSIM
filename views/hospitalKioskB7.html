@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>접수하기 1</title>
-    <link rel="stylesheet" href="/hospitalKioskB2.css">
+    <title>수납하기 1</title>
+    <link rel="stylesheet" href="/hospitalKioskB7.css">
 </head>
 
 <body>
-    <audio src="/voice/hpPhone1.mp3" autoplay>아무런 오디오도 없습니다.</audio>
-    <div class="hospitalContainer">
+    <audio src="/voice/hpJsReciepe.mp3" id="hpJsReciepe" autoplay></audio>
+    <audio src="/voice/snPhone.mp3" id="snPhone"></audio>
+    <div class="hospital-container">
         <header>
-            <div class="headButton">
+            <div class="head-button">
                 <button id="headLearnBt">◀ 이전으로</button>
                 <button id="headLearnBtRight">처음으로</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
@@ -21,35 +22,35 @@
         </header>
         <div class="options">
             <div class="option">
-                <h2>진료 접수</h2>
-                <div class="inputSection">
-                    <div class="radioGroup">
+                <h2>진료 이력 조회</h2>
+                <div class="input-section">
+                    <div class="radio-group">
                         <label><input type="radio" name="contact" value="phone" id="phone" checked>휴대폰번호</label>
                         <label><input type="radio" name="contact" value="id" id="id">주민등록번호</label>
                     </div>
-                    <div class="inputField">
+                    <div class="input-field">
                         <input type="text" id="contactInput" readonly placeholder="010-1234-5678" />
                         <input type="hidden" id="realInput" />
                     </div>
                     <div class="keypad">
-                        <div class="keyRow">
-                            <button onclick="appendValue(0)">0</button>
+                        <div class="key-row">
                             <button onclick="appendValue(1)">1</button>
                             <button onclick="appendValue(2)">2</button>
-                        </div>
-                        <div class="keyRow">
                             <button onclick="appendValue(3)">3</button>
+                        </div>
+                        <div class="key-row">
                             <button onclick="appendValue(4)">4</button>
                             <button onclick="appendValue(5)">5</button>
-                        </div>
-                        <div class="keyRow">
                             <button onclick="appendValue(6)">6</button>
+                        </div>
+                        <div class="key-row">
                             <button onclick="appendValue(7)">7</button>
                             <button onclick="appendValue(8)">8</button>
-                        </div>
-                        <div class="keyRow">
-                            <button class="emptyButton"></button>
                             <button onclick="appendValue(9)">9</button>
+                        </div>
+                        <div class="key-row">
+                            <button class="empty-button"></button>
+                            <button onclick="appendValue(0)">0</button>
                             <button class="backspace" onclick="removeValue()">◀</button>
                         </div>
                     </div>
@@ -59,20 +60,32 @@
                         <input type="checkbox" name="agreement" id="agree">
                         <label for="agree">개인정보 수집 동의(필수)</label>
                     </div>
-                    <button class="submitBtn" onclick="submitForm()">입력완료</button>
+                    <button class="submit-btn" onclick="submitForm()">입력완료</button>
                 </div>
             </div>
             <div class="captionContainer" id="captionModal">
                 <div class="captionBox">
-                    접수자 정보 입력을 위해
-                    <br><span class="buttonText">[휴대폰번호]</span>를 입력해주세요.<br>
-                    <br>본 교육에서는<br>
-                    <span class="buttonText">[010-1234-5678]</span><br>를 입력하겠습니다.<br><br>
-                    확인을 눌러 창을 닫아주세요.<br>
-                    <button id="cloBtn" class="closeBtn" onclick="offDisplay()">확인</button>
+                    출력받은 접수증이 있다면<br>
+                    키오스크 <span class="buttonText">[바코드 스캐너]</span> 에<br>
+                    읽혀 수납을 진행합니다.<br><br>
+                    접수증이 없을 경우<br>
+                    <span class="buttonText">[휴대폰 번호]</span> 나 <span class="buttonText">[주민등록번호]</span> 를 통해<br>
+                    진료비 수납이 가능합니다.
+                    <br><button id="cloBtn" class="closeBtn">확인</button>
+                </div>
+            </div>
+            <div class="captionContainer" id="captionModalSec">
+                <div class="captionBox">
+                    본 교육에서는<br>
+                    <span class="buttonText">[휴대폰 번호]</span> 를 입력하여<br>
+                    진료비 수납을 진행 해보겠습니다<br><br>
+                    <span class="buttonText">[010-1234-5678]</span> 를 <br>입력해주세요.
+                    <br><button id="cloBtnSec" class="closeBtn">확인</button>
                 </div>
             </div>
         </div>
+        <footer>
+        </footer>
     </div>
 
     <script>
@@ -84,7 +97,7 @@
                 currentInput += value;
                 formatInput();
                 highlightNextKey();
-                checkCompletion(); // 강조 표시 체크
+                checkCompletion();
             }
         }
 
@@ -92,7 +105,7 @@
             currentInput = currentInput.slice(0, -1);
             formatInput();
             highlightNextKey();
-            checkCompletion(); // 강조 표시 체크
+            checkCompletion();
         }
 
         function formatInput() {
@@ -118,13 +131,14 @@
         }
 
         function checkCompletion() {
-            const submitBtn = document.querySelector('.submitBtn');
+            const submitBtn = document.querySelector('.submit-btn');
             if (currentInput === correctNumber) {
                 submitBtn.classList.add('highlight-red-border');
             } else {
                 submitBtn.classList.remove('highlight-red-border');
             }
         }
+
 
         function submitForm() {
             const agreeCheckbox = document.getElementById('agree');
@@ -138,36 +152,49 @@
                 return;
             }
 
-            window.location.href = '/hospitalB3';
+            window.location.href = '/hospitalB8';
 
-            console.log('실제 입력된 값:', currentInput);
+            console.log('실제 입력된 값:', realInputField.value);
             // 여기에 실제 값을 서버로 보내는 코드 추가
         }
 
+        function redirectToHospitalKiosk3() {
+            window.location.href = 'hospitalKiosk3.html'
+        }
+        function goTohpKiosksoonap2() {
+            window.location.href = 'hospitalB8'
+        }
+
+        const hpJsReciepe = document.getElementById('hpJsReciepe')
+        const snPhone = document.getElementById('snPhone')
+        const captionModal = document.getElementById('captionModal');
+        const captionModalSec = document.getElementById('captionModalSec');
+        const cloBtnSec = document.getElementById('cloBtnSec');
+        captionModalSec.style.display = 'none';
+        // 다음에 띄워줄 모달 선언
+        const cloBtn = document.getElementById('cloBtn');
+        cloBtn.addEventListener('click', () => {
+            captionModal.style.display = 'none';
+            captionModalSec.style.display = 'flex';
+            snPhone.play()
+            hpJsReciepe.pause()
+        })
+
+        cloBtnSec.addEventListener('click', () => {
+            captionModalSec.style.display = 'none';
+        })
+
         const headLearnBt = document.getElementById('headLearnBt')
-        headLearnBt.addEventListener('click', () => {
-            location.href = '/hospitalB1'
+        headLearnBt.addEventListener('click', ()=>{
+            location.href='/hospitalB6'
         })
 
         const headLearnBtRight = document.getElementById('headLearnBtRight')
-        headLearnBtRight.addEventListener('click', () => {
-            location.href = '/hospital'
-        })
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
 
-        function goToHospitalKiosk5() {
-            window.location.href = '/hospitalB3'
-        }
-
-        const cloBtn = document.getElementById('cloBtn')
-        const captionModal = document.getElementById('captionModal');
-        cloBtn.addEventListener('click', () => {
-            captionModal.style.display = 'none';
-        })
-
-        highlightNextKey(); // 초기 키 강조
-
-
-
+        highlightNextKey(); // 초기 키 강조 
+        
     </script>
 </body>
 

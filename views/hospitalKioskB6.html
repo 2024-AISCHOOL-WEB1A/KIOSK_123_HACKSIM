@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+    <link rel="stylesheet" href="/hospitalKioskB6.css">
+</head>
+<body>
+    <audio src="/voice/hpSoonap.mp3" autoplay>이 오디오는 실행할 수 없습니다.</audio>
+    <div class="hospitalContainer">
+        <header>
+            <div class="headButton">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <div id="optionLeft">
+                    <button class="optionButton">
+                        <img src="/pic/kiosk.png" alt="">
+                        <p>접수하기</p>
+                    </button>
+                </div>
+                <div id="optionRight">
+                    <button class="optionButton">
+                        <img src="/pic/question.png" alt="">
+                        <p>수납하기</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="captionContainer">
+            <div class="captionBox">
+                이제 진료비 수납을 진행하기<br> 위해
+                <span class="buttonText">[수납하기]</span><br> 버튼을 눌러주세요.
+            </div>
+        </div>
+    </div>
+    <script>
+        const optionRight = document.getElementById('optionRight')
+        optionRight.addEventListener('click', ()=>{
+            location.href='/hospitalB7'
+        })
+
+        const headLearnBt = document.getElementById('headLearnBt')
+        headLearnBt.addEventListener('click', ()=>{
+            location.href='/hospital'
+        })
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
+    </script>
+</body>
+</html>
