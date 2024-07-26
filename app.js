@@ -36,6 +36,8 @@ app.use(express.json());
 
 // ===================================== PUBLIC폴더 접근 경로 설정 부분 =====================================
 app.use(express.static('public'))
+app.use(express.static('script'))
+app.use(express.static('CSS'))
 
 // ===================================== ('/',라우터 연결) 부분 =====================================
 app.use('/', mainRouter)
