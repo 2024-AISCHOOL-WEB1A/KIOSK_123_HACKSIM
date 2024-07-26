@@ -6,9 +6,9 @@ const conn = require('../config/db');
 router.post('/save-page-info', (req, res) => {
     if (req.session.nick) {
         const userNick = req.session.nick;
-        const catIdx = 1; 
+        const catIdx = 1; // 예시값
         const noteDate = new Date();
-        const infoPageNum = 1; 
+        const infoPageNum = 1; // 예시값
 
         const query = `
             INSERT INTO KIOSK_NOTE_TB (USER_NICK, CAT_IDX, NOTE_DATE, INFO_PAGENUM)
