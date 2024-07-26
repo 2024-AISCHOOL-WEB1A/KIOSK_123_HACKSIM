@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>디지털배움터</title>
+    <title>기초 교육과 심화 교육</title>
 
     <title>Document</title>
     <link rel="stylesheet" href="/hospitalKiosk.css">
@@ -12,19 +12,19 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="" id="head_learn_bt">◀ 이전으로</button>
+                <button id="head_learn_bt">◀ 이전으로</button>
             </div>
-            <img src="/pic/Group 22.png" alt="">
-            <h2>병원 키오스크 활용 교육</h2>
-            <h3>진행하고 싶은 교육을 아래에서 선택해주세요</h3>
+            <h1>손주들</h1>
+            <h2>병원 키오스크 교육</h2>
+            <h3>진행하고 싶은 체험을 아래에서 선택해주세요</h3>
         </header>
         <div class="options">
             <div class="option" id="KioskHpBasic">
-                <img src="/pic/kiosk.png" alt="#">
+                <img src="/pic/kiosk.png" alt="">
                 <p>기초 교육</p>
             </div>
             <div class="option" onclick="goToHospitalKiosk2()">
-                <img src="/pic/question1.png" alt="#">
+                <img src="/pic/question1.png" alt="">
                 <p>심화 교육</p>
             </div>
         </div>
@@ -34,10 +34,15 @@
     </div>
 
     <script>
+        const head_learn_bt = document.getElementById('head_learn_bt')
+        head_learn_bt.addEventListener('click', ()=>{
+            location.href='/study'})
+        
         const KioskHpBasic = document.getElementById('KioskHpBasic')
         KioskHpBasic.addEventListener('click', ()=>{
-            location.href='/hospital2'
+            location.href='/hospitalB1'
         })
+        
     </script>
 </body>
 </html>

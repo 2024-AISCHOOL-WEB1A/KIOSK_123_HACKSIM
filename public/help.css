@@ -18,7 +18,7 @@ body {
 
 .container {
     max-width: 1080px;
-    width: 100%;
+    width: 100vmin; /* 100vh * (9/16) */
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -26,6 +26,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     position: relative;
+
     /* 위치 기준 설정 */
 }
 
@@ -81,6 +82,18 @@ body {
     left: 15px;
     transform: translateY(-50%);
 }
+
+.img {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 20px 0; /* 위아래 여백 */
+    margin-top: 20px; /* 상단 마진 */
+}
+
+.img img {
+    width: 500px !important; /* 강제로 500px 적용 */
+    height: auto !important; /* 비율 유지 */
+}
+
 
 .tags {
     display: flex;
