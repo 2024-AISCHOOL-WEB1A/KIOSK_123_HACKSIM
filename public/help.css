@@ -84,14 +84,22 @@ body {
 }
 
 .img {
-    text-align: center; /* 텍스트 중앙 정렬 */
-    padding: 20px 0; /* 위아래 여백 */
-    margin-top: 20px; /* 상단 마진 */
+    text-align: center;
+    flex-direction: column;
+    padding: 20px 0;
+    margin-top: 5px;
 }
+
+
+.img.text p {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
 
 .img img {
     width: 500px !important; /* 강제로 500px 적용 */
-    height: auto !important; /* 비율 유지 */
+    height: auto !important; 
 }
 
 
