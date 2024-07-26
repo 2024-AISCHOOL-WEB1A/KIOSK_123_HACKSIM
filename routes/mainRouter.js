@@ -11,6 +11,18 @@ router.get('/', (req, res) =>{
         res.render('main')
     }
 })
+router.get('/hospitalB5', (req, res)=>{
+    res.render('hospitalKioskB5')
+})
+
+router.get('/hospitalB4', (req, res)=>{
+    res.render('hospitalKioskB4')
+})
+
+router.get('/hospitalB3', (req, res)=>{
+    res.render('hospitalKioskB3')
+})
+
 router.get('/hospitalB2', (req, res)=>{
     res.render('hospitalKioskB2')
 })

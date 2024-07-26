@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>접수하기 3</title>
+    <link rel="stylesheet" href="/hospitalKioskB4.css">
+</head>
+<body>
+    <div class="hospitalContainer">
+        <header>
+            <div class="headButton">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <img src="/hospitalImg/learn_rebg.png" alt="" class="roomIcon">
+                <h2>아래 접수 정보를 확인해주세요</h2>
+                
+                <!-- 테이블 추가 -->
+                <table class="infoTable">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>정보</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>환자 이름</td>
+                            <td>강*찬</td>
+                        </tr>
+                        <tr>
+                            <td>생년월일</td>
+                            <td>1953년</td>
+                        </tr>
+                        <tr>
+                            <td>성별</td>
+                            <td>남자</td>
+                        </tr>
+                        <tr>
+                            <td>진료실</td>
+                            <td>1진료실 (선영* 원장)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- 버튼 추가 -->
+                <button id="completeBtn">접수 완료</button>
+            </div>
+            <div class="captionContainer">
+                <div class="captionBox">
+                    접수된 정보를 확인하신 후<br>
+                    <span id="buttonText">[접수완료]</span>버튼을 눌러<br>
+                    접수를 완료해주세요.
+                </div>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <script>
+        const headLearnBt = document.getElementById('headLearnBt')
+        headLearnBt.addEventListener('click', ()=>{
+            location.href = '/hospitalB3'
+        })
+
+        const completeBtn = document.getElementById('completeBtn')
+        completeBtn.addEventListener('click', ()=>{
+            location.href = '/hospitalB5'
+        })
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
+
+    </script>
+</body>
+</html>
