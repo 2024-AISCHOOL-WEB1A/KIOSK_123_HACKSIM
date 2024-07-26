@@ -11,7 +11,11 @@ router.get('/', (req, res) =>{
         res.render('main')
     }
 })
-router.get('/hospital2', (req, res)=>{
+router.get('/hospitalB2', (req, res)=>{
+    res.render('hospitalKioskB2')
+})
+
+router.get('/hospitalB1', (req, res)=>{
     res.render('hospitalKioskB1')
 })
 

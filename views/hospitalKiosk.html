@@ -12,7 +12,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="" id="head_learn_bt">◀ 이전으로</button>
+                <button id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주들</h1>
             <h2>병원 키오스크 교육</h2>
@@ -34,14 +34,14 @@
     </div>
 
     <script>
+        const head_learn_bt = document.getElementById('head_learn_bt')
+        head_learn_bt.addEventListener('click', ()=>{
+            location.href='/study'})
+        
         const KioskHpBasic = document.getElementById('KioskHpBasic')
         KioskHpBasic.addEventListener('click', ()=>{
-            location.href='/hospital2'
+            location.href='/hospitalB1'
         })
-
-        function goToHospitalKiosk2() {
-            window.location.href = 'hospitalKiosk2.html'
-        }
         
     </script>
 </body>
