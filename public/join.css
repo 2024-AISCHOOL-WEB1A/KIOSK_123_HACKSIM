@@ -182,7 +182,7 @@ input[type="submit"]:hover {
 }
 
 .modal-box p {
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 40px; /* 성공 메시지의 글꼴 크기 증가 */
     margin-top: -10px; /* 여유 공간을 위한 여백 증가 */
 }
@@ -195,7 +195,7 @@ input[type="submit"]:hover {
 }
 
 .button-container button {
-    margin-right: 31px;
+    margin-right: 20px;
     background-color: #ff4d4d; /* 빨간색 버튼 */
     color: white;
     border: none;
@@ -203,7 +203,7 @@ input[type="submit"]:hover {
     font-size: 18px; /* 글꼴 크기 증가 */
     border-radius: 5px;
     cursor: pointer;
-    flex: 1; /* 버튼이 동일한 너비를 가지도록 설정 */
+    flex: -1; /* 버튼이 동일한 너비를 가지도록 설정 */
 }
 
 .button-container button:hover {

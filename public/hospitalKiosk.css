@@ -67,7 +67,7 @@ header h3 {
     /* Description text font size adjustment */
     margin-top: -20px;
     color: #302525;
-    line-height: 40px;
+    line-height: 35px;
 }
 
 header h2 {
@@ -78,12 +78,13 @@ header h2 {
 }
 
 .box {
-    width: 600px;
+    padding: 30px;
+    width: 90%;
     height: 150px;
     background-color: white;
     border-radius: 10px;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .options {
