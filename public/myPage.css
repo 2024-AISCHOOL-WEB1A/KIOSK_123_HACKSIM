@@ -144,7 +144,8 @@ body {
 }
 
 .menu #startUpdateBtn,
-.menu #startNoteBtn {
+.menu #startNoteBtn, 
+.menu #LogoutBtn {
     background-color: #ffffff;
     color: black;
     width: calc(70% - 80px); /* 보라색 배경을 다 채우기 위해 패딩을 제외한 너비 */
@@ -171,7 +172,8 @@ body {
 }
 
 .menu #startUpdateBtn:hover,
-.menu #startNoteBtn:hover {
+.menu #startNoteBtn:hover,
+.menu #LogoutBtn:hover  {
     transform: scale(1.05);
 }
 

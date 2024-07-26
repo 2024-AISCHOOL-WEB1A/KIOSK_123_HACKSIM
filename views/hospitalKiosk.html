@@ -23,7 +23,7 @@
                 <img src="/pic/kiosk.png" alt="">
                 <p>기초 교육</p>
             </div>
-            <div class="option" onclick="goToHospitalKiosk2()">
+            <div class="option" id="goToHospitalKiosk2">
                 <img src="/pic/question1.png" alt="">
                 <p>심화 교육</p>
             </div>
@@ -42,7 +42,11 @@
         KioskHpBasic.addEventListener('click', ()=>{
             location.href='/hospitalB1'
         })
-        
+        const goToHospitalKiosk2 = document.getElementById('goToHospitalKiosk2')
+        goToHospitalKiosk2.addEventListener('click', ()=>{
+            location.href='/hospitalKiosk2.html'
+        })
+
     </script>
 </body>
 </html>

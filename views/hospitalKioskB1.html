@@ -8,48 +8,52 @@
 </head>
 <body>
     <audio src="/voice/hpjeopsoo.mp3" autoplay>이 오디오는 실행할 수 없습니다.</audio>
-    <div class="hospital-container">
+    <div class="hospitalContainer">
         <header>
-            <div class="head-button">
-                <button id="head_learn_bt">◀ 이전으로</button>
-                <button id="head_learn_bt_right">처음으로</button>
+            <div class="headButton">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
-                <div id="option_left">
-                    <button class="option-button">
+                <div id="optionLeft">
+                    <button class="optionButton">
                         <img src="/pic/kiosk.png" alt="">
                         <p>접수하기</p>
                     </button>
                 </div>
-                <div class="option_right">
-                    <button class="option-button">
+                <div class="optionRight">
+                    <button class="optionButton">
                         <img src="/pic/question.png" alt="">
                         <p>수납하기</p>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="caption-container">
-            <div class="caption-box">
+        <div class="captionContainer">
+            <div class="captionBox">
                 먼저 진료 접수를 진행하기<br> 위해
-                <span class="button-text">[접수하기]</span><br> 버튼을 눌러주세요.
+                <span class="buttonText">[접수하기]</span><br> 버튼을 눌러주세요.
             </div>
         </div>
     </div>
     <script>
-        const option_left = document.getElementById('option_left')
-        option_left.addEventListener('click', ()=>{
+        const optionLeft = document.getElementById('optionLeft')
+        optionLeft.addEventListener('click', ()=>{
             location.href='/hospitalB2'
         })
 
-        const head_learn_bt = document.getElementById('head_learn_bt')
-        head_learn_bt.addEventListener('click', ()=>{
+        const headLearnBt = document.getElementById('headLearnBt')
+        headLearnBt.addEventListener('click', ()=>{
             location.href='/hospital'
         })
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'})
     </script>
 </body>
 </html>
