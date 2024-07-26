@@ -37,7 +37,7 @@ body, html {
 
 .head-button {
     position: absolute;
-    top: 0px; /* 버튼 위치 조정 */
+    top: 10px; /* 버튼 위치 조정 */
     left: 0px;
 }
 
@@ -73,7 +73,7 @@ h3 {
     overflow: hidden;
 }
 
-.option-left {
+#option_left {
     margin-bottom: 450px;
     flex: 1;
     display: flex;
@@ -81,7 +81,7 @@ h3 {
     align-items: center;
 }
 
-.option-right {
+.option_right {
     margin-bottom: 450px;
     flex: 1;
     display: flex;
@@ -153,6 +153,7 @@ footer {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 #headImgBtn {
+    cursor: pointer;
     margin-top: 20px;
     background-color: transparent;
     border: none;
@@ -207,6 +208,7 @@ button:active {
 .button-text {
     color: #1f5fbf;
     font-weight: bold;
+    font-size: 35px;
 }
 
 @media (max-width: 768px) {
