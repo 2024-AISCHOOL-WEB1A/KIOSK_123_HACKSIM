@@ -178,14 +178,14 @@ html {
 
 /* 컨테이너 스타일 */
 .container {
-    width: 100vmin;
+    width: 1000px;
     /* 100vh * (9/16) */
-    height: 150vmin;
+    height: 1800px;
     /* max-height: 100vh;
     max-width: 56.25vh; */
     /* 100vh * (9/16) */
     background-color: rgb(170, 111, 255);
-    border-radius: 10px;
+    /* border-radius: 5px; */
     padding: 20px;
     box-sizing: border-box;
     display: flex;
@@ -193,3 +193,16 @@ html {
     align-items: center;
     justify-content: center;
 }
+
+#translateButton {
+    position: absolute;
+    /* top: 20px; */
+    right: 20px;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;}
