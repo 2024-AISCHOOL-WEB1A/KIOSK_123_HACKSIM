@@ -6,7 +6,7 @@
     <title>디지털배움터</title>
 
     <title>Document</title>
-    <link rel="stylesheet" href="/study.css">
+    <link rel="stylesheet" href="/Basic/study.css">
 </head>
 <body>
     <div class="hospital-container">
@@ -21,7 +21,7 @@
             </div>
         </header>
         <div class="options">
-            <div class="option">
+            <div class="option" id="KioskMacStart">
                 <img src="/pic/식당.png" alt="#">
                 <p>음식점</p>
             </div>
@@ -51,9 +51,15 @@
             location.href = '/hospitalKiosk.html'
         })
 
+<<<<<<< HEAD
         const KioskHpbefore = document.getElementById('head_learn_bt');
         KioskHpbefore.addEventListener('click', () =>{
             location.href = '/'
+=======
+        const KioskMacStart = document.getElementById('KioskMacStart');
+        KioskMacStart.addEventListener('click', () =>{
+            location.href = '/KioskMacSelect';
+>>>>>>> a1121887caa43ccad592b845688ac994324589a0
         })
     </script>
 </body>

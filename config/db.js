@@ -1,11 +1,12 @@
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const conn = mysql.createConnection({
-    host : "project-db-stu3.smhrd.com",
-    port: 3307,
-    database: "Insa5_JSA_hacksim_5",
-    password: "aischool5",
-    user : "Insa5_JSA_hacksim_5"
+    host : process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_USER,
+    password: process.env.DB_PW,
+    user : process.env.DB_USER
 });
 
 conn.connect();
