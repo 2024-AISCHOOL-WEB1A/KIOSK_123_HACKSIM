@@ -125,6 +125,7 @@ router.get('/hpKiosksoonap3.html', (req, res) => {
 });
 
 router.use('/kiosk', kioskRouter);
+// ===============================================MacBasic==============================================================
 
 // 음식점 기초 & 심화 선택 페이지 
 router.get('/KioskMacSelect', (req, res) => {
@@ -144,6 +145,14 @@ router.get('/macDeepKioIndex', (req, res) => {
 // MacBasic 첫 화면 
 router.get('/macBasicKioMain', (req, res) => {
     res.render('MacBasicKio/macBasicMain')
+})
+
+router.get('/macBasic1', (req, res) => {
+    res.render('MacBasicKio/macBasic1')
+})
+
+router.get('/macBasic2', (req, res) => {
+    res.render('MacBasicKio/macBasic2')
 })
 
 module.exports = router
