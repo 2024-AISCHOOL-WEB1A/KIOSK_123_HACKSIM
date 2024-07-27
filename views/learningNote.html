@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 학습노트</title>
-    <link rel="stylesheet" href="/learningNote.css">
+    <link rel="stylesheet" href="/Basic/learningNote.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,6 @@
             <img src="/pic/Group 22.png" alt="">
             <h1>나의 학습노트</h1>
         </div>
-        
         
         <div class="section">
             <div class="section-title">
@@ -48,5 +47,42 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function fetchAndUpdateNotes() {
+            fetch('/learningNote/get-new-notes', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const grid = document.querySelectorAll('.grid')[0]; // 병원 학습 grid
+                    const items = grid.querySelectorAll('.grid-item');
+                    const notes = data.data;
+
+                    // Clear all grid items
+                    items.forEach(item => item.innerHTML = '');
+
+                    // Add new notes to grid items
+                    notes.forEach((note, index) => {
+                        if (index < items.length) {
+                            const a = items[index];
+                            a.innerHTML = `${note.INFO_PAGENUM}<br>(${note.NOTE_DATE})`;
+                        }
+                    });
+                } else {
+                    console.error('Error:', data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Fetch and update notes every 10 seconds
+        setInterval(fetchAndUpdateNotes, 10000);
+
+        // Initial fetch
+        fetchAndUpdateNotes();
+    </script>
 </body>
 </html>

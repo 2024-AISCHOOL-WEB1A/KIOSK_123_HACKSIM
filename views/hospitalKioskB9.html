@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수납하기 3</title>
+    <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB9.css">
+</head>
+<body>
+    <audio src="/voice/payComplete.mp3" autoplay></audio>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button id="headLearnBt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로</button>
+                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+            </div>
+            <h1>손주병원</h1>
+        </header>
+        <div class="options">
+            <div class="option">
+                <h2>결제 완료</h2>
+                <img src="/hospitalImg/checkgreen.png" alt="">
+                <p class="modalp1">이제 카드를 꺼내셔도 됩니다</p>
+                <p class="modalp2">영수증을 출력할까요?</p>
+                <div class="captionContainer" id="captionModal">
+                    <div class="captionBox">
+                        결제가 완료되었습니다.<br>
+                        <span class="buttonText">[예]</span> 버튼을 눌러<br>
+                        영수증을 출력해보세요.
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="yon-btn no-btn">아니오</button>
+                    <button class="yon-btn yes-btn" onclick="showClearModal()">예</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    
+    <!-- 모달 추가 -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p class="modalp3">수고하셨습니다. 병원 키오스크</p>
+            <p class="modalp3">학습하기를 완료하였습니다</p>
+            <p class="modalp3">다시 한 번 학습하시려면</p>
+            <p class="modalp3"><span class="reHighlight">[다시하기]</span>를 클릭하세요</p>
+            <br/>
+            <p class="modalp4">연습을 완전히 종료하시려면</p>
+            <p class="modalp4"><span class="reHighlight">[처음으로]</span>를 클릭하세요</p>
+            <div class="modalb-container">
+                <button class="modalb-btn rep-btn" onclick="redirectKioskLearn()">다시하기</button>
+                <button class="modalb-btn fir-btn" onclick="redirectFirstPage()">처음으로</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectTohpKiosksoonap2() {
+            window.location.href = 'hpKiosksoonap2.html'
+        }
+
+        function showClearModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+
+        function redirectKioskLearn() {
+            window.location.href = 'hospitalB1'
+        }
+
+        function redirectFirstPage() {
+            window.location.href = 'study'
+        }
+    </script>
+</body>
+</html>

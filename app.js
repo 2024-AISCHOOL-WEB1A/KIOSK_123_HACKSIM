@@ -11,6 +11,7 @@ const mainRouter = require('./routes/mainRouter')
 const userRouter = require('./routes/userRouter')
 const kioskRouter = require('./routes/kioskRouter')
 const gameRouter = require('./routes/gameRouter')
+const macKioskRouter = require('./routes/macKioskRouter')
 
 // ===================================== 넌적스 세팅 부분 =====================================
 app.set('view engine', 'html')
@@ -18,6 +19,9 @@ nunjucks.configure('views',{
     express : app,
     watch : true
 })
+
+// 파비콘 에러 무시
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 // ===================================== 세션 미들웨어 세팅 부분 =====================================
 app.use(session({
@@ -36,12 +40,15 @@ app.use(express.json());
 
 // ===================================== PUBLIC폴더 접근 경로 설정 부분 =====================================
 app.use(express.static('public'))
+app.use(express.static('script'))
+app.use(express.static('CSS'))
 
 // ===================================== ('/',라우터 연결) 부분 =====================================
 app.use('/', mainRouter)
 app.use('/user', userRouter)
-app.use('/', kioskRouter)
+app.use('/kiosk', kioskRouter)
 app.use('/game',gameRouter)
+app.use('/macKiosk', macKioskRouter)
 // ===================================== port 연결 부분 =====================================
 app.listen(3000, ()=>{
     console.log("3000 port waiting...");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>디지털배움터</title>
-    <link rel="stylesheet" href="/hospitalKioskB1.css">
+    <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB1.css">
 </head>
 <body>
     <audio src="/voice/hpjeopsoo.mp3" autoplay>이 오디오는 실행할 수 없습니다.</audio>
@@ -12,13 +12,14 @@
         <header>
             <div class="headButton">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
+            <img src="/123GIF/1.gif" alt="1gif" id="oneGif">
                 <div id="optionLeft">
                     <button class="optionButton">
                         <img src="/pic/kiosk.png" alt="">
@@ -53,7 +54,8 @@
 
         const headLearnBtRight = document.getElementById('headLearnBtRight')
         headLearnBtRight.addEventListener('click', ()=>{
-            location.href='/hospital'})
+            location.href='/hospital'
+        })
     </script>
 </body>
 </html>
