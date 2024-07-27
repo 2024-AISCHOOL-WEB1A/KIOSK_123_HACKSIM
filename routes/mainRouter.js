@@ -141,4 +141,9 @@ router.get('/macDeepKioIndex', (req, res) => {
     res.render('MacDeepKio/macKioskIndex')
 })
 
+// MacBasic 첫 화면 
+router.get('/macBasicKioMain', (req, res) => {
+    res.render('MacBasicKio/macBasicMain')
+})
+
 module.exports = router
