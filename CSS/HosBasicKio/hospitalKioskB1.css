@@ -22,32 +22,93 @@ body, html {
 
 .hospitalContainer {
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* White background with transparency */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px; /* 패딩 조정 */
-    max-width: 500px; /* 최대 너비 조정 */
-    width: 50%;
-    min-height: 90vh; /* 최소 높이 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    /* Padding adjustment */
+    max-width: 90%;
+    /* Maximum width adjustment */
+    width: 600px;
+    min-height: 90vh;
+    /* Minimum height setting */
     display: flex;
     flex-direction: column;
+    /* Arrange children vertically */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경, 투명도 0.8 */
 }
 
 .headButton {
     position: absolute;
-    top: 10px; /* 버튼 위치 조정 */
+    top: 7px;
+    /* Button position adjustment */
     left: 0px;
 }
 
+#headLearnBt {
+    position: relative;
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    font-size: 18px;
+    /* Button font size adjustment */
+    background-color: #053f79cc;
+    /* Navy blue background */
+    cursor: pointer;
+    padding: 5px 10px;
+    /* Button padding adjustment */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#headLearnBtRight {
+    position: relative;
+    left: 191px;
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    font-size: 18px;
+    /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc;
+    /* 군청색 배경 */
+    cursor: pointer;
+    padding: 5px 10px;
+    /* 버튼 패딩 조정 */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 230px;
+}
+
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}
+
 h1 {
-    margin-top: 70px;
+    font-size: 36px;
+    margin-top: 60px;
 }
 
 h3 {
     font-size: 20px; 
     margin: 20px 0;
+}
+
+#oneGif {
+    position: absolute;
+    z-index: 1000;
+    left: 30px;
+    top: 665px;
+    width: 6vh;
+    height: 10vh;
 }
 
 .options {
@@ -94,8 +155,8 @@ h3 {
     border: none;
     border-radius: 8px;
     padding: 20px;
-    width: 200px; /* 버튼 너비 조정 */
-    height: 200px; /* 버튼 높이 조정 */
+    width: 250px; /* 버튼 너비 조정 */
+    height: 250px; /* 버튼 높이 조정 */
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     cursor: pointer;
@@ -122,41 +183,6 @@ h3 {
     transform: translateY(4px);
 }
 
-#headLearnBt {
-    font-family: 'Jalnan';
-    border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
-    cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
-    color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#headLearnBtRight {
-    position: relative;
-    left: 272px;
-    font-family: 'Jalnan';
-    border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
-    cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
-    color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-#headImgBtn {
-    cursor: pointer;
-    margin-top: 20px;
-    background-color: transparent;
-    border: none;
-}
-
-#headImg {
-    width: 40px;
-    height: 40px;
-}
-
 button:hover {
     background-color: #dae5ef;
 }
@@ -168,7 +194,7 @@ button:active {
 .captionContainer {
     font-size: 30px;
     position: absolute;
-    left: 50px;
+    left: 130px;
     display: flex;
     top: 600px;
     width: 100%;

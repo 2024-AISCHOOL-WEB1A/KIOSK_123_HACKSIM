@@ -11,11 +11,11 @@ html {
     font-family: 'Jalnan', sans-serif;
     background-color: #f4f4f4;
     font-size: 20px;
-    /* Base font size */
+    /* 기본 폰트 크기 조정 */
     background-image: url('/hospitalImg/bg2.png');
-    /* Background image */
+    /* 배경 이미지 추가 */
     background-size: cover;
-    /* Ensure background image covers the entire area */
+    /* 배경 이미지가 화면을 덮도록 설정 */
     background-position: center;
 }
 
@@ -24,7 +24,7 @@ html {
     src: url('/font/JalnanGothicTTF.ttf') format('truetype');
 }
 
-.hospital-container {
+.hospitalContainer {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
     /* White background with transparency */
@@ -43,150 +43,40 @@ html {
     position: relative;
 }
 
-.head-button {
-    position: absolute;
-    top: 10px;
-    /* Button position adjustment */
-    left: 0px;
-}
-
-header h1 {
-    font-size: 36px;
-    /* Title font size adjustment */
-    /* margin: 20px 0 30px 0; */
-    margin-top: 20px;
-}
-
-header h2 {
-    font-size: 30px;
-    /* Subtitle font size adjustment */
-    margin: 10px;
-}
-
-header h3 {
-    /* Description text font size adjustment */
-    margin-top: -20px;
-    color: #302525;
-    line-height: 35px;
-}
-
-header h2 {
-    color: rgb(126, 106, 255);
-    margin-top: 20px;
-    text-shadow: 3px 3px 5px rgba(255, 253, 253, 0.3);
-    /* Add text shadow */
-}
-
-.box {
-    padding: 30px;
-    width: 90%;
-    height: 150px;
-    background-color: white;
-    border-radius: 10px;
-    align-items: center;
-    /* text-align: center; */
-}
-
-.options {
-    display: flex;
-    justify-content: space-around;
-    gap: 0px;
-    margin-bottom: 20px;
-    flex-grow: 1;
-    /* Fill remaining space */
-}
-
-.option {
-    background-color: #5b98ce6e;
-    border-radius: 8px;
-    padding: 40px;
-    width: 180px; /* Button width adjustment */
-    height: 180px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s;
-    margin-top: 130px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Center items vertically */
-}
-
-.option:hover {
-    transform: scale(1.1);
-}
-
-.option img {
-    width: 100px; /* Increase icon size */
-    height: 100px;
-    margin-bottom: 10px; /* Add spacing between icon and text */
-    margin-left : 40px
-}
-
-.option p {
-    margin-top: 20px; /* Further adjust margin to move text lower */
-    font-weight: bold;
-    color: #333;
-    font-size: 24px; /* Button text font size adjustment */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
-}
-
-footer {
-    font-size: 16px;
-    /* Footer font size adjustment */
-    color: #777;
-    padding: 10px 0;
-    /* Add vertical padding */
-    text-align: center;
-    /* Center align text */
-    margin-top: auto;
-    /* Allow footer to occupy remaining space */
-}
-
-#head_learn_bt {
+#headLearnBt {
+    position: relative;
+    bottom: 15px;
     font-family: 'Jalnan';
     border-radius: 5%;
     font-size: 18px;
-    /* Button font size adjustment */
     background-color: #053f79cc;
-    /* Navy blue background */
     cursor: pointer;
     padding: 5px 10px;
-    /* Button padding adjustment */
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
-    background-color: #dae5ef;
-}
-
-button:active {
-    transform: translateY(4px);
-}
-<<<<<<< HEAD:public/hospitalKiosk.css
-=======
-
-@media (max-width: 768px) {
-    .hospital-container {
-        max-width: 90%; /* 모바일 화면에서는 너비를 더 넓게 사용 */
-    }
-}
-
-#head_first_bt {
+#headLearnBtRight {
+    position: relative;
+    left: 191px;
+    bottom: 15px;
     font-family: 'Jalnan';
     border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
+    font-size: 18px;
+    /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc;
+    /* 군청색 배경 */
     cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
+    padding: 5px 10px;
+    /* 버튼 패딩 조정 */
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin-left: 230px;
 }
 
 #headImgBtn {
+    position: relative;
+    top: 8px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -194,7 +84,197 @@ button:active {
 }
 
 #headImg {
-    width: 30px;
-    height: 30px;
-} 
->>>>>>> a1121887caa43ccad592b845688ac994324589a0:CSS/HosDeepKio/hospitalKiosk.css
+    width: 40px;
+    height: 40px;
+}
+
+.headButton {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+h1 {
+    margin-top: 60px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.option {
+    background-color: #5b98ce2c;
+    border-radius: 8px;
+    padding: 20px;
+    width: 93%;
+    max-width: 665px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+@media (max-width: 768px) {
+    .hospital-container {
+        max-width: 90%;
+    }
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.learn5Bt {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+    background-color: #f1f1f1b6;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    width: 460px;
+    height: 70px;
+    font-size: 18px;
+    line-height: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jalnan';
+}
+
+#roomCh {
+    margin-top: 110px;
+}
+
+.roomBt {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    width: 460px;
+    height: 90px;
+    font-size: 18px;
+    line-height: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jalnan';
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.roomBt:hover {
+    border-color: #270606;
+}
+
+.roomNumber {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.roomBt img {
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.roomHighlight {
+    background-color: #ffeb3b;
+    /* 노란색 배경 추가 */
+    border-color: #fbc02d;
+    /* 테두리 색상 변경 */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    /* 빛나는 효과 추가 */
+    animation: highlightAnimation 1.5s infinite;
+    /* 깜빡이는 애니메이션 추가 */
+}
+
+@keyframes highlightAnimation {
+
+    0%,
+    100% {
+        background-color: #ffeb3b;
+    }
+
+    50% {
+        background-color: #fff176;
+    }
+}
+
+.captionContainer {
+    font-size: 30px;
+    position: absolute;
+    left: 120px;
+    display: flex;
+    top: 720px;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 0;
+}
+
+.captionBox {
+    border: 2px solid #1f5fbf;
+    border-radius: 8px;
+    padding: 60px 30px;
+    width: fit-content;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.captionBox::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #1f5fbf;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+#buttonText {
+    color: #1f5fbf;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+#oneGif {
+    position: absolute;
+    z-index: 1000;
+    left: 10px;
+    top: 780px;
+    width: 6vh;
+    height: 10vh;
+}

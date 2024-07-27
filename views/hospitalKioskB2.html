@@ -14,13 +14,14 @@
         <header>
             <div class="headButton">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
+                <img src="/123GIF/1.gif" alt="1gif" id="oneGif">
                 <h2>진료 접수</h2>
                 <div class="inputSection">
                     <div class="radioGroup">
@@ -69,7 +70,7 @@
                     <br>본 교육에서는<br>
                     <span class="buttonText">[010-1234-5678]</span><br>를 입력하겠습니다.<br><br>
                     확인을 눌러 창을 닫아주세요.<br>
-                    <button id="cloBtn" class="closeBtn" onclick="offDisplay()">확인</button>
+                    <button id="cloBtn" class="closeBtn">확인</button>
                 </div>
             </div>
         </div>
@@ -158,10 +159,12 @@
             window.location.href = '/hospitalB3'
         }
 
+        const oneGif = document.getElementById('oneGif')
         const cloBtn = document.getElementById('cloBtn')
         const captionModal = document.getElementById('captionModal');
         cloBtn.addEventListener('click', () => {
             captionModal.style.display = 'none';
+            oneGif.style.display = 'none';
         })
 
         highlightNextKey(); // 초기 키 강조
