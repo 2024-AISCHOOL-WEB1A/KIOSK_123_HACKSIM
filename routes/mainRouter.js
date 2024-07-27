@@ -126,4 +126,19 @@ router.get('/hpKiosksoonap3.html', (req, res) => {
 
 router.use('/kiosk', kioskRouter);
 
+// 음식점 기초 & 심화 선택 페이지 
+router.get('/KioskMacSelect', (req, res) => {
+    res.render('Basic/macKioskSelect')
+})
+
+// MacDeep 첫 화면
+router.get('/macDeepKioMain', (req, res) => {
+    res.render('MacDeepKio/macKiosk')
+})
+
+// MacDeep 사이드, nav 기본 틀
+router.get('/macDeepKioIndex', (req, res) => {
+    res.render('MacDeepKio/macKioskIndex')
+})
+
 module.exports = router

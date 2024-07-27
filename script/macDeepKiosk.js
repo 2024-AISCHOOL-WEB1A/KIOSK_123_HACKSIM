@@ -7,9 +7,9 @@ macStartBtn.addEventListener('touchstart', () => {
 })
 
 macIdxS.addEventListener('touchstart', () => {
-    location.href = '/macMain';
+    location.href = '/macDeepKioIndex';
 })
 
 macIdxT.addEventListener('touchstart', () => {
-    location.href = '/macMain';
+    location.href = '/macDeepKioIndex';
 })

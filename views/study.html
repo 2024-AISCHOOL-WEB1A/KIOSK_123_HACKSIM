@@ -21,7 +21,7 @@
             </div>
         </header>
         <div class="options">
-            <div class="option">
+            <div class="option" id="KioskMacStart">
                 <img src="/pic/식당.png" alt="#">
                 <p>음식점</p>
             </div>
@@ -39,6 +39,11 @@
         const KioskHpStart = document.getElementById('KioskHpStart');
         KioskHpStart.addEventListener('click', () =>{
             location.href = '/hospitalKiosk.html'
+        })
+
+        const KioskMacStart = document.getElementById('KioskMacStart');
+        KioskMacStart.addEventListener('click', () =>{
+            location.href = '/KioskMacSelect';
         })
     </script>
 </body>

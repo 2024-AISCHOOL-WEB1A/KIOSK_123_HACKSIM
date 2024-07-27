@@ -88,7 +88,6 @@ document.querySelectorAll('.burgerItem').forEach(item => {
             console.error('Error fetching data:', error);
         }) 
     });
-    console.log(cart);
 });
 
 // 주문 취소 버튼
@@ -213,7 +212,7 @@ $(document).ready(function (){
     })
 
     $('#setEndBtn').on('click', () => {
-        cart.push({cartName : setArray[0].SET_NAME, cartPrice : setArray[0].PRICE, cartPath : setArray[0].SET_PAHT})
+        cart.push({cartName : setArray[0].SET_NAME, cartPrice : setArray[0].SET_PRICE, cartPath : setArray[0].SET_PAHT})
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCart();
         setArray=[];
@@ -278,7 +277,6 @@ $(document).ready(function() {
         let itemName = $(this).data('item');
         itemCounts[itemName].count++;
         itemCounts[itemName].totalPrice += itemCounts[itemName].cartPrice;
-        console.log(itemCounts);
         // 로컬 스토리지에 저장된 cart 배열 업데이트
         cart.push({
             cartName: itemCounts[itemName].cartName,
