@@ -1,8 +1,9 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%; 
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,32 +11,41 @@ body, html {
     font-family: 'Jalnan', sans-serif;
     background-color: #f4f4f4;
     font-size: 20px;
+    /* 기본 폰트 크기 조정 */
     background-image: url('/hospitalImg/bg2.png');
+    /* 배경 이미지 추가 */
     background-size: cover;
+    /* 배경 이미지가 화면을 덮도록 설정 */
     background-position: center;
 }
 
 @font-face {
-    font-family: 'Jalnan'; 
+    font-family: 'Jalnan';
     src: url('/font/JalnanGothicTTF.ttf') format('truetype');
 }
 
 .hospitalContainer {
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* White background with transparency */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    max-width: 500px;
-    width: 90%;
+    /* Padding adjustment */
+    max-width: 90%;
+    /* Maximum width adjustment */
+    width: 600px;
     min-height: 90vh;
+    /* Minimum height setting */
     display: flex;
     flex-direction: column;
+    /* Arrange children vertically */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
-#headLearnBt, #headLearnBtRight {
+#headLearnBt {
+    position: relative;
+    bottom: 15px;
     font-family: 'Jalnan';
     border-radius: 5%;
     font-size: 18px;
@@ -48,14 +58,29 @@ body, html {
 
 #headLearnBtRight {
     position: relative;
-    left: 272px;
+    left: 191px;
+    bottom: 15px;
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    font-size: 18px;
+    /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc;
+    /* 군청색 배경 */
+    cursor: pointer;
+    padding: 5px 10px;
+    /* 버튼 패딩 조정 */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 230px;
 }
 
 #headImgBtn {
+    position: relative;
+    top: 8px;
     cursor: pointer;
-    margin-top: 20px;
     background-color: transparent;
     border: none;
+    padding: 0px;
 }
 
 #headImg {
@@ -70,7 +95,7 @@ body, html {
 }
 
 h1 {
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 h2 {
@@ -98,10 +123,10 @@ h2 {
     background-color: #5b98ce2c;
     border-radius: 8px;
     padding: 20px;
-    width: 100%;
-    max-width: 460px;
+    width: 93%;
+    max-width: 665px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
@@ -184,16 +209,23 @@ button:active {
 }
 
 .roomHighlight {
-    background-color: #ffeb3b; /* 노란색 배경 추가 */
-    border-color: #fbc02d; /* 테두리 색상 변경 */
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* 빛나는 효과 추가 */
-    animation: highlightAnimation 1.5s infinite; /* 깜빡이는 애니메이션 추가 */
+    background-color: #ffeb3b;
+    /* 노란색 배경 추가 */
+    border-color: #fbc02d;
+    /* 테두리 색상 변경 */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    /* 빛나는 효과 추가 */
+    animation: highlightAnimation 1.5s infinite;
+    /* 깜빡이는 애니메이션 추가 */
 }
 
 @keyframes highlightAnimation {
-    0%, 100% {
+
+    0%,
+    100% {
         background-color: #ffeb3b;
     }
+
     50% {
         background-color: #fff176;
     }
@@ -202,9 +234,9 @@ button:active {
 .captionContainer {
     font-size: 30px;
     position: absolute;
-    left: 45px;
+    left: 120px;
     display: flex;
-    top: 690px;
+    top: 720px;
     width: 100%;
     margin-top: auto;
     padding: 20px 0;
@@ -213,7 +245,7 @@ button:active {
 .captionBox {
     border: 2px solid #1f5fbf;
     border-radius: 8px;
-    padding: 50px 20px;
+    padding: 60px 30px;
     width: fit-content;
     position: relative;
     background-color: #ffffff;
@@ -235,4 +267,14 @@ button:active {
 #buttonText {
     color: #1f5fbf;
     font-weight: bold;
-    font-size: 35px;}
+    font-size: 35px;
+}
+
+#oneGif {
+    position: absolute;
+    z-index: 1000;
+    left: 10px;
+    top: 780px;
+    width: 6vh;
+    height: 10vh;
+}

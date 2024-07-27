@@ -20,6 +20,9 @@ nunjucks.configure('views',{
     watch : true
 })
 
+// 파비콘 에러 무시
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 // ===================================== 세션 미들웨어 세팅 부분 =====================================
 app.use(session({
     httpOnly : true,            // http 요청으로 온것만 처리
