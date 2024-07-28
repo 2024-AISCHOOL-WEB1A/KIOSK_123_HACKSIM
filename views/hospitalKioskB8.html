@@ -9,23 +9,26 @@
 </head>
 
 <body>
-    <audio src="/voice/hpPay.mp3" autoplay></audio>
-    <div class="hospital-container">
+    <audio src="/voice/hpPay.mp3" id="hpPay" autoplay></audio>
+    <audio src="/voice/cardPay.mp3" id="cardPay"></audio>
+    <div class="hospitalContainer">
+        <img src="/123GIF/1.gif" alt="1gif" id="oneGif">
+
         <header>
-            <div class="head-button">
+            <div class="headButton">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
-                <img src="/hospitalImg/learn_rebg.png" alt="" class="room-icon">
+                <img src="/hospitalImg/learn_rebg.png" alt="" class="roomIcon">
                 <h2>결제 정보를 확인해주세요</h2>
 
                 <!-- 테이블 추가 -->
-                <table class="info-table">
+                <table class="infoTable">
                     <thead>
                         <tr>
                             <th>항목</th>
@@ -62,7 +65,7 @@
                 </div>
 
                 <!-- 버튼 추가 -->
-                <button class="acceptance_btn" onclick="showModal()"><img src="/hospitalImg/cardimg.png">
+                <button class="acceptanceBtn" onclick="showModal()"><img src="/hospitalImg/cardimg.png">
                     결제하기
                 </button>
             </div>
@@ -79,7 +82,8 @@
 
     <!-- 모달 추가 -->
     <div id="paymentModal" class="modal">
-        <div class="modal-content">
+        <div class="modalContent">
+            <img src="/123GIF/1.gif" alt="1gif" id="oneGifSec">
             <span class="close" onclick="closeModal()">&times;</span>
             <h1 class="modalh1">카드결제</h1>
             <p class="modalp">카드를 넣어주세요. 결제가</p>
@@ -98,11 +102,22 @@
         // const cardInModal = document.getElementById('cardInModal')
         // cardInModal.style.display = 'none'
 
+
+        const hpPay = document.getElementById('hpPay')
+        const cardPay = document.getElementById('cardPay')
+        const oneGif = document.getElementById('oneGif')
+        const oneGifSec = document.getElementById('oneGifSec')
+        oneGifSec.style.display = 'none';
+        cardPay.pause();
         function showModal() {
             document.getElementById('paymentModal').style.display = 'block';
             document.getElementById('captionModal').style.display = 'none'
             // cardInModal.style.display = 'flex';
             checkCardInsert();
+            oneGif.style.display = 'none';
+            oneGifSec.style.display = 'flex';
+            hpPay.pause();
+            cardPay.play();
         }
 
         function closeModal() {

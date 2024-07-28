@@ -20,61 +20,80 @@ body, html {
     src: url('/font/JalnanGothicTTF.ttf') format('truetype');
 }
 
-.hospital-container {
+.hospitalContainer {
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* White background with transparency */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px; /* 패딩 조정 */
-    max-width: 500px; /* 최대 너비 조정 */
-    width: 50%;
-    min-height: 90vh; /* 최소 높이 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    /* Padding adjustment */
+    max-width: 90%;
+    /* Maximum width adjustment */
+    width: 600px;
+    min-height: 90vh;
+    /* Minimum height setting */
     display: flex;
     flex-direction: column;
+    /* Arrange children vertically */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경, 투명도 0.8 */
 }
 
-.head-button {
+.headButton {
     position: absolute;
     top: 10px; /* 버튼 위치 조정 */
     left: 0px; /* 버튼 위치 조정 */
 }
 
 #headLearnBt {
+    position: relative;
+    bottom: 15px;
     font-family: 'Jalnan';
     border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
+    font-size: 18px;
+    background-color: #053f79cc;
     cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
+    padding: 5px 10px;
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #headLearnBtRight {
     position: relative;
-    left: 272px;
+    left: 191px;
+    bottom: 15px;
     font-family: 'Jalnan';
     border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
+    font-size: 18px;
+    /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc;
+    /* 군청색 배경 */
     cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
+    padding: 5px 10px;
+    /* 버튼 패딩 조정 */
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 230px;
 }
 
 #headImgBtn {
+    position: relative;
+    top: 8px;
     cursor: pointer;
-    margin-top: 20px;
     background-color: transparent;
     border: none;
+    padding: 0px;
 }
 
 #headImg {
     width: 40px;
     height: 40px;
+}
+
+.headButton {
+    position: absolute;
+    top: 10px;
+    left: 0px;
 }
 
 h1 {
@@ -84,7 +103,7 @@ h1 {
 h2 {
     margin: 0;
     padding: 0;
-    font-size: 28px; /* 폰트 크기 조정 */
+    font-size: 34px; /* 폰트 크기 조정 */
     margin-top: 100px;
     margin-bottom: 20px; /* 줄과 아래 요소 간의 간격 조정 */
     width: 100%; /* 전체 너비 차지 */
@@ -105,8 +124,8 @@ h2 {
     background-color: #5b98ce2c;
     border-radius: 8px;
     padding: 20px;
-    width: 100%; /* 버튼 너비 조정 */
-    max-width: 460px; /* 최대 너비 설정 */
+    width: 93%; /* 버튼 너비 조정 */
+    max-width: 665px; /* 최대 너비 설정 */
     height: 665px; /* 높이를 자동으로 조정 */
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -117,22 +136,11 @@ h2 {
     overflow: hidden;
 }
 
-.button-container {
+.buttonContainer {
     display: flex;
     justify-content: center; /* 버튼을 수평으로 가운데 정렬 */
     gap: 20px; /* 버튼 사이 간격 */
     width: 100%; /* 부모 요소의 전체 너비 사용 */
-}
-
-#head_learn_bt {
-    font-family: 'Jalnan';
-    border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
-    background-color: #053f79cc; /* 군청색 배경 */
-    cursor: pointer;
-    padding: 5px 10px; /* 버튼 패딩 조정 */
-    color: white;
-    transition: background-color 0.3s ease, transform 0.5s ease;
 }
 
 button:active {
@@ -150,7 +158,7 @@ button:active {
     text-align: center; /* 중앙 정렬 */
 }
 
-.yon-btn {
+.yonBtn {
     font-family: 'Jalnan';
     background-color: #E9F2F2; /* 버튼 배경색 */
     color: rgb(24, 2, 2); /* 버튼 텍스트 색상 */
@@ -173,19 +181,19 @@ button:active {
     margin-top: 240px;
 }
 
-.no-btn {
+.noBtn {
     background-color: #E9F2F2; /* 버튼 배경색 */
     color: rgb(24, 2, 2); /* 버튼 텍스트 색상 */
     border: 0.5px solid #0f21c0c9; /* 버튼 테두리 */
 }
 
-.yes-btn {
+.yesBtn {
     background-color: #0f21c0c9; /* 버튼 배경색 */
     color: white; /* 버튼 텍스트 색상 */
     border: 0.5px solid #E9F2F2; /* 버튼 테두리 */
 }
 
-.insurance-btn {
+.insuranceBtn {
     font-family: 'Jalnan';
     background-color: #057939cc; /* 버튼 배경색 */
     color: white; /* 버튼 텍스트 색상 */
@@ -210,7 +218,7 @@ button:active {
     background-color: rgba(0, 0, 0, 0.4); /* 모달 배경색 (어두운 반투명) */
 }
 
-.modal-content {
+.modalContent {
     background-color: #fefefe;
     margin: 15% auto; /* 화면 가운데 위치 */
     padding: 20px;
@@ -268,13 +276,13 @@ button:active {
     font-size: 24px;
 }
 
-.modalb-container {
+.modalContainer {
     display: flex;
     justify-content: center; /* 버튼을 수평으로 가운데 정렬 */
     gap: 20px; /* 버튼 사이 간격 */
     width: 100%; /* 부모 요소의 전체 너비 사용 */
 }
-.modalb-btn {
+.modalBtn {
     font-family: 'Jalnan';
     background-color: #E9F2F2; /* 버튼 배경색 */
     color: rgb(24, 2, 2); /* 버튼 텍스트 색상 */
@@ -298,13 +306,13 @@ button:active {
     margin-bottom: 20px;
 }
 
-.rep-btn {
+.repBtn {
     background-color: #e9f2f200; /* 버튼 배경색 */
     color: rgb(27, 14, 168); /* 버튼 텍스트 색상 */
     border: 2px solid #0f21c0c9; /* 버튼 테두리 */
 }
 
-.fir-btn {
+.firBtn {
     background-color: #e9f2f200; /* 버튼 배경색 */
     color: rgb(5, 2, 39); /* 버튼 텍스트 색상 */
     border: 2px solid #03072ac9; /* 버튼 테두리 */
@@ -313,7 +321,7 @@ button:active {
 .captionContainer {
     font-size: 30px;
     position: absolute;
-    left: 65px;
+    left: 150px;
     display: flex;
     top: 540px;
     width: 100%;
@@ -347,4 +355,13 @@ button:active {
     color: #1f5fbf;
     font-weight: bold;
     font-size: 35px;
+}
+
+#oneGif {
+    position: absolute;
+    z-index: 1000;
+    left: 18px;
+    top: 580px;
+    width: 6vh;
+    height: 10vh;
 }

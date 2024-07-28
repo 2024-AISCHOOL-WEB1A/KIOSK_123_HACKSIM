@@ -8,17 +8,18 @@
 </head>
 <body>
     <audio src="/voice/payComplete.mp3" autoplay></audio>
-    <div class="hospital-container">
+    <div class="hospitalContainer">
         <header>
-            <div class="head-button">
+            <div class="headButton">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
+                <img src="/123GIF/1.gif" alt="1gif" id="oneGif">
                 <h2>결제 완료</h2>
                 <img src="/hospitalImg/checkgreen.png" alt="">
                 <p class="modalp1">이제 카드를 꺼내셔도 됩니다</p>
@@ -30,9 +31,9 @@
                         영수증을 출력해보세요.
                     </div>
                 </div>
-                <div class="button-container">
-                    <button class="yon-btn no-btn">아니오</button>
-                    <button class="yon-btn yes-btn" onclick="showClearModal()">예</button>
+                <div class="buttonContainer">
+                    <button class="yonBtn noBtn">아니오</button>
+                    <button class="yonBtn yesBtn" onclick="showClearModal()">예</button>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@
     
     <!-- 모달 추가 -->
     <div id="paymentModal" class="modal">
-        <div class="modal-content">
+        <div class="modalContent">
             <span class="close" onclick="closeModal()">&times;</span>
             <p class="modalp3">수고하셨습니다. 병원 키오스크</p>
             <p class="modalp3">학습하기를 완료하였습니다</p>
@@ -51,9 +52,9 @@
             <br/>
             <p class="modalp4">연습을 완전히 종료하시려면</p>
             <p class="modalp4"><span class="reHighlight">[처음으로]</span>를 클릭하세요</p>
-            <div class="modalb-container">
-                <button class="modalb-btn rep-btn" onclick="redirectKioskLearn()">다시하기</button>
-                <button class="modalb-btn fir-btn" onclick="redirectFirstPage()">처음으로</button>
+            <div class="modalContainer">
+                <button class="modalBtn repBtn" onclick="redirectKioskLearn()">다시하기</button>
+                <button class="modalBtn firBtn" onclick="redirectFirstPage()">처음으로</button>
             </div>
         </div>
         </div>
@@ -64,8 +65,10 @@
             window.location.href = 'hpKiosksoonap2.html'
         }
 
+        const oneGif = document.getElementById('oneGif')
         function showClearModal() {
             document.getElementById('paymentModal').style.display = 'block';
+            oneGif.style.display = 'none';
         }
 
         function closeModal() {
