@@ -1015,7 +1015,7 @@ i[class*=ci_] {
   background-size: contain;
 }
 i.ci_logo {
-  background-image: url(../images/logo.png);
+  background-image: url(/MacImg/macLogo.png);
   width: 89px;
   height: 78px;
 }
@@ -1025,12 +1025,12 @@ i.ci_logo_order {
   height: 67px;
 }
 i.ci_out {
-  background-image: url(../images/take_out.png);
+  background-image: url(/MacImg/macBasicToGo.png);
   width: 190px;
   height: 217px;
 }
 i.ci_in {
-  background-image: url(../images/burgerset01.png);
+  background-image: url(/BugerSetImg/맥크리스피디럭스버거세트.png);
   width: 320px;
   height: 240px;
 }
