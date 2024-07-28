@@ -144,15 +144,25 @@ router.get('/macDeepKioIndex', (req, res) => {
 
 // MacBasic 첫 화면 
 router.get('/macBasicKioMain', (req, res) => {
-    res.render('MacBasicKio/macBasicMain')
+    res.render('MacBasicKio/macBasicKiosk')
+})
+
+// MacBasic 사이드, nav 기본 틀
+router.get('/macBasicKioIndex', (req, res) => {
+    res.render('MacBasicKio/macBasicKioskIndex')
+})
+
+// MacBasic_sub 첫 화면 
+router.get('/macBasicKioMain_sub', (req, res) => {
+    res.render('MacBasicKio_sub/macBasicMain')
 })
 
 router.get('/macBasic1', (req, res) => {
-    res.render('MacBasicKio/macBasic1')
+    res.render('MacBasicKio_sub/macBasic1')
 })
 
 router.get('/macBasic2', (req, res) => {
-    res.render('MacBasicKio/macBasic2')
+    res.render('MacBasicKio_sub/macBasic2')
 })
 
 module.exports = router
