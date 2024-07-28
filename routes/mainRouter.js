@@ -13,39 +13,39 @@ router.get('/', (req, res) =>{
     }
 })
 router.get('/hospitalB9', (req, res)=>{
-    res.render('hospitalKioskB9')
+    res.render('HosBasicKio/hospitalKioskB9')
 })
 
 router.get('/hospitalB8', (req, res)=>{
-    res.render('hospitalKioskB8')
+    res.render('HosBasicKio/hospitalKioskB8')
 })
 
 router.get('/hospitalB7', (req, res)=>{
-    res.render('hospitalKioskB7')
+    res.render('HosBasicKio/hospitalKioskB7')
 })
 
 router.get('/hospitalB6', (req, res)=>{
-    res.render('hospitalKioskB6')
+    res.render('HosBasicKio/hospitalKioskB6')
 })
 
 router.get('/hospitalB5', (req, res)=>{
-    res.render('hospitalKioskB5')
+    res.render('HosBasicKio/hospitalKioskB5')
 })
 
 router.get('/hospitalB4', (req, res)=>{
-    res.render('hospitalKioskB4')
+    res.render('HosBasicKio/hospitalKioskB4')
 })
 
 router.get('/hospitalB3', (req, res)=>{
-    res.render('hospitalKioskB3')
+    res.render('HosBasicKio/hospitalKioskB3')
 })
 
 router.get('/hospitalB2', (req, res)=>{
-    res.render('hospitalKioskB2')
+    res.render('HosBasicKio/hospitalKioskB2')
 })
 
 router.get('/hospitalB1', (req, res)=>{
-    res.render('hospitalKioskB1')
+    res.render('HosBasicKio/hospitalKioskB1')
 })
 
 router.get('/hospital', (req, res)=>{
