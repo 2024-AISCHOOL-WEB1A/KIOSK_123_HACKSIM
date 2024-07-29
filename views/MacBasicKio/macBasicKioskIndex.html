@@ -138,20 +138,16 @@
 
     <!-- 실습 종료 모달 -->
     <div id="endModal" class="setContent">
-        <div id="endConDiv">
-            <h1 id="endTitle">실습을 모두 진행하셨습니다!
-                <br>
-                당신도 이제 키오스크 마스터
-            </h1>
-        </div>
-        <button class="cancleBtn" id="goMainBtn">메인화면으로 돌아가기</button>
     </div>
 
     <!-- 1. 미션 안내모달 -->
     <div id="selectSetInfo" class="missionModal">
         <div class="missionModalContent">
             <img src="/123GIF/2.gif" alt="Animated GIF">
-            <div class="pContainer"><p>버거는 <strong>1955버거</strong>를 선택해주시고,<br>사이드는 <strong>후렌치 후라이</strong>를 선택,<br>음료는 <strong>코카콜라</strong>를 선택하시고<br><strong>주문하기 </strong>버튼을 눌러주세요.<br></p></div>
+            <div class="pContainer"><p>버거는 <strong>1955버거</strong>를 선택해주시고,<br>
+                사이드는 <strong>후렌치 후라이</strong>를 선택,<br>
+                음료는 <strong>코카콜라</strong>를 선택하시고<br>
+                <strong>주문하기 </strong>버튼을 눌러주세요.<br></p></div>
             <button id="selectSetInfoBtn">확인</button>
         </div>
     </div>
@@ -209,8 +205,22 @@
             <button id="selectEndModalBtn">확인</button>
         </div>
     </div>
+
+    <!-- 9. 실습 종료 안내모달 -->
+    <div id="selectorderNumModal" class="missionModal">
+        <div class="missionModalContent">
+            <img src="/123GIF/2.gif" alt="Animated GIF">
+            <div class="pContainer">
+                <p>주문번호는 <span id="orderNumber">0</span>번 입니다.</p>
+                <p>주문번호를 확인하시고 음식을 가져가주세요.</p>
+            </div>
+            <button id="selectorderNumModalBtn">실습 종료</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </div>
 
+<audio id="audioMission" src="/voice/macBasic2_mission.mp3"></audio>
 <audio id="audioIntro" src="/voice/macBasic2_selBuger.mp3"></audio>
 <audio id="audioBurger" src="/voice/macBasic2_sel1955.mp3"></audio>
 <audio id="audioSetSel" src="/voice/macBasic2_selSet.mp3"></audio>

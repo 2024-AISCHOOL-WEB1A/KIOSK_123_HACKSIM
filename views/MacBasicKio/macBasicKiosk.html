@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="MacDeepKio/macKiosk.css">
+    <link rel="stylesheet" href="MacBasicKio/macBasicIndex.css">
 </head>
 
 <body>
@@ -18,18 +19,14 @@
                 <span>포인트를 적립하세요</span>
             </div>
             <div id="macStartDiv" class="macBodyDiv">
-                <button id="macStartBtn">주문하기</button>
+                <button id="macStartBtn" class="blinkingBorder">주문하기</button>
                 <div id="macSubBtn">
                     <button>언어설정</button>&nbsp&nbsp
                     <button>도움기능</button>
                 </div>
             </div>
-            <div>
-                <textarea id="script1" style="display:none;">주문하기 버튼을 눌러주세요</textarea>
-            </div>
         </div>
     </div>
-
     <div id="macStartModal" class="macStartModal">
         <div class="macModalContent">
             <h1>식사 장소를<br> 선택해 주세요</h1>
@@ -39,6 +36,25 @@
             </div>
         </div>
     </div>
+
+    <div id="selectOrdering" class="missionModal">
+        <div class="missionModalContent">
+            <img src="/123GIF/2.gif" alt="Animated GIF">
+            <div class="pContainer"><p>주문하기 버튼을 눌러주세요.</p></div>
+            <button id="selectOrderingBtn">확인</button>
+        </div>
+    </div>
+
+    <div id="selectPlace" class="missionModal">
+        <div class="missionModalContent">
+            <img src="/123GIF/2.gif" alt="Animated GIF">
+            <div class="pContainer"><p>매장 선택</p></div>
+            <button id="selectPlaceBtn">확인</button>
+        </div>
+    </div>
+
+    <audio id="audioStart" src="/voice/macBasic2_selstart.mp3"></audio>
+    <audio id="audioPlace" src="/voice/macBasic2_selPlace.mp3"></audio>
 
     <script src="/macBasicKiosk.js"></script>
 </body>
