@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    max-width: 1080px;
+    max-width: 80vw;
     width: 100vmin; /* 100vh * (9/16) */
     margin: 0 auto;
     padding: 20px;
@@ -101,7 +101,6 @@ body {
 
 .img img {
     width: 500px !important; /* 강제로 500px 적용 */
-    height: auto !important; 
 }
 
 
