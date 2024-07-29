@@ -17,11 +17,11 @@ buttons.forEach(button => {
         }, 300); // 300ms는 CSS 트랜지션 시간과 일치해야 합니다.
     });
 });
-startStdBtn.addEventListener('click', ()=>{
+startStdBtn.addEventListener('click', () => {
     location.href = '/study'
 })
 
-startGameBtn.addEventListener('click', ()=> {
+startGameBtn.addEventListener('click', () => {
     location.href = '/game'
 })
 
@@ -29,11 +29,11 @@ startLoginBtn.addEventListener('click', () => {
     location.href = '/login'
 })
 
-startHelpBtn.addEventListener('click', () =>{
+startHelpBtn.addEventListener('click', () => {
     location.href = '/help'
 })
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('translateButton').addEventListener('click', toggleTranslation);
 
     let isKorean = true;
@@ -105,40 +105,41 @@ document.addEventListener('DOMContentLoaded', function() {
             return { translatedText: text }; // 실패 시 원본 텍스트 반환
         }
     }
+})
     //맥 키오스크 모달 번역코드
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('translateButton').addEventListener('click', toggleTranslation);
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('translateButton').addEventListener('click', toggleTranslation);
 
-        let isKorean = true;
-        const koreanText = `버거는 <strong>1955버거</strong>를 선택해주시고,<br>
+    let isKorean = true;
+    const koreanText = `버거는 <strong>1955버거</strong>를 선택해주시고,<br>
                             사이드는 <strong>후렌치 후라이</strong>를 선택,<br>
                             음료는 <strong>코카콜라</strong>를 선택하시고<br>
                             <strong>주문하기</strong> 버튼을 눌러주세요.<br>`;
-        let englishText = '';
+    let englishText = '';
 
-        async function toggleTranslation() {
-            if (isKorean) {
-                await translateToEnglish(koreanText);
-            } else {
-                document.querySelector('#selectSetInfo .pContainer p').innerHTML = koreanText;
-                document.getElementById('translateButton').innerText = 'Translate to English';
-                isKorean = true;
-            }
+    async function toggleTranslation() {
+        if (isKorean) {
+            await translateToEnglish(koreanText);
+        } else {
+            document.querySelector('#selectSetInfo .pContainer p').innerHTML = koreanText;
+            document.getElementById('translateButton').innerText = 'Translate to English';
+            isKorean = true;
+        }
+    }
+
+    async function translateToEnglish(text) {
+        try {
+            const response = await axios.post('http://localhost:3000/translate', {
+                text: text.replace(/<[^>]*>/g, ''), // HTML 태그 제거
+                targetLanguage: 'en'
+            });
+            englishText = response.data.translatedText;
+            document.querySelector('#selectSetInfo .pContainer p').innerHTML = englishText;
+            document.getElementById('translateButton').innerText = '한국어로 번역';
+            isKorean = false;
+        } catch (error) {
+            console.error('Error:', error);
         }
 
-        async function translateToEnglish(text) {
-            try {
-                const response = await axios.post('http://localhost:3000/translate', {
-                    text: text.replace(/<[^>]*>/g, ''), // HTML 태그 제거
-                    targetLanguage: 'en'
-                });
-                englishText = response.data.translatedText;
-                document.querySelector('#selectSetInfo .pContainer p').innerHTML = englishText;
-                document.getElementById('translateButton').innerText = '한국어로 번역';
-                isKorean = false;
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-    })
-});
+    }
+})
