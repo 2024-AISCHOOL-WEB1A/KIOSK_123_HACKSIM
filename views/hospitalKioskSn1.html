@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수납하기 1</title>
     <link rel="stylesheet" href="/HosDeepKio/hpKiosksoonap1.css">
 </head>
+
 <body>
     <div class="hospital-container">
         <header>
             <div class="head-button">
                 <button onclick="redirectToHospitalKiosk3()" id="head_learn_bt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -86,7 +89,7 @@
                 if (value.length > 3) value = value.slice(0, 3) + '-' + value.slice(3);
                 if (value.length > 8) value = value.slice(0, 8) + '-' + value.slice(8);
                 inputField.value = value.slice(0, 13); // 최대 길이 제한
-        } else {
+            } else {
                 // 주민등록번호 포맷
                 let maskedValue = value;
                 if (value.length > 6) maskedValue = value.slice(0, 6) + '-' + '*'.repeat(value.length - 6);
@@ -130,6 +133,12 @@
         function goTohpKiosksoonap2() {
             window.location.href = 'hospitalKioskSn2.html'
         }
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', () => {
+            location.href = '/hospital'
+        })
     </script>
 </body>
+
 </html>

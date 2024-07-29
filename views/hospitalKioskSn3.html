@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수납하기 3</title>
     <link rel="stylesheet" href="/HosDeepKio/hpKiosksoonap3.css">
 </head>
+
 <body>
     <div class="hospital-container">
         <header>
             <div class="head-button">
                 <button onclick="redirectTohpKiosksoonap2()" id="head_learn_bt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -29,7 +32,7 @@
         <footer>
         </footer>
     </div>
-    
+
     <!-- 모달 추가 -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
@@ -38,7 +41,7 @@
             <p class="modalp3">학습하기를 완료하였습니다</p>
             <p class="modalp3">다시 한 번 학습하시려면</p>
             <p class="modalp3"><span class="reHighlight">[다시하기]</span>를 클릭하세요</p>
-            <br/>
+            <br />
             <p class="modalp4">연습을 완전히 종료하시려면</p>
             <p class="modalp4"><span class="reHighlight">[처음으로]</span>를 클릭하세요</p>
             <div class="modalb-container">
@@ -46,7 +49,7 @@
                 <button class="modalb-btn fir-btn" onclick="redirectFirstPage()">처음으로</button>
             </div>
         </div>
-        </div>
+    </div>
     </div>
 
     <script>
@@ -62,7 +65,7 @@
             document.getElementById('paymentModal').style.display = 'none';
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == document.getElementById('paymentModal')) {
                 closeModal();
             }
@@ -75,6 +78,12 @@
         function redirectFirstPage() {
             window.location.href = 'hospitalKiosk.html'
         }
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', () => {
+            location.href = '/hospital'
+        })
     </script>
 </body>
+
 </html>

@@ -84,6 +84,20 @@
     position: fixed;
 }
 
+#selectOrdering{
+    top: 0;
+    left: 0;
+    display: flex;
+    position: fixed;
+}
+
+#selectPlace{
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+}
+
 .missionModalContent{
     position: relative;
     width: 50vw;
