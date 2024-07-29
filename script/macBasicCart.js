@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () =>{
                     sideMenuItem.appendChild(name);
                     
                     selectSide.appendChild(sideMenuItem);
-                    console.log(sideMenuItem);
                 });
 
                 orderModal.style.display = 'none';
