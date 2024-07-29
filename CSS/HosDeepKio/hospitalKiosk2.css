@@ -45,6 +45,23 @@ body, html {
     left: 0px;
 }
 
+#headLearnBtRight {
+    position: relative;
+    left: 191px;
+    font-family: 'Jalnan';
+    border-radius: 5%;
+    font-size: 18px;
+    /* 버튼 폰트 크기 조정 */
+    background-color: #053f79cc;
+    /* 군청색 배경 */
+    cursor: pointer;
+    padding: 5px 10px;
+    /* 버튼 패딩 조정 */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 230px;
+}
+
 header h1 {
     font-size: 36px; /* 타이틀 폰트 크기 조정 */
     margin: 20px 0 30px 0;
