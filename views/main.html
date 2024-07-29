@@ -80,25 +80,31 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        axios.get('/user/session-status')
-            .then(response => {
-                if (response.data.loggedIn) {
-                    document.getElementById('loginTitle').innerHTML = '마이페이지';
-                    document.getElementById('loginTitle').classList.add('my-page-title');
-                    const startLoginBtn = document.getElementById('startLoginBtn');
-                    startLoginBtn.innerText = '시작하기';
-                    startLoginBtn.classList.add('my-page-button');
-                    startLoginBtn.addEventListener('click', function () {
-                        location.href = '/myPage';
-                    });
+    axios.get('/user/session-status')
+        .then(response => {
+            if (response.data.loggedIn) {
+                // 로그인된 상태일 때 처리
+                document.getElementById('loginTitle').innerHTML = '마이페이지';
+                document.getElementById('loginTitle').classList.add('my-page-title');
+                const startLoginBtn = document.getElementById('startLoginBtn');
+                startLoginBtn.innerText = '시작하기';
+                startLoginBtn.classList.add('my-page-button');
+                startLoginBtn.addEventListener('click', function () {
+                    location.href = '/myPage';
+                });
 
-                    // Check user progress and show modal if needed
-                    axios.get('/learningNote/get-user-notes')
-                        .then(progressResponse => {
-                            if (progressResponse.data.success && progressResponse.data.data.length > 0) {
-                                // Show modal
+                // 학습 진도 확인
+                axios.get('/learningNote/get-user-notes')
+                    .then(progressResponse => {
+                        if (progressResponse.data.success && progressResponse.data.data.length > 0) {
+                            const modalShown = localStorage.getItem('modalShown');
+
+                            if (!modalShown) { // 모달이 아직 표시되지 않았다면
                                 const modal = document.getElementById('learning-note-modal');
                                 modal.style.display = 'flex'; // 모달을 보이게 설정
+
+                                // modalShown 값을 생성
+                                localStorage.setItem('modalShown', 'true');
 
                                 document.getElementById('view-learning-note').addEventListener('click', () => {
                                     location.href = '/learningNote';
@@ -108,22 +114,25 @@
                                     modal.style.display = 'none';
                                 });
                             }
-                        })
-                        .catch(error => {
-                            console.error('학습 진도 확인 중 오류 발생:', error);
-                        });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('학습 진도 확인 중 오류 발생:', error);
+                    });
 
-                    } else {
-                        const startLoginBtn = document.getElementById('startLoginBtn');
-                        startLoginBtn.addEventListener('click', function () {
-                            location.href = '/login';
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('세션 상태 확인 중 오류 발생:', error);
+            } else {
+                // 로그인되지 않은 상태일 때 처리
+                const startLoginBtn = document.getElementById('startLoginBtn');
+                startLoginBtn.addEventListener('click', function () {
+                    location.href = '/login';
                 });
+            }
+        })
+        .catch(error => {
+            console.error('세션 상태 확인 중 오류 발생:', error);
         });
+});
+
 
     </script>
 </body>
