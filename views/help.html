@@ -12,7 +12,7 @@
     <div class="container">
         <div class="top-menu">
             <div class="left">
-                <button onclick="location.href='#home'" class="buttonhome">홈으로</button>
+                <button id="buttonhome">홈으로</button>
             </div>
         </div>
 
@@ -39,11 +39,16 @@
                 <img src="pic/help/kiosk_education.png" alt="kiosk_education" class="icon">
                 <h2>화면사용방법</h2>
             </div>
+            <div class="img">
+                <div class="img text">
+                    <p>1. 화면을 터치해주세요.</p>
+                </div>
+                <img src="pic/help/화면사용방법.gif" alt="화면사용방법" class="화면사용방법">
+
             <div id="signup" class="section">
                 <img src="pic/help/user.png" alt="user" class="icon">
                 <h2>회원가입</h2>
             </div>
-
             <div class="img">
                 <div class="img text">
                     <p>1. 회원가입/로그인을 눌러주세요</p>
@@ -60,69 +65,93 @@
             </div>
 
             <div id="login" class="section">
-                <img src="pic/help/login.png" alt="login" class="icon">
+                <img src="pic/help/로그인0_0.gif" alt="login" class="icon">
                 <h2>로그인</h2>
-                <!-- <img src="pic/help/login.png" alt="로그인"> -->
+                <div class="img">
+                    <div class="img text">
+                        <p>1. 회원가입/로그인을 눌러주세요</p>
+                    </div>
+                    <img src="pic/help/로그인_0.gif" alt="로그인" class="로그인">
+                    <div class="img text">
+                        <p>2. 각 박스에 글씨는 채워주세요</p>
+                    </div>
+                    <img src="pic/help/로그인_1.gif" alt="로그인1" class="로그인">
+                    <div class="img text">
+                        <p>3. 하단에 로그인 버튼을 눌러주세요</p>
+                    </div>
+                    <img src="pic/help/help3.gif" alt="로그인2" class="로그인">
+                </div>
             </div>
 
             <div id="bookmark" class="section">
                 <img src="pic/help/kiosk_education.png" alt="kiosk_education" class="icon">
                 <h2>학습진도저장</h2>
-                <!-- <img src="pic/help/bookmark.png" alt="학습진도저장"> -->
             </div>
 
             <div id="kiosk" class="section">
                 <img src="pic/help/learning.png" alt="learning" class="icon">
                 <h2>키오스크체험</h2>
 
-                <div class="img text"> 
+                <div class="img text">
                     <p>1. 버튼을 눌러주세요</p>
                 </div>
                 <div class="img">
                     <img src="pic/help/01_메인실습.gif" alt="키오스크체험" class="키오스크체험">
 
-                <div class="img text">
-                    <p>2. 실습은 기초와 심화가 있습니다.</p>
-                </div>    
+                    <div class="img text">
+                        <p>2. 실습은 기초와 심화가 있습니다.</p>
+                    </div>
                     <img src="pic/help/02_실습기초.gif" alt="키오스크체험" class="키오스크체험">
                 </div>
-                
+
                 <div class="img text">
                     <p>3. 예시는 기초로 진행하였고 병원으로 진행하였습니다.</p>
-                 
+
                     <img src="pic/help/03_실습병원.gif" alt="키오스크체험" class="키오스크체험">
                 </div>
                 <div class="img text">
                     <p>4. 노랑색으로 바뀌는 버튼으로 클릭을 해봅니다.</p>
-                   
+
                     <img src="pic/help/04_1병원연습_노랑버튼o.gif" alt="키오스크체험" class="img text">
                 </div>
                 <div class="img text">
                     <p> 5.노랑 버튼 외에 다른버튼을 누르면 눌리지 않습니다!</p>
-          
+
                     <img src="pic/help/04_2병원연습_노랑버튼x.gif" alt="키오스크체험" class="키오스크체험">
                 </div>
             </div>
-            
-            </div>
-            
-            <div id="game" class="section">
-                <img src="pic/help/game.png" alt="game" class="icon">
-                <h2>낱말게임</h2>
 
-                <div class="img text"> 
-                    <p>1. 버튼을 눌러주세요</p>
-                </div>
-                <div class="img">
-                    <img src="pic/help/help2-2.gif" alt="낱말게임" class="낱말게임">
+        </div>
+
+        <div id="game" class="section">
+            <img src="pic/help/game.png" alt="game" class="icon">
+            <h2>낱말게임</h2>
+
+            <div class="img text">
+                <p>1. 버튼을 눌러주세요</p>
+            </div>
+            <div class="img">
+                <img src="pic/help/help2-2.gif" alt="낱말게임" class="낱말게임">
 
                 <div class="img text">
                     <p>2. 음식 이름과 음식사진을 터치해서 선을 그어 연결해주세요</p>
-                </div>    
-                    <img src="pic/help/help2-1.gif" alt="낱말게임" class="낱말게임">
                 </div>
+                <img src="pic/help/help2-1.gif" alt="낱말게임1" class="낱말게임">
+            </div>
 
+            <div class="img text">
+                <p>3. 학습이 완료되면 학습한 내용들을 확인할 수 있습니다.</p>
+            </div>
+            <img src="pic/help/help2-3.gif" alt="낱말게임2" class="낱말게임">
         </div>
+        </div>
+
+        <script>
+            document.getElementById('buttonhome').addEventListener('click', () => {
+                location.href = '/';
+            });
+
+        </script>
 </body>
 
 </html>
