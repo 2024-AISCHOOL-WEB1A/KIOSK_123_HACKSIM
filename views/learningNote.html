@@ -49,26 +49,36 @@
     </div>
 
     <script>
-        function fetchAndUpdateNotes() {
-            fetch('/learningNote/get-new-notes', {
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/learningNote/get-user-notes', {
                 method: 'GET',
                 credentials: 'include'
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    const grid = document.querySelectorAll('.grid')[0]; // 병원 학습 grid
-                    const items = grid.querySelectorAll('.grid-item');
+                    const gridHItems = document.querySelectorAll('.gridH-item');
                     const notes = data.data;
 
-                    // Clear all grid items
-                    items.forEach(item => item.innerHTML = '');
+                    // 페이지 이름을 URL로 매핑하는 함수
+                    const getPageUrl = (pageName) => {
+                        const pageMapping = {
+                            '접수하기(기초) 1': 'hospitalB1',
+                            // 다른 페이지 이름과 URL 매핑 추가
+                        };
+                        return pageMapping[pageName] || '#'; // 기본값은 '#'
+                    };
 
-                    // Add new notes to grid items
+                    // Clear all gridH items
+                    gridHItems.forEach(item => item.innerHTML = '');
+
+                    // Add new notes to gridH items
                     notes.forEach((note, index) => {
-                        if (index < items.length) {
-                            const a = items[index];
-                            a.innerHTML = `${note.INFO_PAGENUM}<br>(${note.NOTE_DATE})`;
+                        if (index < gridHItems.length) {
+                            const a = gridHItems[index];
+                            const pageUrl = getPageUrl(note.INFO_PAGENAME);
+                            a.innerHTML = `${note.INFO_PAGENAME}<br>(${new Date(note.NOTE_DATE).toLocaleDateString()})`;
+                            a.href = pageUrl; // 페이지 링크 추가
                         }
                     });
                 } else {
@@ -76,13 +86,7 @@
                 }
             })
             .catch(error => console.error('Error:', error));
-        }
-
-        // Fetch and update notes every 10 seconds
-        setInterval(fetchAndUpdateNotes, 10000);
-
-        // Initial fetch
-        fetchAndUpdateNotes();
+        });
     </script>
 </body>
 </html>

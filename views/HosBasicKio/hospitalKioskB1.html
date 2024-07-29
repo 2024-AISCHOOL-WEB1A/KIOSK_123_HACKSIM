@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>디지털배움터</title>
+    <title>접수하기(기초) 1</title>
     <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB1.css">
 </head>
 <body>
@@ -57,6 +57,7 @@
             location.href='/hospital'
         })
             const infoPageNum = 1;
+            const infoPageName = '접수하기(기초) 1';
             document.getElementById('headImgBtn').addEventListener('click', () => {
                 fetch('/kiosk/save-page-info', { // 수정된 경로
                     method: 'POST',
@@ -64,7 +65,7 @@
                         'Content-Type': 'application/json'
                     },
                     credentials: 'include', // 세션 쿠키를 서버에 포함
-                    body: JSON.stringify({ infoPageNum: infoPageNum }) // 페이지 번호 포함하여 전송
+                    body: JSON.stringify({ infoPageNum: infoPageNum, infoPageName:infoPageName }) // 페이지 번호, 제목 포함해 전송
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -76,6 +77,7 @@
                 })
                 .catch(error => console.error('Error:', error));
             });
+
     </script>
 </body>
 </html>
