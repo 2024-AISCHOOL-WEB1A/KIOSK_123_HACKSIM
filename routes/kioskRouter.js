@@ -4,11 +4,12 @@ const conn = require('../config/db');
 
 // 페이지 정보 저장 라우트
 router.post('/save-page-info', (req, res) => {
+    const infoPageNum = req.body.infoPageNum; // 클라이언트로부터 전달받은 infoPageNum
+
     if (req.session.nick) {
         const userNick = req.session.nick;
         const catIdx = 1; // 예시값
         const noteDate = new Date();
-        const infoPageNum = 1; // 예시값
 
         const query = `
             INSERT INTO KIOSK_NOTE_TB (USER_NICK, CAT_IDX, NOTE_DATE, INFO_PAGENUM)
