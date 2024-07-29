@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>디지털배움터</title>
+    <title>수납하기(기초) 1</title>
     <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB6.css">
 </head>
 <body>
@@ -56,6 +56,28 @@
         headLearnBtRight.addEventListener('click', ()=>{
             location.href='/hospital'
         })
+        const infoPageNum = 6;
+            const infoPageName = '수납하기(기초) 1';
+            document.getElementById('headImgBtn').addEventListener('click', () => {
+                fetch('/kiosk/save-page-info', { // 수정된 경로
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include', // 세션 쿠키를 서버에 포함
+                    body: JSON.stringify({ infoPageNum: infoPageNum, infoPageName:infoPageName }) // 페이지 번호, 제목 포함해 전송
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('페이지 정보가 저장되었습니다.');
+                    } else {
+                        alert(data.message); // 로그인하지 않은 경우의 메시지
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+
     </script>
 </body>
 </html>

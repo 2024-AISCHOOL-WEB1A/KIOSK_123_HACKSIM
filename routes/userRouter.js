@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const conn = require('../config/db')
+const express = require('express');
+const router = express.Router();
+const conn = require('../config/db');
 
 // 별명 중복 확인 라우트
 router.post('/checkNick', (req, res) => {
@@ -32,7 +32,7 @@ router.post('/join', (req, res) => {
 
     if (!nick || !pw) {
         return res.send("<script>alert('별명과 비밀번호를 입력해주세요'); window.history.back();</script>");
-    }else if(pw !== pwck) {
+    } else if (pw !== pwck) {
         return res.send("<script>alert('비밀번호가 일치하지 않습니다.'); window.history.back();</script>");
     }
 
@@ -81,7 +81,12 @@ router.post('/login', (req, res) => {
         console.log('rows', rows);
         if (rows.length > 0) {
             req.session.nick = nick;
-            res.json(rows)
+            // Check if learning note has been seen
+            if (!req.session.learningNoteSeen) {
+                res.json({ rows, showLearningNoteModal: true });
+            } else {
+                res.json({ rows, showLearningNoteModal: false });
+            }
         } else {
             res.send('<script>alert("아이디 혹은 비밀번호를 잘못 입력하셨습니다."); window.history.back();</script>');
         }
@@ -105,7 +110,7 @@ router.get('/logout-confirm', (req, res) => {
 router.get('/logout', (req, res) => {
     console.log('로그아웃')
     req.session.destroy()
-    res.send('<script>window.location.href="/";</script>');
+    res.send('<script>localStorage.removeItem("modalShown"); window.location.href="/";</script>');
 })
 
 // 회원정보 수정
@@ -194,6 +199,12 @@ router.get('/session-status', (req, res) => {
     }
 });
 
+// 모달창 상태 저장 라우트
+router.post('/mark-learning-note-seen', (req, res) => {
+    if (req.session) {
+        req.session.learningNoteSeen = true;
+    }
+    res.sendStatus(200);
+});
 
-
-module.exports = router
+module.exports = router;
