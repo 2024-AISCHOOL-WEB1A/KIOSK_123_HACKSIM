@@ -25,13 +25,17 @@ router.post('/checkNick', (req, res) => {
 
 // 회원가입
 router.post('/join', (req, res) => {
+    console.log('asdfasdf');
     console.log('join 실행', req.body);
 
-    let { nick, pw, btd, gen } = req.body;
+    let { nick, pw, pwck, btd, gen } = req.body;
 
     if (!nick || !pw) {
         return res.send("<script>alert('별명과 비밀번호를 입력해주세요'); window.history.back();</script>");
+    }else if(pw !== pwck) {
+        return res.send("<script>alert('비밀번호가 일치하지 않습니다.'); window.history.back();</script>");
     }
+
     let checkNickSql = "SELECT * FROM KIOSK_USER_TB WHERE USER_NICK = ?";
     conn.query(checkNickSql, [nick], (err, results) => {
         if (err) {
@@ -49,7 +53,10 @@ router.post('/join', (req, res) => {
                 return res.send("<script>alert('오류가 발생했습니다. 다시 시도해주세요.'); window.history.back();</script>");
             }
             console.log('insert 완료', rows);
-            res.redirect('/');
+            res.send(`<script>
+                    alert('회원가입에 성공하셨습니다.');
+                    location.href = '/login';
+                </script>`);
         });
     });
 });
