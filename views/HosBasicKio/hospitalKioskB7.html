@@ -10,12 +10,12 @@
 
 <body>
     <audio src="/voice/hpJsReciepe.mp3" id="hpJsReciepe" autoplay></audio>
-    <audio src="/voice/snPhone.mp3" id="snPhone"></audio>
-    <div class="hospital-container">
+    <audio src="/voice/snPhone1.mp3" id="snPhone"></audio>
+    <div class="hospitalContainer">
         <header>
-            <div class="head-button">
+            <div class="headButton">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
             <h1>손주병원</h1>
@@ -23,33 +23,33 @@
         <div class="options">
             <div class="option">
                 <h2>진료 이력 조회</h2>
-                <div class="input-section">
-                    <div class="radio-group">
+                <div class="inputSection">
+                    <div class="radioGroup">
                         <label><input type="radio" name="contact" value="phone" id="phone" checked>휴대폰번호</label>
                         <label><input type="radio" name="contact" value="id" id="id">주민등록번호</label>
                     </div>
-                    <div class="input-field">
+                    <div class="inputField">
                         <input type="text" id="contactInput" readonly placeholder="010-1234-5678" />
                         <input type="hidden" id="realInput" />
                     </div>
                     <div class="keypad">
-                        <div class="key-row">
+                        <div class="keyRow">
                             <button onclick="appendValue(1)">1</button>
                             <button onclick="appendValue(2)">2</button>
                             <button onclick="appendValue(3)">3</button>
                         </div>
-                        <div class="key-row">
+                        <div class="keyRow">
                             <button onclick="appendValue(4)">4</button>
                             <button onclick="appendValue(5)">5</button>
                             <button onclick="appendValue(6)">6</button>
                         </div>
-                        <div class="key-row">
+                        <div class="keyRow">
                             <button onclick="appendValue(7)">7</button>
                             <button onclick="appendValue(8)">8</button>
                             <button onclick="appendValue(9)">9</button>
                         </div>
-                        <div class="key-row">
-                            <button class="empty-button"></button>
+                        <div class="keyRow">
+                            <button class="emptyButton"></button>
                             <button onclick="appendValue(0)">0</button>
                             <button class="backspace" onclick="removeValue()">◀</button>
                         </div>
@@ -60,10 +60,11 @@
                         <input type="checkbox" name="agreement" id="agree">
                         <label for="agree">개인정보 수집 동의(필수)</label>
                     </div>
-                    <button class="submit-btn" onclick="submitForm()">입력완료</button>
+                    <button class="submitBtn" onclick="submitForm()">입력완료</button>
                 </div>
             </div>
             <div class="captionContainer" id="captionModal">
+                <img src="/123GIF/1.gif" alt="1gif" id="oneGif">
                 <div class="captionBox">
                     출력받은 접수증이 있다면<br>
                     키오스크 <span class="buttonText">[바코드 스캐너]</span> 에<br>
@@ -75,6 +76,7 @@
                 </div>
             </div>
             <div class="captionContainer" id="captionModalSec">
+                <img src="/123GIF/1.gif" alt="1gif" id="oneGifSec">
                 <div class="captionBox">
                     본 교육에서는<br>
                     <span class="buttonText">[휴대폰 번호]</span> 를 입력하여<br>
@@ -131,7 +133,7 @@
         }
 
         function checkCompletion() {
-            const submitBtn = document.querySelector('.submit-btn');
+            const submitBtn = document.querySelector('.submitBtn');
             if (currentInput === correctNumber) {
                 submitBtn.classList.add('highlight-red-border');
             } else {
@@ -165,12 +167,15 @@
             window.location.href = 'hospitalB8'
         }
 
+        const oneGifSec = document.getElementById('oneGifSec')
+        const oneGif = document.getElementById('oneGif')
         const hpJsReciepe = document.getElementById('hpJsReciepe')
         const snPhone = document.getElementById('snPhone')
         const captionModal = document.getElementById('captionModal');
         const captionModalSec = document.getElementById('captionModalSec');
         const cloBtnSec = document.getElementById('cloBtnSec');
         captionModalSec.style.display = 'none';
+        oneGifSec.style.display = 'none';
         // 다음에 띄워줄 모달 선언
         const cloBtn = document.getElementById('cloBtn');
         cloBtn.addEventListener('click', () => {
@@ -178,6 +183,8 @@
             captionModalSec.style.display = 'flex';
             snPhone.play()
             hpJsReciepe.pause()
+            oneGif.style.display = 'none';
+            oneGifSec.style.display = 'flex';
         })
 
         cloBtnSec.addEventListener('click', () => {

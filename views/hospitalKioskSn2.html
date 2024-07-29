@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수납하기 2</title>
-    <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB8.css">
+    <link rel="stylesheet" href="/HosDeepKio/hpKiosksoonap2.css">
 </head>
-
 <body>
-    <audio src="/voice/hpPay.mp3" autoplay></audio>
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
-                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+                <button onclick="redirectTohpKiosksoonap1()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -23,7 +18,7 @@
             <div class="option">
                 <img src="/hospitalImg/learn_rebg.png" alt="" class="room-icon">
                 <h2>결제 정보를 확인해주세요</h2>
-
+                
                 <!-- 테이블 추가 -->
                 <table class="info-table">
                     <thead>
@@ -46,37 +41,22 @@
                             <td>출력</td>
                         </tr>
                         <tr>
-                            <td>수납여부</td>
-                            <td><input type="checkbox" name="soopnapBox" id="spBox"></td>
+                            <td>보험제출서류</td>
+                            <td><button class="insurance-btn" onclick="selInsuDoc()">선택하기</button></td>
                         </tr>
                     </tbody>
                 </table>
-
-                <div class="captionContainer" id="captionModal">
-                    <div class="captionBox">
-                        결제 정보를 확인하신 후<br>
-                        <span class="buttonText">[수납여부]</span> 를 체크하고<br>
-                        <span class="buttonText">[결제하기]</span> 버튼을
-                        <br>눌러주세요
-                    </div>
-                </div>
-
+                
                 <!-- 버튼 추가 -->
-                <button class="acceptance_btn" onclick="showModal()"><img src="/hospitalImg/cardimg.png">
+                <button class="acceptance-btn" onclick="showModal()"><img src="/hospitalImg/cardimg.png">
                     결제하기
                 </button>
             </div>
         </div>
+        <footer>
+        </footer>
     </div>
-
-    <!-- 보류 -->
-    <!-- <div class="captionContainer" id="cardInModal">
-        <div class="captionBox">
-            <span class="buttonText">[카드 투입]</span>버튼을 눌러<br>
-            결제를 완료해보세요!
-        </div>
-    </div> -->
-
+    
     <!-- 모달 추가 -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
@@ -92,47 +72,26 @@
 
     <script>
         function redirectTohpKiosksoonap1() {
-            window.location.href = 'hpKiosksoonap1.html'
+            window.location.href = 'hospitalKioskSn1.html'
         }
-
-        // const cardInModal = document.getElementById('cardInModal')
-        // cardInModal.style.display = 'none'
 
         function showModal() {
             document.getElementById('paymentModal').style.display = 'block';
-            document.getElementById('captionModal').style.display = 'none'
-            // cardInModal.style.display = 'flex';
-            checkCardInsert();
         }
 
         function closeModal() {
             document.getElementById('paymentModal').style.display = 'none';
         }
 
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target == document.getElementById('paymentModal')) {
                 closeModal();
             }
         }
 
         function togoReceipt() {
-            window.location.href = 'hospitalB9'
+            window.location.href = 'hospitalKioskSn3.html'
         }
-
-        function checkCardInsert() {
-            const cardInsertBtn = document.querySelector('.modalCardInsert');
-            cardInsertBtn.classList.add('highlight-red-border');
-        }
-
-        const headLearnBt = document.getElementById('headLearnBt')
-        headLearnBt.addEventListener('click', ()=>{
-            location.href='/hospitalB7'
-        })
-
-        const headLearnBtRight = document.getElementById('headLearnBtRight')
-        headLearnBtRight.addEventListener('click', ()=>{
-            location.href='/hospital'})
     </script>
 </body>
-
 </html>

@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수납하기 3</title>
-    <link rel="stylesheet" href="/HosBasicKio/hospitalKioskB9.css">
+    <link rel="stylesheet" href="/HosDeepKio/hpKiosksoonap3.css">
 </head>
 <body>
-    <audio src="/voice/payComplete.mp3" autoplay></audio>
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button id="headLearnBt">◀ 이전으로</button>
-                <button id="headLearnBtRight">처음으로</button>
-                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+                <button onclick="redirectTohpKiosksoonap2()" id="head_learn_bt">◀ 이전으로</button>
             </div>
             <h1>손주병원</h1>
         </header>
@@ -23,15 +20,8 @@
                 <img src="/hospitalImg/checkgreen.png" alt="">
                 <p class="modalp1">이제 카드를 꺼내셔도 됩니다</p>
                 <p class="modalp2">영수증을 출력할까요?</p>
-                <div class="captionContainer" id="captionModal">
-                    <div class="captionBox">
-                        결제가 완료되었습니다.<br>
-                        <span class="buttonText">[예]</span> 버튼을 눌러<br>
-                        영수증을 출력해보세요.
-                    </div>
-                </div>
                 <div class="button-container">
-                    <button class="yon-btn no-btn">아니오</button>
+                    <button class="yon-btn no-btn" onclick="showClearModal()">아니오</button>
                     <button class="yon-btn yes-btn" onclick="showClearModal()">예</button>
                 </div>
             </div>
@@ -61,7 +51,7 @@
 
     <script>
         function redirectTohpKiosksoonap2() {
-            window.location.href = 'hpKiosksoonap2.html'
+            window.location.href = 'hospitalKioskSn2.html'
         }
 
         function showClearModal() {
@@ -79,11 +69,11 @@
         }
 
         function redirectKioskLearn() {
-            window.location.href = 'hospitalB1'
+            window.location.href = 'hospitalKiosk3.html'
         }
 
         function redirectFirstPage() {
-            window.location.href = 'study'
+            window.location.href = 'hospitalKiosk.html'
         }
     </script>
 </body>

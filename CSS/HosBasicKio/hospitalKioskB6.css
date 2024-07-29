@@ -41,7 +41,7 @@ body, html {
 
 .headButton {
     position: absolute;
-    top: 7px;
+    top: -5px;
     /* Button position adjustment */
     left: 0px;
 }
@@ -142,7 +142,7 @@ h3 {
     align-items: center;
 }
 
-.optionRight {
+#optionRight {
     margin-bottom: 450px;
     flex: 1;
     display: flex;

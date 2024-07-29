@@ -70,19 +70,17 @@
                         <p><br>공식홈페이지QR</p>
                         <img src="/MacImg/qrcode.png" alt="QR 코드">
                     </li>
-                    <li><a href="sub01.html" class="blinking-border">주문하기</a></li>
+                    <li><a href="/macBasic1" class="blinking-border">주문하기</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <audio id="audio" src="../mcTts/미션+1955버거+후렌치후라이+코카-콜라를+선택하겠습니다+주문하기버튼을+눌러주세요.mp3" preload="auto"></audio>
-    <button id="languageButton" onclick="toggleLanguage()">Switch to English</button>
-    <button id="fontSizeButton" onclick="toggleFontSize()">글자 확대/축소</button>
+    <audio id="audio" src="/voice/macBasicMain.mp3" preload="auto"></audio>
 
     <!-- 모달 창 -->
     <div id="modal">
         <div class="modal-content">
-            <img src="../images/2.gif" alt="Animated GIF">
+            <img src="/123GIF/2.gif" alt="Animated GIF">
             <p>미션 : <strong>1955버거, 후렌치 후라이, 코카-콜라</strong>를 선택하겠습니다.<br>주문하기 버튼을 눌러주세요.</p>
             <button onclick="closeModal()">확인</button>
         </div>
@@ -94,6 +92,14 @@
         let audio;
         let modalTimeout;
 
+        window.onload = function () {
+            audio = document.getElementById('audio');
+            playAudio(); // 페이지 로드 시 한 번만 재생
+            document.querySelector('a[href="/macBasic1"]').classList.add('blinking-border');
+            document.getElementById('modal').style.display = 'flex';
+            modalTimeout = setTimeout(closeModal, 7000); // 5초 후 모달 자동 닫힘
+        };
+
         function playAudio() {
             audio.currentTime = 0;
             audio.play();
@@ -103,14 +109,6 @@
             document.getElementById('modal').style.display = 'none';
             clearTimeout(modalTimeout);
         }
-
-        window.onload = function () {
-            audio = document.getElementById('audio');
-            playAudio(); // 페이지 로드 시 한 번만 재생
-            document.querySelector('a[href="sub01.html"]').classList.add('blinking-border');
-            document.getElementById('modal').style.display = 'flex';
-            modalTimeout = setTimeout(closeModal, 7000); // 5초 후 모달 자동 닫힘
-        };
 
         window.onbeforeunload = function () {
             clearInterval(modalTimeout); // 페이지를 떠날 때 타임아웃 정리
