@@ -10,13 +10,16 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button id="head_learn_bt">◀ 이전으로</button>
-                <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
-                <button id="head_first_bt">처음으로 ▶</button>
+                <button id="headLearnBt">◀ 이전으로</button>
+                <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
+                <button id="head_first_bt">처음으로 ▶</button> -->
             </div>
-            <h1>손주들</h1>
-            <h2>음식점 키오스크 교육</h2>
-            <h3>진행하고 싶은 체험을 아래에서 선택해주세요</h3>
+            <h1>맥도날드 <br>키오스크 실습 교육</h1>
+            
+            <div class="box">
+                <h2>난이도를 아래에서 선택해주세요</h2> <br>
+                <h3>기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
+            </div>
         </header>
         <div class="options">
             <div class="option" id="macBasicKiosk">
@@ -34,8 +37,8 @@
     </div>
     <script>
         // 이전페이지 버튼
-        const head_learn_bt = document.getElementById('head_learn_bt');
-        head_learn_bt.addEventListener('click', () => {
+        const headLearnBt = document.getElementById('headLearnBt');
+        headLearnBt.addEventListener('click', () => {
             location.href = '/study';
         });
 
@@ -47,25 +50,6 @@
         const macDeepKiosk = document.getElementById('macDeepKiosk');
         macDeepKiosk.addEventListener('click', () => {
             location.href = '/macDeepKioMain';
-        });
-
-        document.getElementById('headImgBtn').addEventListener('click', () => {
-            fetch('/kiosk/save-page-info', { // 수정된 경로
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: 'include' // 세션 쿠키를 서버에 포함
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('페이지 정보가 저장되었습니다.');
-                } else {
-                    alert(data.message); // 로그인하지 않은 경우의 메시지
-                }
-            })
-            .catch(error => console.error('Error:', error));
         });
     </script>
 </body>

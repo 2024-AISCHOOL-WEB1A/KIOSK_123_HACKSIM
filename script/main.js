@@ -105,4 +105,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return { translatedText: text }; // 실패 시 원본 텍스트 반환
         }
     }
+    //맥도날드 모달창 번역기능
+    document.getElementById('translateButton').addEventListener('click', function() {
+        const translations = {
+            selectSetInfo: "For the burger, please select the <strong>1955 Burger</strong>,<br>for the side, please select <strong>French Fries</strong>,<br>for the drink, please select <strong>Coca-Cola</strong>,<br>and press the <strong>Order</strong> button.<br>",
+            selectSetModal: "<strong>Select Set</strong> please.",
+            selectSideModal: "Please select <strong>French Fries</strong>.",
+            selectBeverageModal: "Please select <strong>Coca-Cola</strong>.",
+            selectCartModal: "Please select <strong>Add to Cart</strong>.",
+            selectpaymentModal: "Please press the <strong>Order</strong> button.",
+            selectEndModal: "Please press the <strong>Pay</strong> button."
+        };
+    
+        document.querySelectorAll('.missionModal').forEach(modal => {
+            const pContainer = modal.querySelector('.pContainer p');
+            if (pContainer) {
+                const modalId = modal.id;
+                if (translations[modalId]) {
+                    pContainer.innerHTML = translations[modalId];
+                }
+            }
+        });
+    });
+    
 });
