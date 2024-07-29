@@ -1,5 +1,9 @@
 // 장바구니?
 
+// 이전으로, 처음으로
+const headLearnBt = document.getElementById('headLearnBt')
+const headLearnBtRight = document.getElementById('headLearnBtRight')
+
 // 주문 첫번 째 모달
 const orderModal = document.getElementById('orderModal');
 const orderCancel = document.getElementById('orderCancel');
@@ -59,6 +63,17 @@ function updateCart() {
 }
 
 // 모달 관련 코드
+
+// =================================================이전으로, 처음으로===========================================================
+
+headLearnBt.addEventListener('click', ()=>{
+    location.href = '/macDeepKioMain'
+})
+
+headLearnBtRight.addEventListener('click', ()=>{
+    location.href = '/KioskMacSelect'
+})
+
 // ==================================================주문 첫번 째 모달===========================================================
 
 // 세트선택 내용 담을 배열생성

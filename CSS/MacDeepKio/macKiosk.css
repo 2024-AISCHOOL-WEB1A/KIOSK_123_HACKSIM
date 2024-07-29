@@ -6,11 +6,12 @@
 }
 
 * {
-    font-family: 'Freesentation-9Black' ,Arial, sans-serif;
+    font-family: 'Freesentation-9Black', Arial, sans-serif;
     font-weight: 900;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -24,7 +25,7 @@ html, body {
     width: 100%;
 }
 
-#macIntroHeder{
+#macIntroHeder {
     display: flex;
     max-height: 70vh;
     align-items: center;
@@ -36,18 +37,19 @@ html, body {
     width: 100%;
 }
 
-#macIntroBody{
+#macIntroBody {
     display: flex;
     width: 100%;
 }
 
-.macBodyDiv{
+.macBodyDiv {
     margin: 25px;
-    width : 100%;
-    height: 20vh; /* 페이지 높이의 60% */
+    width: 100%;
+    height: 20vh;
+    /* 페이지 높이의 60% */
 }
 
-#macPointDiv{
+#macPointDiv {
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -57,7 +59,7 @@ html, body {
     font-size: 40px;
 }
 
-#macStartBtn{
+#macStartBtn {
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -66,56 +68,68 @@ html, body {
     font-size: 40px;
 }
 
-#macSubBtn{
+#macSubBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
 }
 
-#macSubBtn button{
+#macSubBtn button {
     width: 100%;
     height: 80px;
+}
+
+#goMain {
+    margin-left: 6px;
 }
 
 /* ================================================= 모달 =================================================== */
 
 .macStartModal {
-    display: none; 
+    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgb(255, 255, 255); /* Fallback color */
+    background-color: rgb(255, 255, 255);
+    /* Fallback color */
     justify-content: center;
     align-items: center;
 }
 
-.macModalContent{
+.macModalContent {
     width: 80%;
     text-align: center;
     position: relative;
     top: -10vh;
 }
 
-.macModalContent h1{
+.macModalContent h1 {
     font-size: 5vh;
 }
 
-#macModalBtn{
+#macModalBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#macModalBtn button{
+#macModalBtn button {
     width: 45%;
     height: 30vh;
     font-size: 5vh;
     border: 2px solid #000;
-    background-color:rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
 }
 
-#macModalBtn button img{
+#macModalBtn button img {
     width: 80%;
+}
+
+.headButton {
+    position: absolute;
+    top: -5px;
+    /* Button position adjustment */
+    left: 0px;
 }
