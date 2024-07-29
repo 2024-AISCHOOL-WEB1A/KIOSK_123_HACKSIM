@@ -515,10 +515,10 @@ label {
 #oneGif {
     position: absolute;
     z-index: 1000;
-    left: 30px;
+    left: 20px;
     top: 80px;
-    width: 7vh;
-    height: 12vh;
+    width: 6vh;
+    height: 10vh;
 }
 
 #oneGifSec {
@@ -526,6 +526,6 @@ label {
     z-index: 1000;
     left: -80px;
     top: 150px;
-    width: 7vh;
-    height: 12vh;
+    width: 6vh;
+    height: 10vh;
 }
