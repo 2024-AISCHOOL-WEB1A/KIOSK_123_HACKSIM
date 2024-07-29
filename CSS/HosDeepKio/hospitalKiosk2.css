@@ -22,17 +22,21 @@ body, html {
 
 .hospital-container {
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* White background with transparency */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px; /* 패딩 조정 */
-    max-width: 500px; /* 최대 너비 조정 */
-    width: 50%;
-    min-height: 90vh; /* 최소 높이 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    /* Padding adjustment */
+    max-width: 90%;
+    /* Maximum width adjustment */
+    width: 600px;
+    min-height: 90vh;
+    /* Minimum height setting */
     display: flex;
     flex-direction: column;
+    /* Arrange children vertically */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경, 투명도 0.8 */
 }
 
 .head-button {
@@ -68,11 +72,11 @@ h3 {
     background-color: #5b98ce6e;
     border-radius: 8px;
     padding: 20px;
-    width: 400px; /* 버튼 너비 조정 */
+    width: 93%;
+    max-width: 665px;
     height: 400px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    cursor: pointer;
     transition: transform 0.3s;
     margin-top: 70px;
     overflow: hidden;
@@ -143,7 +147,7 @@ button:active {
 #learn2_bt{
     font-family: 'Jalnan';
     border-radius: 5%;
-    font-size: 18px; /* 버튼 폰트 크기 조정 */
+    font-size: 30px; /* 버튼 폰트 크기 조정 */
     background-color: #053f79cc; /* 군청색 배경 */
     cursor: pointer;
     color: white;
@@ -151,5 +155,6 @@ button:active {
     padding: 10px 20px; /* 버튼 패딩 조정 */
     transform: translateX(57%);
     position: absolute;
-    bottom: 150px;
+    bottom: 300px;
+    left: 150px;
 }

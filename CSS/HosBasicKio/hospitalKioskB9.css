@@ -360,7 +360,7 @@ button:active {
 #oneGif {
     position: absolute;
     z-index: 1000;
-    left: 18px;
+    left: 30px;
     top: 580px;
     width: 6vh;
     height: 10vh;
