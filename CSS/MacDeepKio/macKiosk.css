@@ -95,6 +95,7 @@ body {
     /* Fallback color */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .macModalContent {
@@ -118,11 +119,16 @@ body {
     width: 45%;
     height: 30vh;
     font-size: 5vh;
+<<<<<<< HEAD
     border: 2px solid #000;
     background-color: rgba(255, 255, 255, 0.1);
+=======
+>>>>>>> 384e0b3bb9b0bbfe9d5e398fe6c665d4fbea2cbf
     border-radius: 15px;
+    background-color: transparent;
 }
 
+<<<<<<< HEAD
 #macModalBtn button img {
     width: 80%;
 }
@@ -132,4 +138,8 @@ body {
     top: -5px;
     /* Button position adjustment */
     left: 0px;
+=======
+#macModalBtn button img{
+    width : 85%;
+>>>>>>> 384e0b3bb9b0bbfe9d5e398fe6c665d4fbea2cbf
 }

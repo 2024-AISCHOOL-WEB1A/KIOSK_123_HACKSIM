@@ -3,14 +3,14 @@ const router = express.Router();
 const conn = require('../config/db');
 
 // 새 페이지 정보 가져오기
-router.get('/get-new-notes', (req, res) => {
+router.get('/get-user-notes', (req, res) => {
     if (req.session.nick) {
         const query = `
-            SELECT INFO_PAGENUM, NOTE_DATE
+            SELECT INFO_PAGENAME, NOTE_DATE
             FROM KIOSK_NOTE_TB
             WHERE USER_NICK = ?
             ORDER BY NOTE_DATE DESC`;
-
+        
         conn.query(query, [req.session.nick], (error, results) => {
             if (error) {
                 console.error('데이터베이스 쿼리 오류:', error);
