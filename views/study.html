@@ -12,7 +12,7 @@
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button onclick="" id="head_learn_bt" >◀ 이전으로</button>
+                <button id="head_learn_bt" >◀ 이전으로</button>
             </div>
             <div class="headText">
                 <img src="/pic/Group 22.png" alt="" id="headImg">
@@ -48,13 +48,18 @@
     <script>
         const KioskHpStart = document.getElementById('KioskHpStart');
         KioskHpStart.addEventListener('click', () =>{
-            location.href = '/hospitalKiosk.html'
+            location.href = '/hospital'
         })
 
         const KioskMacStart = document.getElementById('KioskMacStart');
         KioskMacStart.addEventListener('click', () =>{
             location.href = '/KioskMacSelect';
         })
+
+        const head_learn_bt = document.getElementById('head_learn_bt');
+        head_learn_bt.addEventListener('click', () => {
+            location.href = '/';
+        });
     </script>
 </body>
 </html>

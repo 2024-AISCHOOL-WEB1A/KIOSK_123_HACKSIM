@@ -5,35 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Basic/main.css">
     <title>Document</title>
-    <style>
-        /* 로그인 상태의 마이페이지 스타일 */
-        .my-page-title {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .my-page-button {
-            margin-top: 30px;
-            font-size: 1rem;
-        }
-    </style>
 </head>
 <body>
-
-    
     <div class="container">
-       
         <div class="header">
             <img src="/pic/Group 22.png" alt="로고 이미지">
             <div class="title">
                 <p id="titleText">키오스크 실습 교육 플랫폼</p>
             </div>
-        </div>
-        <div class="tabs">
-            <!-- <div class="tab active">마이페이지</div>
-            <div class="tab">치유스크랩북</div>
-            <div class="tab"></div> -->
         </div>
         <div class="games">
             <div class="game">
@@ -64,10 +43,11 @@
             <div id="translateButton">Translate to English</div>
         </div>
     </div>
+
     <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             axios.get('/user/session-status')
                 .then(response => {
                     if (response.data.loggedIn) {
@@ -76,12 +56,12 @@
                         const startLoginBtn = document.getElementById('startLoginBtn');
                         startLoginBtn.innerText = '시작하기';
                         startLoginBtn.classList.add('my-page-button');
-                        startLoginBtn.addEventListener('click', function() {
+                        startLoginBtn.addEventListener('click', function () {
                             location.href = '/myPage';
                         });
                     } else {
                         const startLoginBtn = document.getElementById('startLoginBtn');
-                        startLoginBtn.addEventListener('click', function() {
+                        startLoginBtn.addEventListener('click', function () {
                             location.href = '/login';
                         });
                     }

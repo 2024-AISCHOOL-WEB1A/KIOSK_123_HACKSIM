@@ -165,8 +165,6 @@ button:hover {
 button:active {
     transform: translateY(4px);
 }
-<<<<<<< HEAD:public/hospitalKiosk.css
-=======
 
 @media (max-width: 768px) {
     .hospital-container {
@@ -197,4 +195,7 @@ button:active {
     width: 30px;
     height: 30px;
 } 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 524310cb45dc2a52c624af631fc7601264648b37
