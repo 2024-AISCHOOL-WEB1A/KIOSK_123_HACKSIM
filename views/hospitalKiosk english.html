@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic education and Advanced education</title>
+    <link rel="stylesheet" href="/HosDeepKio/hospitalKiosk.css">
+</head>
+<body>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button id="headLearnBt">◀ Before</button>
+                <!-- <button id="headLearnBtRight">처음으로▶</button> -->
+                <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button> -->
+            </div>
+            <h1>Wow Hospital <br>Kiosk pratice training</h1>
+            
+            <div class="box">
+                <h2>Please select a level below</h2> <br>
+                <h3>Voice guidance available<br>Advanced: Freely select options on the kiosk</h3>
+            </div>
+        </header>
+        <div class="options">
+            <div class="option" id="KioskHpBasic">
+                <img src="/pic/star.png" alt="">
+                <p>Basic education</p>
+            </div>
+            <div class="option" id="goToHospitalKiosk2">
+                <img src="/pic/star2.png" alt="">
+                <p>Advanced education</p>
+            </div>
+        </div>
+        <footer>
+            <p>Once Try Third times.</p>
+        </footer>
+    </div>
+    <script>
+        const headLearnBt = document.getElementById('headLearnBt');
+        headLearnBt.addEventListener('click', () => {
+            location.href = '/study';
+        });
+
+        const KioskHpBasic = document.getElementById('KioskHpBasic');
+        KioskHpBasic.addEventListener('click', () => {
+            location.href = '/hospitalB1';
+        });
+
+        const goToHospitalKiosk2 = document.getElementById('goToHospitalKiosk2');
+        goToHospitalKiosk2.addEventListener('click', () => {
+            location.href = '/hospitalKiosk2.html';
+        });
+        // document.getElementById('headImgBtn').addEventListener('click', () => {
+        //     fetch('/kiosk/save-page-info', { // 수정된 경로
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         credentials: 'include' // 세션 쿠키를 서버에 포함
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.success) {
+        //             alert('페이지 정보가 저장되었습니다.');
+        //         } else {
+        //             alert(data.message); // 로그인하지 않은 경우의 메시지
+        //         }
+        //     })
+        //     .catch(error => console.error('Error:', error));
+        // });
+    </script>
+</body>
+</html>
