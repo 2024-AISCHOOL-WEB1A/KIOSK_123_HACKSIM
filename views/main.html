@@ -112,17 +112,19 @@
                         .catch(error => {
                             console.error('학습 진도 확인 중 오류 발생:', error);
                         });
-                } else {
-                    const startLoginBtn = document.getElementById('startLoginBtn');
-                    startLoginBtn.addEventListener('click', function () {
-                        location.href = '/login';
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('세션 상태 확인 중 오류 발생:', error);
-            });
-    });
+
+                    } else {
+                        const startLoginBtn = document.getElementById('startLoginBtn');
+                        startLoginBtn.addEventListener('click', function () {
+                            location.href = '/login';
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('세션 상태 확인 중 오류 발생:', error);
+                });
+        });
+
     </script>
 </body>
 </html>
