@@ -175,3 +175,16 @@ button:active {
     bottom: 300px;
     left: 150px;
 }
+
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+#headImg {
+    width: 40px;
+    height: 40px;
+}
