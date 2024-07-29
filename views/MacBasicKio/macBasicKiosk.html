@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="MacDeepKio/macKiosk.css">
     <link rel="stylesheet" href="MacBasicKio/macBasicIndex.css">
 </head>
-
 <body>
     <div id="macIntro">
         <div id="macIntroHeder">
@@ -21,7 +19,7 @@
             <div id="macStartDiv" class="macBodyDiv">
                 <button id="macStartBtn" class="blinkingBorder">주문하기</button>
                 <div id="macSubBtn">
-                    <button>언어설정</button>&nbsp&nbsp
+                    <button id="translateButton">Translate to English</button>&nbsp;&nbsp;
                     <button>도움기능</button>
                 </div>
             </div>
@@ -56,6 +54,59 @@
     <audio id="audioStart" src="/voice/macBasic2_selstart.mp3"></audio>
     <audio id="audioPlace" src="/voice/macBasic2_selPlace.mp3"></audio>
 
+    <script src="main.js"></script>
     <script src="/macBasicKiosk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const translateButton = document.getElementById('translateButton');
+
+        translateButton.addEventListener('click', async () => {
+            const textElements = [
+                document.querySelector('#macPointDiv span'),
+                document.querySelector('#macStartBtn'),
+                document.querySelector('#macStartModal h1'),
+                document.querySelectorAll('#macModalBtn button'),
+                document.querySelector('#selectOrdering .pContainer p'),
+                document.querySelector('#selectPlace .pContainer p'),
+                document.querySelector('#selectOrderingBtn'),
+                document.querySelector('#selectPlaceBtn')
+            ];
+
+            const textsToTranslate = Array.from(textElements).map(el => el.innerText || el.textContent);
+
+            try {
+                const translatedTexts = await translateTexts(textsToTranslate);
+                updateTexts(textElements, translatedTexts);
+            } catch (error) {
+                console.error('Translation error:', error);
+            }
+        });
+
+        async function translateTexts(texts) {
+            const apiKey = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 여기에 API 키를 입력하세요.
+            const translations = [];
+
+            for (const text of texts) {
+                const response = await axios.post(`https://translation.googleapis.com/language/translate/v2`, null, {
+                    params: {
+                        q: text,
+                        target: 'en',
+                        key: apiKey
+                    }
+                });
+                translations.push(response.data.data.translations[0].translatedText);
+            }
+
+            return translations;
+        }
+
+        function updateTexts(elements, translatedTexts) {
+            elements.forEach((el, index) => {
+                if (el) {
+                    el.innerText = translatedTexts[index];
+                }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,37 +1,7 @@
 const express = require('express')
 const app = express()
 const nunjucks = require('nunjucks')
-//번역 api호출 위한 추가코드-----
-// const bodyParser = require('body-parser');
-// const axios = require('axios');
-// const port = 3000;
 
-// const apiKey = 'YAIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 여기에 실제 API 키를 입력하세요.
-
-// app.use(bodyParser.json());
-
-// app.post('/translate', async (req, res) => {
-//   const { text, targetLanguage } = req.body;
-
-//   if (!text || !targetLanguage) {
-//     return res.status(400).json({ error: 'Invalid input' });
-//   }
-
-//   try {
-//     const response = await axios.post(`https://translation.googleapis.com/language/translate/v2`, {
-//       q: text,
-//       target: targetLanguage,
-//       key: apiKey
-//     });
-    
-//     const translation = response.data.data.translations[0].translatedText;
-//     res.json({ translatedText: translation });
-//   } catch (error) {
-//     console.error('Error during translation:', error);
-//     res.status(500).json({ error: 'Translation error' });
-//   }
-// });
-//-----번역 코드 끝
 // ===================================== 세션 관련 라이브러리 불러오기 =====================================
 const session = require('express-session')
 const fileStore = require('session-file-store')(session)
@@ -84,3 +54,32 @@ app.use('/learningNote', learningNote)
 app.listen(3000, ()=>{
     console.log("3000 port waiting...");
 })
+// 번역 api호출 위한 추가코드-----
+const bodyParser = require('body-parser');
+const axios = require('axios');
+const port = 3000;
+
+app.use(bodyParser.json());
+app.use(express.static('public')); // HTML 파일을 서빙하기 위한 설정
+
+const apiKey = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // Google Cloud Translation API 키를 입력하세요
+
+app.post('/translate', async (req, res) => {
+    const { text, targetLanguage } = req.body;
+
+    try {
+        const response = await axios.post(`https://translation.googleapis.com/language/translate/v2`, null, {
+            params: {
+                q: text,
+                target: targetLanguage,
+                key: apiKey
+            }
+        });
+        res.json({ translatedText: response.data.data.translations[0].translatedText });
+    } catch (error) {
+        console.error('Error during translation:', error);
+        res.status(500).send('Error during translation');
+    }
+});
+
+//-----번역 코드 끝
