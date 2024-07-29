@@ -22,17 +22,21 @@ body, html {
 
 .hospital-container {
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* White background with transparency */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px; /* 패딩 조정 */
-    max-width: 500px; /* 최대 너비 조정 */
-    width: 50%;
-    min-height: 90vh; /* 최소 높이 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    /* Padding adjustment */
+    max-width: 90%;
+    /* Maximum width adjustment */
+    width: 600px;
+    min-height: 90vh;
+    /* Minimum height setting */
     display: flex;
     flex-direction: column;
+    /* Arrange children vertically */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경, 투명도 0.8 */
 }
 
 .head-button {
@@ -65,8 +69,8 @@ h2 {
     background-color: #5b98ce2c;
     border-radius: 8px;
     padding: 20px;
-    width: 100%; /* 버튼 너비 조정 */
-    max-width: 460px; /* 최대 너비 설정 */
+    width: 93%; /* 버튼 너비 조정 */
+    max-width: 665px; /* 최대 너비 설정 */
     height: 665px; /* 높이를 자동으로 조정 */
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -173,7 +177,7 @@ button:active {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% a uto; /* 화면 가운데 위치 */
+    margin: 15% auto; /* 화면 가운데 위치 */
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
