@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털배움터</title>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/Basic/study.css">
+</head>
+<body>
+    <div class="hospital-container">
+        <header>
+            <div class="head-button">
+                <button id="head_learn_bt" >◀ Before</button>
+            </div>
+            <div class="headText">
+                <img src="/pic/Group 22.png" alt="" id="headImg">
+                <h2>Once Try Third times.</h2>
+                <h3>Which Kiosk pratice do you want to try?</h3>
+            </div>
+        </header>
+        <div class="options">
+            <div class="option" id="KioskMacStart">
+                <img src="/pic/식당.png" alt="#">
+                <p>Restaurant</p>
+            </div>
+            <div class="option" id="KioskHpStart">
+                <img src="/pic/병원.png" alt="">
+                <p>Hospital</p>
+            </div>
+
+            <div class="option" id="KioskHpStart">
+                <img src="/pic/school.png" alt="">
+                <p>Public administration</p>
+            </div>
+
+            <div class="option" id="KioskHpStart">
+                <img src="/pic/bus.png" alt="">
+                <p>Transportation</p>
+            </div>
+        </div>
+        <footer>
+            <p>Once Try Third times.</p>
+        </footer>
+    </div>
+
+    <script>
+        const KioskHpStart = document.getElementById('KioskHpStart');
+        KioskHpStart.addEventListener('click', () =>{
+            location.href = '/hospital'
+        })
+
+        const KioskMacStart = document.getElementById('KioskMacStart');
+        KioskMacStart.addEventListener('click', () =>{
+            location.href = '/KioskMacSelect';
+        })
+
+        const head_learn_bt = document.getElementById('head_learn_bt');
+        head_learn_bt.addEventListener('click', () => {
+            location.href = '/';
+        });
+    </script>
+</body>
+</html>
