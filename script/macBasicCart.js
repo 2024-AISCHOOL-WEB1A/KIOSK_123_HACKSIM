@@ -37,7 +37,10 @@ const selectEndModalBtn = document.getElementById('selectEndModalBtn');
 const cardPayModal = document.getElementById('cardPayModal');
 
 const endModal = document.getElementById('endModal');
-const goMainBtn = document.getElementById('goMainBtn');
+const selectorderNumModal = document.getElementById('selectorderNumModal');
+const selectorderNumModalBtn = document.getElementById('selectorderNumModalBtn');
+
+const orderNumber = document.getElementById('orderNumber');
 
 window.onload = function() {
     if (window.location.pathname == '/macBasicKioIndex') {
@@ -234,13 +237,15 @@ setEndBtn.addEventListener('click', () => {
     audioEnd.play();
 });
 
+// 세트 선택이후 주문하기 버튼 안내 모달 닫기
 selectpaymentModalBtn.addEventListener('click', () => {
     selectpaymentModal.style.display = 'none';
 });
 
+// 주문하기 버튼 클릭이벤트
 paymentBtn.addEventListener('click', () => {
-    paymentModal.style.display = 'flex';
-    paymentBtn.classList.remove('blinkingBorder');
+    paymentModal.style.display = 'flex';    //결제확인모달 띄우기
+    paymentBtn.classList.remove('blinkingBorder');  //btn 안내 끄기
     payCartBtn.classList.add('blinkingBorder');
 
     selectEndModal.style.display = 'flex';
@@ -249,24 +254,62 @@ paymentBtn.addEventListener('click', () => {
     audioPayment.play();
 });
 
-selectEndModal.addEventListener('click', () => {
+selectEndModalBtn.addEventListener('click', () => {
     selectEndModal.style.display = 'none';
-});
+})
 
 payCartBtn.addEventListener('click', () => {
-    selectEndModal.style.display = 'none';
+    paymentModal.style.display = 'none';
     cardPayModal.style.display = 'flex';
 
     let audioCard = document.getElementById('audioCard');
     audioCard.currentTime = 0;
     audioCard.play();
 
+    // 주문번호 표시
+    var orderRNumber = getOrderNumber();
+    orderNumber.innerText = orderRNumber; // 주문번호를 화면에 표시
+
     setTimeout(() => {
         cardPayModal.style.display = 'none';
         endModal.style.display = 'flex';
+        selectorderNumModal.style.display = 'flex';
+
+        let audio1 = new Audio('/voice/macBasic2_orderNum.mp3');
+        audio1.play();
+        audio1.onended = function() {
+            // 주문번호를 읽기 위해 SpeechSynthesis API를 사용
+            let orderNum = orderNumber.innerText;
+            let msg = new SpeechSynthesisUtterance(orderNum);
+            msg.lang = 'ko-KR';
+            window.speechSynthesis.speak(msg);
+    
+            // 주문번호 읽기가 끝난 후 두 번째 오디오 파일 재생
+            msg.onend = function() {
+                let audio2 = new Audio('/voice/macBasic2_orderEnd.mp3');
+                audio2.play();
+            };
+        };
     }, 4000);
 });
 
-goMainBtn.addEventListener('click', () => {
-    location.href = '/';
-});
+// 주문번호 생성 및 관리
+function getOrderNumber() {
+    let orderNumber = localStorage.getItem('orderNumber');
+    if (orderNumber === null) {
+        // 주문번호가 없으면 무작위 생성 (1~999)
+        orderNumber = Math.floor(Math.random() * 999) + 1;
+    } else {
+        // 주문번호가 있으면 1 증가 (1~999 범위 체크)
+        orderNumber = parseInt(orderNumber) + 1;
+        if (orderNumber > 999) {
+            orderNumber = 1; // 최대값 초과 시 1로 초기화
+        }
+    }
+    localStorage.setItem('orderNumber', orderNumber); // 주문번호 저장
+    return orderNumber;
+}
+
+selectorderNumModalBtn.addEventListener('click', () => {
+    location.href = '/study'
+})

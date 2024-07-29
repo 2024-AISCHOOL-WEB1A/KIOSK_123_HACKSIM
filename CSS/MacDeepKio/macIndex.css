@@ -314,7 +314,7 @@ canvas {
     align-items: center;
     justify-content: center;
     opacity: 1;
-    z-index: 1000;
+    z-index: 2;
 }
 
 .setContent h1 {
@@ -552,7 +552,6 @@ canvas {
 #cardPayModal{
     display: none;  
     position: fixed;
-    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -586,7 +585,7 @@ canvas {
 #endModal{
     display: none;  
     position: fixed;
-    z-index: 1000;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;

@@ -42,7 +42,7 @@ const userRouter = require('./routes/userRouter')
 const kioskRouter = require('./routes/kioskRouter')
 const gameRouter = require('./routes/gameRouter')
 const macKioskRouter = require('./routes/macKioskRouter')
-
+const learningNote = require('./routes/learningNote');
 // ===================================== 넌적스 세팅 부분 =====================================
 app.set('view engine', 'html')
 nunjucks.configure('views',{
@@ -79,6 +79,7 @@ app.use('/user', userRouter)
 app.use('/kiosk', kioskRouter)
 app.use('/game',gameRouter)
 app.use('/macKiosk', macKioskRouter)
+app.use('/learningNote', learningNote)
 // ===================================== port 연결 부분 =====================================
 app.listen(3000, ()=>{
     console.log("3000 port waiting...");
