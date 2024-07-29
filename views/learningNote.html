@@ -87,6 +87,28 @@
             })
             .catch(error => console.error('Error:', error));
         });
+        document.addEventListener('DOMContentLoaded', () => {
+        // 학습 내역 확인 모달창
+        const learningNoteModal = document.getElementById('learning-note-modal');
+        const viewLearningNote = document.getElementById('view-learning-note');
+        const ignoreLearningNote = document.getElementById('ignore-learning-note');
+        
+        // 메인 페이지로 이동 후 학습 내역 확인 모달창 띄우기
+        function showLearningNoteModal() {
+            learningNoteModal.style.display = 'block';
+        }
+        
+        // "예" 버튼 클릭
+        viewLearningNote.addEventListener('click', () => {
+            window.location.href = '/learningNote';
+        });
+
+        // "아니오" 버튼 클릭
+        ignoreLearningNote.addEventListener('click', () => {
+            learningNoteModal.style.display = 'none';
+        });
+        checkAndShowLearningNoteModal();
+    });
     </script>
 </body>
 </html>
