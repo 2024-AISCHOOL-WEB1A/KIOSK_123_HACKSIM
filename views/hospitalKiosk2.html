@@ -13,6 +13,7 @@
         <header>
             <div class="head-button">
                 <button onclick="redirectToHospitalKiosk()" id="head_learn_bt">◀ 이전으로</button>
+                <button id="headLearnBtRight">처음으로▶</button>
             </div>
             <h1>손주들</h1>
             <h2>심화 교육</h2>
@@ -49,6 +50,11 @@
         function goToHospitalKiosk3() {
             window.location.href = 'hospitalKiosk3.html'
         }
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/hospital'
+        })
     </script>
 
 </body>
