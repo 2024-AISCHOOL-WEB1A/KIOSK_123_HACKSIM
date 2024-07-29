@@ -105,27 +105,39 @@ document.addEventListener('DOMContentLoaded', function() {
             return { translatedText: text }; // 실패 시 원본 텍스트 반환
         }
     }
-    //맥도날드 모달창 번역기능
-    document.getElementById('translateButton').addEventListener('click', function() {
-        const translations = {
-            selectSetInfo: "For the burger, please select the <strong>1955 Burger</strong>,<br>for the side, please select <strong>French Fries</strong>,<br>for the drink, please select <strong>Coca-Cola</strong>,<br>and press the <strong>Order</strong> button.<br>",
-            selectSetModal: "<strong>Select Set</strong> please.",
-            selectSideModal: "Please select <strong>French Fries</strong>.",
-            selectBeverageModal: "Please select <strong>Coca-Cola</strong>.",
-            selectCartModal: "Please select <strong>Add to Cart</strong>.",
-            selectpaymentModal: "Please press the <strong>Order</strong> button.",
-            selectEndModal: "Please press the <strong>Pay</strong> button."
-        };
-    
-        document.querySelectorAll('.missionModal').forEach(modal => {
-            const pContainer = modal.querySelector('.pContainer p');
-            if (pContainer) {
-                const modalId = modal.id;
-                if (translations[modalId]) {
-                    pContainer.innerHTML = translations[modalId];
-                }
+    //맥 키오스크 모달 번역코드
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('translateButton').addEventListener('click', toggleTranslation);
+
+        let isKorean = true;
+        const koreanText = `버거는 <strong>1955버거</strong>를 선택해주시고,<br>
+                            사이드는 <strong>후렌치 후라이</strong>를 선택,<br>
+                            음료는 <strong>코카콜라</strong>를 선택하시고<br>
+                            <strong>주문하기</strong> 버튼을 눌러주세요.<br>`;
+        let englishText = '';
+
+        async function toggleTranslation() {
+            if (isKorean) {
+                await translateToEnglish(koreanText);
+            } else {
+                document.querySelector('#selectSetInfo .pContainer p').innerHTML = koreanText;
+                document.getElementById('translateButton').innerText = 'Translate to English';
+                isKorean = true;
             }
-        });
+        }
+
+        async function translateToEnglish(text) {
+            try {
+                const response = await axios.post('http://localhost:3000/translate', {
+                    text: text.replace(/<[^>]*>/g, ''), // HTML 태그 제거
+                    targetLanguage: 'en'
+                });
+                englishText = response.data.translatedText;
+                document.querySelector('#selectSetInfo .pContainer p').innerHTML = englishText;
+                document.getElementById('translateButton').innerText = '한국어로 번역';
+                isKorean = false;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
     });
-    
-});
