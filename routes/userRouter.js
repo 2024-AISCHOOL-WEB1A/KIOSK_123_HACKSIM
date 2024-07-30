@@ -31,7 +31,7 @@ router.post('/join', (req, res) => {
     let { nick, pw, pwck, btd, gen } = req.body;
 
     if (!nick || !pw) {
-   return res.send("<script>alert('별명과 비밀번호를 입력해주세요'); window.history.back();</script>");
+        return res.send("<script>alert('별명과 비밀번호를 입력해주세요'); window.history.back();</script>");
     } else if (pw !== pwck) {
         return res.send("<script>alert('비밀번호가 일치하지 않습니다.'); window.history.back();</script>");
     }
