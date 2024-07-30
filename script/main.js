@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 번역 버튼 및 텍스트 설정
+////main.html 번역부분
     const translateButton = document.getElementById('translateButton');
     if (translateButton) {
         const koreanTexts = [
@@ -44,16 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
             "식사장소를 선택해 주세요",
             "매장",
             "포장",
-            "버거는 1955버거를 선택해주시고, 사이드는 후렌치 후라이를 선택, 음료는 코카콜라를 선택하시고 주문하기 버튼을 눌러주세요."
         ];
-
+        
         let englishTexts = [];
         let isKorean = true;
 
         // 페이지 로드 시 번역 상태 복원
         const savedLanguage = localStorage.getItem('language') || 'ko'; // 기본값은 한국어
         if (savedLanguage === 'kor') {
-            isKorean = true;
+            isKorean = false;
             translateButton.innerText = '한국어로 번역';
             applyTranslations(koreanTexts);
         }
@@ -142,3 +141,158 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+//study.html 번역부분
+const API_KEY = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 구글 번역 API 키를 여기에 입력하세요.
+
+const elementsToTranslate = [
+    { id: 'title', text: '일단 이거 세번만 해볼까요?' },
+    { id: 'subtitle', text: '어떤 키오스크 학습을 진행하시겠습니까?' },
+    { id: 'KioskMacStart', text: '음식점' },
+    { id: 'KioskHpStart', text: '병원' },
+    { id: 'KioskOpStart', text: '행정' },
+    { id: 'KioskTrStart', text: '교통' },
+    { id: 'footerText', text: '일단 이거 세번 해볼까요?' }
+];
+
+let isTranslated = false;
+const originalTexts = {};
+const translatedTexts = {};
+
+// 번역 함수
+async function translateText(text, targetLang) {
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q: text, target: targetLang })
+    });
+    const data = await response.json();
+    return data.data.translations[0].translatedText;
+}
+
+// 번역 토글 함수
+async function toggleTranslation() {
+    for (const element of elementsToTranslate) {
+        const elem = document.getElementById(element.id);
+        const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
+
+        if (!isTranslated) {
+            // 원본 텍스트 저장
+            if (!originalTexts[element.id]) {
+                originalTexts[element.id] = textElem.innerText;
+            }
+
+            // 번역된 텍스트 저장
+            if (!translatedTexts[element.id]) {
+                translatedTexts[element.id] = await translateText(originalTexts[element.id], 'en');
+            }
+
+            textElem.innerText = translatedTexts[element.id];
+        } else {
+            textElem.innerText = originalTexts[element.id];
+        }
+    }
+
+    isTranslated = !isTranslated;
+    // 현재 번역 상태를 로컬 스토리지에 저장
+    localStorage.setItem('isTranslated', JSON.stringify(isTranslated));
+}
+
+// 페이지 로드 시 번역 상태 복원
+document.addEventListener('DOMContentLoaded', function () {
+    const savedState = JSON.parse(localStorage.getItem('isTranslated'));
+    if (savedState) {
+        isTranslated = savedState;
+        toggleTranslation(); // 저장된 상태 적용
+    }
+});
+
+// 번역 버튼 클릭 이벤트 리스너
+document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
+
+    //난이도선택화면 번역
+    const API_KEY1 = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 실제 구글 번역 API 키를 입력하세요
+
+    const elementsToTranslate1 = [
+        { id: 'title', text: '맥도날드 <br>키오스크 실습 교육' },
+        { id: 'subtitle', text: '난이도를 아래에서 선택해주세요' },
+        { id: 'description', text: '기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능' },
+        { id: 'basicEducation', text: '기초 교육' },
+        { id: 'advancedEducation', text: '심화 교육' },
+        { id: 'footerText', text: '일단 이거 세번 해볼까요?' }
+    ];
+
+    let isTranslated1 = false;
+    const originalTexts1 = {};
+    const translatedTexts1 = {};
+
+    // 번역 함수
+    async function translateText(text, targetLang) {
+        const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ q: text, target: targetLang })
+        });
+        const data = await response.json();
+        return data.data.translations[0].translatedText;
+    }
+
+    // 번역 토글 함수
+    async function toggleTranslation() {
+        for (const element of elementsToTranslate1) {
+            const elem = document.getElementById(element.id);
+            if (!elem) continue;
+
+            // 요소의 텍스트를 얻음
+            const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
+
+            if (!isTranslated1) {
+                // 원본 텍스트 저장
+                if (!originalTexts1[element.id]) {
+                    originalTexts1[element.id] = textElem.innerHTML;
+                }
+
+                // 번역된 텍스트 저장
+                if (!translatedTexts1[element.id]) {
+                    translatedTexts1[element.id] = await translateText(originalTexts1[element.id], 'en');
+                }
+
+                textElem.innerHTML = translatedTexts1[element.id];
+            } else {
+                textElem.innerHTML = originalTexts1[element.id];
+            }
+        }
+
+        isTranslated1 = !isTranslated1;
+        // 현재 번역 상태를 로컬 스토리지에 저장
+        localStorage.setItem('isTranslated1', JSON.stringify(isTranslated1));
+    }
+
+    // 페이지 로드 시 번역 상태 복원
+    document.addEventListener('DOMContentLoaded', function () {
+        const savedState = JSON.parse(localStorage.getItem('isTranslated1'));
+        if (savedState !== null) {
+            isTranslated1 = savedState;
+            toggleTranslation(); // 저장된 상태 적용
+        }
+    });
+
+    // 번역 버튼 클릭 이벤트 리스너
+    document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
+
+    // 이전 페이지 버튼
+    const headLearnBt = document.getElementById('headLearnBt');
+    headLearnBt.addEventListener('click', () => {
+        location.href = '/study';
+    });
+
+    const macBasicKiosk = document.getElementById('macBasicKiosk');
+    macBasicKiosk.addEventListener('click', () => {
+        location.href = '/macBasicKioMain';
+    });
+
+    const macDeepKiosk = document.getElementById('macDeepKiosk');
+    macDeepKiosk.addEventListener('click', () => {
+        location.href = '/macDeepKioMain';
+    });
