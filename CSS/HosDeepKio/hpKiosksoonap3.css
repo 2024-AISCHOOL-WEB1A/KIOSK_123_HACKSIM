@@ -374,3 +374,17 @@ button:active {
     border: 2px solid #03072ac9;
     /* 버튼 테두리 */
 }
+
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}

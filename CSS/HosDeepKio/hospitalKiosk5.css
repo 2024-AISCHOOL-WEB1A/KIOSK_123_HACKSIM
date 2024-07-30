@@ -242,3 +242,16 @@ button:active {
     opacity: 0.6;
     /* 이미지 투명도 설정 (0.7은 약간 투명) */
 }
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}

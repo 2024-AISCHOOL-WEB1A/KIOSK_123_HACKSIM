@@ -217,3 +217,16 @@ button:active {
     margin-top: 80px;
     /* 위쪽 요소와의 간격 조정 */
 }
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}

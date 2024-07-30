@@ -342,3 +342,16 @@ button:active {
     font-size: 28px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+#headImgBtn {
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+#headImg {
+    width: 40px;
+    height: 40px;
+}
