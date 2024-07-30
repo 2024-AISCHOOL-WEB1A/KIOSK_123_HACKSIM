@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>키오스크 카테고리</title>
-
-    <title>Document</title>
     <link rel="stylesheet" href="/Basic/study.css">
 </head>
 <body>
     <div class="hospital-container">
         <header>
             <div class="head-button">
-                <button id="head_learn_bt" >◀ 이전으로</button>
+                <button id="head_learn_bt">◀ 이전으로</button>
             </div>
             <div class="headText">
                 <img src="/pic/Group 22.png" alt="" id="headImg">
-                <h2>일단 이거 세번만 해볼까요?</h2>
-                <h3>어떤 키오스크 학습을 진행 하시겠습니까?</h3>
+                <h2 id="title">일단 이거 세번만 해볼까요?</h2>
+                <h3 id="subtitle">어떤 키오스크 학습을 진행 하시겠습니까?</h3>
             </div>
         </header>
         <div class="options">
@@ -29,22 +27,36 @@
                 <img src="/pic/병원.png" alt="">
                 <p>병원</p>
             </div>
-
-            <div class="option" id="KioskHpStart">
+            <div class="option" id="KioskOpStart">
                 <img src="/pic/school.png" alt="">
                 <p>행정</p>
             </div>
-
-            <div class="option" id="KioskHpStart">
+            <div class="option" id="KioskTrStart">
                 <img src="/pic/bus.png" alt="">
                 <p>교통</p>
             </div>
         </div>
         <footer>
-            <p>일단 이거 세번 해볼까요?</p>
+            <p id="footerText">일단 이거 세번 해볼까요?</p>
         </footer>
     </div>
+    <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate</button>
+    <script src="/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const translations = JSON.parse(localStorage.getItem('translations'));
 
+            if (translations) {
+                document.getElementById('title').innerText = translations[0] || '일단 이거 세번만 해볼까요?';
+                document.getElementById('subtitle').innerText = translations[1] || '어떤 키오스크 학습을 진행하시겠습니까?';
+                document.getElementById('KioskMacStart').querySelector('p').innerText = translations[2] || '음식점';
+                document.getElementById('KioskHpStart').querySelector('p').innerText = translations[3] || '병원';
+                document.getElementById('KioskOpStart').querySelector('p').innerText = translations[4] || '행정';
+                document.getElementById('KioskTrStart').querySelector('p').innerText = translations[5] || '교통';
+                document.getElementById('footerText').innerText = translations[6] || '일단 이거 세번 해볼까요?';
+            }
+        });
+    </script>
     <script>
         const KioskHpStart = document.getElementById('KioskHpStart');
         KioskHpStart.addEventListener('click', () =>{
@@ -61,5 +73,6 @@
             location.href = '/';
         });
     </script>
+    
 </body>
 </html>

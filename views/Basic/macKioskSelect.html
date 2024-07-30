@@ -14,43 +14,29 @@
                 <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
                 <button id="head_first_bt">처음으로 ▶</button> -->
             </div>
-            <h1>맥도날드 <br>키오스크 실습 교육</h1>
+            <h1 id="title">맥도날드 <br>키오스크 실습 교육</h1>
             
             <div class="box">
-                <h2>난이도를 아래에서 선택해주세요</h2> <br>
-                <h3>기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
+                <h2 id="subtitle1">난이도를 아래에서 선택해주세요</h2> <br>
+                <h3 id="description">기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
             </div>
         </header>
         <div class="options">
             <div class="option" id="macBasicKiosk">
                 <img src="/pic/star.png" alt="">
-                <p>기초 교육</p>
+                <p id="basicEducation">기초 교육</p>
             </div>
             <div class="option" id="macDeepKiosk">
                 <img src="/pic/star2.png" alt="">
-                <p>심화 교육</p>
+                <p id="advancedEducation">심화 교육</p>
             </div>
         </div>
         <footer>
-            <p>일단 이거 세번 해볼까요?</p>
+            <p id="footerText1">일단 이거 세번 해볼까요?</p>
         </footer>
     </div>
-    <script>
-        // 이전페이지 버튼
-        const headLearnBt = document.getElementById('headLearnBt');
-        headLearnBt.addEventListener('click', () => {
-            location.href = '/study';
-        });
-
-        const macBasicKiosk = document.getElementById('macBasicKiosk');
-        macBasicKiosk.addEventListener('click', () => {
-            location.href = '/macBasicKioMain';
-        });
-
-        const macDeepKiosk = document.getElementById('macDeepKiosk');
-        macDeepKiosk.addEventListener('click', () => {
-            location.href = '/macDeepKioMain';
-        });
-    </script>
+    <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate to English</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
