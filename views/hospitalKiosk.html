@@ -5,6 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기초 교육과 심화 교육</title>
     <link rel="stylesheet" href="/HosDeepKio/hospitalKiosk.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const API_KEY = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 구글 번역 API 키를 입력하세요
+
+            const elementsToTranslate = [
+                { id: 'title', text: '손주병원 <br>키오스크 실습 교육' },
+                { id: 'difficultyTitle', text: '난이도를 아래에서 선택해주세요' },
+                { id: 'difficultyDescription', text: '기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능' },
+                { id: 'basicEducation', text: '기초 교육' },
+                { id: 'advancedEducation', text: '심화 교육' },
+                { id: 'footerText', text: '일단 이거 세번 해볼까요' }
+            ];
+
+            let isTranslated = false;
+            const originalTexts = {};
+            const translatedTexts = {};
+
+            async function translateText(text, targetLang) {
+                const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+                try {
+                    const response = await axios.post(url, {
+                        q: text,
+                        target: targetLang
+                    });
+                    return response.data.data.translations[0].translatedText;
+                } catch (error) {
+                    console.error('Error translating text:', error);
+                    return text; // 실패 시 원본 텍스트 반환
+                }
+            }
+
+            async function toggleTranslation() {
+                for (const element of elementsToTranslate) {
+                    const elem = document.getElementById(element.id);
+                    if (!elem) continue;
+
+                    const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
+
+                    if (!isTranslated) {
+                        if (!originalTexts[element.id]) {
+                            originalTexts[element.id] = textElem.innerHTML;
+                        }
+
+                        if (!translatedTexts[element.id]) {
+                            translatedTexts[element.id] = await translateText(originalTexts[element.id], 'en');
+                        }
+
+                        textElem.innerHTML = translatedTexts[element.id];
+                    } else {
+                        textElem.innerHTML = originalTexts[element.id];
+                    }
+                }
+
+                isTranslated = !isTranslated;
+                localStorage.setItem('isTranslated', JSON.stringify(isTranslated));
+            }
+
+            // 페이지 로드 시 번역 상태 복원
+            //const savedState = JSON.parse(localStorage.getItem('isTranslated'));
+            //if (savedState !== null) {
+                //isTranslated = savedState;
+                //toggleTranslation(); }
+
+            // 번역 버튼 클릭 이벤트 리스너
+            document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
+
+            // 페이지 탐색 버튼
+            const headLearnBt = document.getElementById('headLearnBt');
+            headLearnBt.addEventListener('click', () => {
+                location.href = '/study';
+            });
+
+            const KioskHpBasic = document.getElementById('KioskHpBasic');
+            KioskHpBasic.addEventListener('click', () => {
+                location.href = '/hospitalB1';
+            });
+
+            const goToHospitalKiosk2 = document.getElementById('goToHospitalKiosk2');
+            goToHospitalKiosk2.addEventListener('click', () => {
+                location.href = '/hospitalKiosk2.html';
+            });
+
+            const headLearnBtRight = document.getElementById('headLearnBtRight');
+            headLearnBtRight.addEventListener('click', () => {
+                location.href = '/';
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="hospital-container">
@@ -14,7 +103,7 @@
                 <button id="headLearnBtRight">처음으로▶</button>
                 <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button> -->
             </div>
-            <h1>손주병원 <br>키오스크 실습 교육</h1>
+            <h1 id="title">손주병원 <br>키오스크 실습 교육</h1>
             
             <div class="box">
                 <h2 id="difficultyTitle">난이도를 아래에서 선택해주세요</h2> <br>
@@ -24,56 +113,17 @@
         <div class="options">
             <div class="option" id="KioskHpBasic">
                 <img src="/pic/star.png" alt="">
-                <p>기초 교육</p>
+                <p id="basicEducation">기초 교육</p>
             </div>
             <div class="option" id="goToHospitalKiosk2">
                 <img src="/pic/star2.png" alt="">
-                <p>심화 교육</p>
+                <p id="advancedEducation">심화 교육</p>
             </div>
         </div>
         <footer>
-            <p>일단 이거 세번 해볼까요</p>
+            <p id="footerText">일단 이거 세번 해볼까요</p>
         </footer>
     </div>
-   
-    <script>
-        const headLearnBt = document.getElementById('headLearnBt');
-        headLearnBt.addEventListener('click', () => {
-            location.href = '/study';
-        });
-
-        const KioskHpBasic = document.getElementById('KioskHpBasic');
-        KioskHpBasic.addEventListener('click', () => {
-            location.href = '/hospitalB1';
-        });
-
-        const goToHospitalKiosk2 = document.getElementById('goToHospitalKiosk2');
-        goToHospitalKiosk2.addEventListener('click', () => {
-            location.href = '/hospitalKiosk2.html';
-        });
-
-        const headLearnBtRight = document.getElementById('headLearnBtRight')
-        headLearnBtRight.addEventListener('click', ()=>{
-            location.href = '/'
-        })
-        // document.getElementById('headImgBtn').addEventListener('click', () => {
-        //     fetch('/kiosk/save-page-info', { // 수정된 경로
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         credentials: 'include' // 세션 쿠키를 서버에 포함
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if (data.success) {
-        //             alert('페이지 정보가 저장되었습니다.');
-        //         } else {
-        //             alert(data.message); // 로그인하지 않은 경우의 메시지
-        //         }
-        //     })
-        //     .catch(error => console.error('Error:', error));
-        // });
-    </script>
+    <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate</button>
 </body>
 </html>

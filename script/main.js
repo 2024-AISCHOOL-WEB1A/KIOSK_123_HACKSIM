@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // 번역 버튼 클릭 이벤트 리스너
 document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
 
-    //난이도선택화면 번역
+    //음식점 난이도선택화면 번역
     const API_KEY1 = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 실제 구글 번역 API 키를 입력하세요
 
     const elementsToTranslate1 = [
@@ -269,14 +269,14 @@ document.getElementById('translateToggle').addEventListener('click', toggleTrans
         localStorage.setItem('isTranslated1', JSON.stringify(isTranslated1));
     }
 
-    // 페이지 로드 시 번역 상태 복원
-    document.addEventListener('DOMContentLoaded', function () {
-        const savedState = JSON.parse(localStorage.getItem('isTranslated1'));
-        if (savedState !== null) {
-            isTranslated1 = savedState;
-            toggleTranslation(); // 저장된 상태 적용
-        }
-    });
+    // 페이지 로드 시 이전페이지 번역 상태 복원/ 페이지 로드시 자동번역되는부분
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const savedState = JSON.parse(localStorage.getItem('isTranslated1'));
+    //     if (savedState !== null) {
+    //         isTranslated1 = savedState;
+    //         toggleTranslation(); 
+    //     }
+    // });
 
     // 번역 버튼 클릭 이벤트 리스너
     document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
@@ -296,3 +296,5 @@ document.getElementById('translateToggle').addEventListener('click', toggleTrans
     macDeepKiosk.addEventListener('click', () => {
         location.href = '/macDeepKioMain';
     });
+
+    
