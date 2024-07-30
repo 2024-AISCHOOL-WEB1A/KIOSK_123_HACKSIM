@@ -95,6 +95,7 @@ html {
 }
 
 h1 {
+    cursor: pointer;
     margin-top: 60px;
 }
 

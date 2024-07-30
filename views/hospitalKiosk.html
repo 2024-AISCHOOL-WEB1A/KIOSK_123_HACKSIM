@@ -11,14 +11,14 @@
         <header>
             <div class="head-button">
                 <button id="headLearnBt">◀ 이전으로</button>
-                <!-- <button id="headLearnBtRight">처음으로▶</button> -->
+                <button id="headLearnBtRight">처음으로▶</button>
                 <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button> -->
             </div>
             <h1>손주병원 <br>키오스크 실습 교육</h1>
             
             <div class="box">
-                <h2>난이도를 아래에서 선택해주세요</h2> <br>
-                <h3>기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
+                <h2 id="difficultyTitle">난이도를 아래에서 선택해주세요</h2> <br>
+                <h3 id="difficultyDescription">기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
             </div>
         </header>
         <div class="options">
@@ -35,6 +35,7 @@
             <p>일단 이거 세번 해볼까요</p>
         </footer>
     </div>
+   
     <script>
         const headLearnBt = document.getElementById('headLearnBt');
         headLearnBt.addEventListener('click', () => {
@@ -50,6 +51,11 @@
         goToHospitalKiosk2.addEventListener('click', () => {
             location.href = '/hospitalKiosk2.html';
         });
+
+        const headLearnBtRight = document.getElementById('headLearnBtRight')
+        headLearnBtRight.addEventListener('click', ()=>{
+            location.href = '/'
+        })
         // document.getElementById('headImgBtn').addEventListener('click', () => {
         //     fetch('/kiosk/save-page-info', { // 수정된 경로
         //         method: 'POST',

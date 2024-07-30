@@ -10,10 +10,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #aa6fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .container {
@@ -25,8 +21,8 @@ body {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
     /* 위치 기준 설정 */
 }
 
@@ -84,7 +80,7 @@ body {
 }
 
 .img {
-    text-align: center;
+      text-align: center;
     flex-direction: column;
     padding: 20px 0;
     margin-top: 5px;
@@ -99,7 +95,6 @@ body {
 
 .img img {
     width: 500px !important; /* 강제로 500px 적용 */
-    height: auto !important; 
 }
 
 
@@ -204,6 +199,7 @@ body {
 }
 
 .section img {
+    margin-top: 30px;
     width: 50px;
-    height: 50%;
+    
 }
