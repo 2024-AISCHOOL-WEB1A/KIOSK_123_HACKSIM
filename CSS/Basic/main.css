@@ -38,7 +38,7 @@ html {
 }
 
 #titleText {
-    font-size: 3rem;
+    font-size: 2.9rem;
 }
 
 .header>img {
@@ -109,6 +109,7 @@ html {
 /* 로그인 상태의 마이페이지 스타일 */
 .my-page-title {
     margin-top: 20px;
+    margin-bottom: 25px;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -205,11 +206,13 @@ html {
     align-items: center;
 }
 .modal-content {
-    background: white;
+    background: #ffe600;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
 }
 .modal-content button {
-    margin: 5px;
+    width: 100px;
+    background-color: red;
+    margin: 10px;
 }
