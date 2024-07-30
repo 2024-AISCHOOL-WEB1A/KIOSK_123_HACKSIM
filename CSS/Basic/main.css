@@ -205,11 +205,13 @@ html {
     align-items: center;
 }
 .modal-content {
-    background: white;
+    background: #ffe600;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
 }
 .modal-content button {
-    margin: 5px;
+    width: 100px;
+    background-color: red;
+    margin: 10px;
 }
