@@ -14,20 +14,20 @@
         </div>
         <div id="macIntroBody">
             <div id="macPointDiv" class="macBodyDiv">
-                <span>포인트를 적립하세요</span>
+                <span id="pointText">포인트를 적립하세요</span>
             </div>
             <div id="macStartDiv" class="macBodyDiv">
                 <button id="macStartBtn" class="blinkingBorder">주문하기</button>
                 <div id="macSubBtn">
-                    <button id="translateButton">Translate to English</button>&nbsp;&nbsp;
-                    <button>도움기능</button>
+                    <button id="translateButton">번역기능</button>&nbsp;&nbsp;
+                    <button id="helpText">도움기능</button>
                 </div>
             </div>
         </div>
     </div>
     <div id="macStartModal" class="macStartModal">
         <div class="macModalContent">
-            <h1>식사 장소를<br> 선택해 주세요</h1>
+            <h1 id="startText">식사 장소를<br> 선택해 주세요</h1>
             <div id="macModalBtn">
                 <button id="macIdxS"><img src="MacImg/macForHere.png">매장</button>
                 <button id="macIdxT"><img src="MacImg/macToGo.png">포장</button>
@@ -38,7 +38,7 @@
     <div id="selectOrdering" class="missionModal">
         <div class="missionModalContent">
             <img src="/123GIF/2.gif" alt="Animated GIF">
-            <div class="pContainer"><p>주문하기 버튼을 눌러주세요.</p></div>
+            <div class="pContainer"><p id="orderingText">주문하기 버튼을 눌러주세요.</p></div>
             <button id="selectOrderingBtn">확인</button>
         </div>
     </div>
@@ -46,9 +46,13 @@
     <div id="selectPlace" class="missionModal">
         <div class="missionModalContent">
             <img src="/123GIF/2.gif" alt="Animated GIF">
-            <div class="pContainer"><p>매장 선택</p></div>
+            <div class="pContainer"><p id="placeText">매장에서 먹기를 선택해주세요.</p></div>
             <button id="selectPlaceBtn">확인</button>
         </div>
+    </div>
+
+    <div id="lodingPlace">
+        <div id="spinner"></div>
     </div>
 
     <audio id="audioStart" src="/voice/macBasic2_selstart.mp3"></audio>
@@ -56,57 +60,5 @@
 
     <script src="main.js"></script>
     <script src="/macBasicKiosk.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        const translateButton = document.getElementById('translateButton');
-
-        translateButton.addEventListener('click', async () => {
-            const textElements = [
-                document.querySelector('#macPointDiv span'),
-                document.querySelector('#macStartBtn'),
-                document.querySelector('#macStartModal h1'),
-                document.querySelectorAll('#macModalBtn button'),
-                document.querySelector('#selectOrdering .pContainer p'),
-                document.querySelector('#selectPlace .pContainer p'),
-                document.querySelector('#selectOrderingBtn'),
-                document.querySelector('#selectPlaceBtn')
-            ];
-
-            const textsToTranslate = Array.from(textElements).map(el => el.innerText || el.textContent);
-
-            try {
-                const translatedTexts = await translateTexts(textsToTranslate);
-                updateTexts(textElements, translatedTexts);
-            } catch (error) {
-                console.error('Translation error:', error);
-            }
-        });
-
-        async function translateTexts(texts) {
-            const apiKey = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 여기에 API 키를 입력하세요.
-            const translations = [];
-
-            for (const text of texts) {
-                const response = await axios.post(`https://translation.googleapis.com/language/translate/v2`, null, {
-                    params: {
-                        q: text,
-                        target: 'en',
-                        key: apiKey
-                    }
-                });
-                translations.push(response.data.data.translations[0].translatedText);
-            }
-
-            return translations;
-        }
-
-        function updateTexts(elements, translatedTexts) {
-            elements.forEach((el, index) => {
-                if (el) {
-                    el.innerText = translatedTexts[index];
-                }
-            });
-        }
-    </script>
 </body>
 </html>

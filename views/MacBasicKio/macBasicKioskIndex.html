@@ -14,24 +14,24 @@
         <div class="aside">
             <a href="/macBasicKioIndex"><img id="logoImg" src="/MacImg/macLogo.png"></a>
             <ul class="asideMenu">
-                <li class="active"><a href="/macBasicKioIndex">홈</a></li>
-                <li class="disable" id="liDisable"><a href="#none">추천메뉴</a></li>
+                <li class="active"><a href="/macBasicKioIndex" id="homeText">홈</a></li>
+                <li class="disable" id="liDisable"><a href="#none" id="chuText">추천메뉴</a></li>
                 <li><a id="basicNum1" href="/macKiosk/macBasicBuger">버거</a></li>
-                <li><a href="/macKiosk/macBasicSide">사이드</a></li>
-                <li><a href="/macKiosk/macBasicDessert">디저트</a></li>
-                <li><a href="/macKiosK/macBasicBeverage">음료</a></li>
+                <li><a href="/macKiosk/macBasicSide" id="sideText">사이드</a></li>
+                <li><a href="/macKiosk/macBasicDessert" id="dessertText">디저트</a></li>
+                <li><a href="/macKiosK/macBasicBeverage" id="beverageText">음료</a></li>
             </ul>
         </div>
     {% block content %}
         <div id="homeConDiv">
-            <h1>홈</h1>
+            <h1 id="blockHomeText">홈</h1>
             <div class="row">
-                <div class="column">추천메뉴 ⭐</div>
-                <div class="column">이달의 해피 스낵 🌈</div>
+                <div class="column" id="columnMenu">추천메뉴 ⭐</div>
+                <div class="column" id="columnHappy">이달의 해피 스낵 🌈</div>
             </div>
             <div class="row">
-                <div class="column">버거 & 세트 🍔</div>
-                <div class="column">커피 & 디저트 ☕</div>
+                <div class="column" id="columnBuger">버거 & 세트 🍔</div>
+                <div class="column" id="columnDessert">커피 & 디저트 ☕</div>
             </div>
             <div id="fullRowDiv">
                 <div class="fullRow"><img src="/MacImg/macBanner1.png" ></div>
@@ -51,13 +51,13 @@
     <!-- 세트 선택 모달 -->
     <div id="orderModal">
         <div class="modalContent">
-            <h1>세트로 주문하시겠습니까?</h1>
+            <h1 id="orderH1Text">세트로 주문하시겠습니까?</h1>
             <div class="addToCartContainer">
                 <button id="addToCartS" class="addToCart">
-                    <img id="burgerSetImg" src="/BugerSetImg/1955버거세트.png"><h1>세트선택</h1>
+                    <img id="burgerSetImg" src="/BugerSetImg/1955버거세트.png"><h1 id="orderBtnH1">세트선택</h1>
                 </button>
                 <button id="addToCartO" class="addToCart">
-                    <img id="burgerSingImg" src="/BugerImg/1955버거.png"><h1>단품선택</h1>
+                    <img id="burgerSingImg" src="/BugerImg/1955버거.png"><h1 id="orderBtnH2">단품선택</h1>
                 </button>
             </div>
             <button id="orderCancel" class="cancleBtn">뒤로가기</button>
@@ -66,7 +66,7 @@
 
     <!-- 세트 사이드 선택 모달 -->
     <div id="setModal" class="setContent">
-        <h1>사이드메뉴를 선택하세요</h1>
+        <h1 id="setH1Text">사이드메뉴를 선택하세요</h1>
         <div class="addToCartContainer" id="selectSide">
         </div>
         <button id="sideCancel" class="cancleBtn">뒤로가기</button>
@@ -74,7 +74,7 @@
 
     <!-- 세트 음료 선택 모달 -->
     <div id="beverageModal" class="setContent">
-        <h1>음료를 선택하세요</h1>
+        <h1 id="beverageH1Text">음료를 선택하세요</h1>
         <div class="addToCartContainer" id="selectBeverage"></div>
         <button id="beverageCancel" class="cancleBtn">뒤로가기</button>
     </div>
@@ -82,22 +82,22 @@
     <!-- 세트 선택 내용 모달 -->
     <div id="setEndModal" class="setContent">
         <div class="setMainCon">
-            <h1 class="setMaintitle">1955버거세트</h1>
-            <h1 class="setMainprice">￦7800</h1>
+            <h1 class="setMaintitle" id="setEndH1">1955버거세트</h1>
+            <h1 class="setMainprice" id="setEndH2">￦7,800</h1>
             <img class="setMainImg" src="/BugerSetImg/1955버거세트.png">
         </div>
         <div class="setSubCon">
             <div class="setSubItem">
                 <img src="/BugerImg/1955버거.png" class="setSubImg">
-                <h3 class="setSubTxt">1955버거</h3>
+                <h3 class="setSubTxt" id="setEndH3">1955버거</h3>
             </div>
             <div class="setSubItem">
                 <img src="/SideImg/후렌치후라이.png"class="setSubImg">
-                <h3 class="setSubTxt">후렌치후라이</h3>
+                <h3 class="setSubTxt" id="setEndH4">후렌치후라이</h3>
             </div>
             <div class="setSubItem">
                 <img src="/BeverageImg/코카콜라.png"class="setSubImg">
-                <h3 class="setSubTxt">코카콜라</h3>
+                <h3 class="setSubTxt" id="setEndH5">코카콜라</h3>
             </div>
         </div>
         <div class="paymentBtnCon" id="paymentBtnDiv">
@@ -108,21 +108,21 @@
 
     <!-- 결제확인 모달 -->
     <div id="paymentModal" class="setContent">
-        <h1 id="paymentTitle">주문</h1>
+        <h1 id="paymentTitle" id="paymentH1Text">주문</h1>
         <div class="addToCartContainer" id="showCart">
             <ul id="cartItemsList">
                 <li>
                     <img src="/BugerSetImg/1955버거세트.png">
-                    <h1>1955버거세트</h1>
-                    <h3>가격: 7800원<br>
+                    <h1 id="paymentH1">1955버거세트</h1>
+                    <h3><p id="paymentH2">가격: ￦7,800</p>
                     &nbsp&nbsp&nbsp <button class='decincBtn removeItem' data-item='${item.cartName}'>-</button>
                     1<button class='decincBtn addItem' data-item='${item.cartName}'>+</button></h3>
                 </li>
             </ul>
         </div>
         <div class="paymentTextCon">
-            <h1>합계</h1>
-            <h1 id="paymentSumText"><span>7800원</span></h1>
+            <h1 id="paymentConH1">합계</h1>
+            <h1 id="paymentSumText"><span>￦7,800</span></h1>
         </div>
         <div class="paymentBtnCon">
             <button class="canBtn" id="paycanBtn">돌아가기</button>
@@ -211,12 +211,16 @@
         <div class="missionModalContent">
             <img src="/123GIF/2.gif" alt="Animated GIF">
             <div class="pContainer">
-                <p>주문번호는 <span id="orderNumber">0</span>번 입니다.</p>
-                <p>주문번호를 확인하시고 음식을 가져가주세요.</p>
+                <p>주문번호는 123번 입니다.주문번호를 확인하시고 음식을 가져가주세요.</p>
             </div>
             <button id="selectorderNumModalBtn">실습 종료</button>
         </div>
     </div>
+
+    <div id="lodingPlace">
+        <div id="spinner"></div>
+    </div>
+
     <script src="main.js"></script>
 </div>
 
@@ -230,6 +234,7 @@
 <audio id="audioEnd" src="/voice/macBasic2_selEnd.mp3"></audio>
 <audio id="audioPayment" src="/voice/macBasic2_selPayment.mp3"></audio>
 <audio id="audioCard" src="/voice/macBasic2_selCard.mp3"></audio>
+<audio id="audio123" src="/voice/macBasic2_sel123.mp3"></audio>
 
 <script src="/jquery-3.7.1.min.js"></script>
 <script src="/macBasicCart.js"></script>

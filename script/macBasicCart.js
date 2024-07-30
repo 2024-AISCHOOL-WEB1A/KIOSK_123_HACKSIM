@@ -42,15 +42,179 @@ const selectorderNumModalBtn = document.getElementById('selectorderNumModalBtn')
 
 const orderNumber = document.getElementById('orderNumber');
 
-window.onload = function() {
-    if (window.location.pathname == '/macBasicKioIndex') {
-        selectSetInfo.style.display = 'flex';
+const lodingPlace = document.getElementById('lodingPlace');
 
-        // 오디오 재생 추가
-        let audioMission = document.getElementById('audioMission');
-        audioMission.currentTime = 0;
-        audioMission.play();
+const API_KEY = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 구글 번역 API 키를 여기에 입력하세요.
+
+async function translateText(text, targetLang) {
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q: text, target: targetLang })
+    });
+    if (!response.ok) {
+        throw new Error('번역 요청 실패');
     }
+    const data = await response.json();
+    return data.data.translations[0].translatedText;
+}
+
+// 번역 토글 함수
+async function toggleTranslation(elementsToTranslate, originalTexts, translatedTexts) {
+    try {
+        for (const element of elementsToTranslate) {
+            const elem = document.getElementById(element.id)
+            const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
+            console.log(textElem);
+            originalTexts[element.id] = textElem.innerHTML;
+
+            if (!translatedTexts[element.id]) {
+                translatedTexts[element.id] = await translateText(originalTexts[element.id], 'en');
+            }
+
+            textElem.innerHTML = translatedTexts[element.id];
+        }
+        // 현재 번역 상태를 로컬 스토리지에 저장
+    } catch (error) {
+        console.error('번역 중 오류 발생:', error);
+    }
+}
+
+window.onload = function() {
+    let list = [];
+
+    if (window.location.pathname == '/macBasicKioIndex') {
+
+        if (localStorage.getItem('translationStatus') === 'true') {
+            list.push({text : document.querySelectorAll('.pContainer')[0].textContent})
+            
+            let elementsToTranslate = [
+                { id: 'homeText'},
+                { id: 'chuText'},
+                { id: 'basicNum1'},
+                { id: 'sideText'},
+                { id: 'dessertText'},
+                { id: 'beverageText'},
+                { id: 'blockHomeText'},
+                { id: 'columnMenu'},
+                { id: 'columnHappy'},
+                { id: 'columnBuger'},
+                { id: 'columnDessert'},
+                { id: 'paymentBtn'},
+                // { id: 'orderH1Text'},
+                // { id: 'orderBtnH1'},
+                // { id: 'orderBtnH2'},
+                // { id: 'orderCancel'},
+                // { id: 'setH1Text'},
+                // { id: 'sideCancel'},
+                // { id: 'beverageH1Text'},
+                // { id: 'beverageCancel'},
+                // { id: 'setEndH1'},
+                // { id: 'setEndH2'},
+                // { id: 'setEndH3'},
+                // { id: 'setEndH4'},
+                // { id: 'setEndH5'},
+                // { id: 'setBackBtn'},
+                // { id: 'setEndBtn'},
+                // { id: 'paymentTitle'},
+                // { id: 'paymentH1'},
+                // { id: 'paymentH2'},
+                // { id: 'paymentConH1'},
+                // { id: 'paycanBtn'},
+                // { id: 'payCartBtn'},
+                // { id: 'cardPayTitle'}
+            ];
+    
+            let originalTexts = {};
+            let translatedTexts = {};
+
+            toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+
+        }else{
+            lodingPlace.style.display = 'none';
+            let audioMission = document.getElementById('audioMission');
+            audioMission.currentTime = 0;
+            audioMission.play();
+        }
+        selectSetInfo.style.display = 'flex';
+    }else{
+        if (localStorage.getItem('translationStatus') === 'true') {
+            document.querySelectorAll('.pContainer').forEach(item => {
+                list.push({ text: item.textContent })
+            })
+
+            let elementsToTranslate = [
+                { id: 'homeText'},
+                { id: 'chuText'},
+                { id: 'basicNum1'},
+                { id: 'sideText'},
+                { id: 'dessertText'},
+                { id: 'beverageText'},
+                { id: 'paymentBtn'},
+                { id: 'orderH1Text'},
+                { id: 'orderBtnH1'},
+                { id: 'orderBtnH2'},
+                { id: 'orderCancel'},
+                { id: 'setH1Text'},
+                { id: 'sideCancel'},
+                { id: 'beverageH1Text'},
+                { id: 'beverageCancel'},
+                { id: 'setEndH1'},
+                { id: 'setEndH3'},
+                { id: 'setEndH4'},
+                { id: 'setEndH5'},
+                { id: 'setBackBtn'},
+                { id: 'setEndBtn'},
+                { id: 'paymentTitle'},
+                { id: 'paymentH1'},
+                { id: 'paymentH2'},
+                { id: 'paymentConH1'},
+                { id: 'paycanBtn'},
+                { id: 'payCartBtn'},
+                { id: 'cardPayTitle'}
+            ];
+    
+            let originalTexts = {};
+            let translatedTexts = {};
+
+            toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+        }else{
+            lodingPlace.style.display = 'none';
+            let audioBurger = document.getElementById('audioBurger');
+            audioBurger.currentTime = 0;
+            audioBurger.play();
+        }
+    }
+
+    fetch('/send-flask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(list),
+    })
+        .then(response => response.json())
+        .then(data => {
+            const pCon = document.querySelectorAll('.pContainer p');
+            data.forEach((item, index) => {
+                pCon[index].innerText = item;
+            });
+        }).then(() => {
+            lodingPlace.style.display = 'none';
+            if (window.location.pathname == '/macBasicKioIndex') {
+                let audioMission = document.getElementById('audioMission');
+                audioMission.currentTime = 0;
+                audioMission.play();
+            }else{
+                let audioBurger = document.getElementById('audioBurger');
+                audioBurger.currentTime = 0;
+                audioBurger.play();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 };
 
 // 1. 페이지 로드시 => 모달창 띄워 미션 보여주기 => 버거를 선택
@@ -68,14 +232,34 @@ selectSetInfoBtn.addEventListener('click', () => {
 // 2. 버거 선택시 미션 가이드라인 변경, 2번 tts 재생 => 1955버거 선택
 window.addEventListener('load', () => {
     basicNum1.classList.remove('blinkingBorder');
-
+    // 트랜스 버튼 값이 false라면 작동하게 if문
     waitForPageLoad().then(() => {
+        let elementsToTranslate = [
+            { id: 'navH1Text'},
+            { id: 'navPText'},
+            { id: 'bugerNameText1'},
+            { id: 'bugerNameText2'},
+            { id: 'bugerNameText3'},
+            { id: 'bugerNameText4'},
+            { id: 'bugerNameText5'},
+            { id: 'bugerNameText6'},
+            { id: 'bugerNameText7'},
+            { id: 'bugerNameText8'},
+            { id: 'bugerNameText9'},
+            { id: 'bugerNameText10'},
+            { id: 'bugerNameText11'},
+            { id: 'bugerNameText12'},
+            { id: 'bugerNameText13'},
+            { id: 'bugerNameText14'}
+        ];
+
+        let originalTexts = {};
+        let translatedTexts = {};
+
+        toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+
         document.querySelector('div[data-name="1955버거"]').classList.add('blinkingBorder');
         selectBugerBar.style.display = 'flex';
-
-        let audioBurger = document.getElementById('audioBurger');
-        audioBurger.currentTime = 0;
-        audioBurger.play();
     });
 
     function waitForPageLoad() {
@@ -121,9 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((response) => response.json())
             .then((data) => {
                 selectSide.innerHTML = '';
-                data.forEach((item) => {
+                data.forEach((item, i) => {
                     const sideMenuItem = document.createElement('div');
                     sideMenuItem.classList.add('sideMenuItem');
+                    sideMenuItem.id = 'sideMenuItem' + i;
 
                     sideMenuItem.dataset.name = item.IMG_NAME;
                     sideMenuItem.dataset.path = item.IMG_GROUP + item.IMG_PATH;
@@ -144,6 +329,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 setModal.style.display = 'flex';
             })
             .then(() => {
+                let elementsToTranslate = [
+                    { id: 'sideMenuItem0'},
+                    { id: 'sideMenuItem1'},
+                    { id: 'sideMenuItem2'},
+                    { id: 'sideMenuItem3'},
+                    { id: 'sideMenuItem4'},
+                    { id: 'sideMenuItem5'},
+                    { id: 'sideMenuItem6'},
+                    { id: 'sideMenuItem7'}
+                ];
+        
+                let originalTexts = {};
+                let translatedTexts = {};
+        
+                toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+
                 selectSideModal.style.display = 'flex';
                 let SideDivFly = document.querySelector('div[data-name="후렌치후라이"]');
                 SideDivFly.classList.add('blinkingBorder');
@@ -158,9 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     fetch('/macKiosk/macBasicSelectB')
                         .then((response) => response.json())
                         .then((data) => {
-                            data.forEach((item) => {
+                            data.forEach((item, i) => {
                                 const beverageMenuItem = document.createElement('div');
                                 beverageMenuItem.classList.add('beverageMenuItem');
+                                beverageMenuItem.id = 'beverageMenuItem'+i;
 
                                 beverageMenuItem.dataset.name = item.IMG_NAME;
                                 beverageMenuItem.dataset.path = item.IMG_GROUP + item.IMG_PATH;
@@ -180,6 +382,22 @@ document.addEventListener('DOMContentLoaded', () => {
                             beverageModal.style.display = 'flex';
                         })
                         .then(() => {
+
+                            let elementsToTranslate = [
+                                { id: 'beverageMenuItem0'},
+                                { id: 'beverageMenuItem1'},
+                                { id: 'beverageMenuItem2'},
+                                { id: 'beverageMenuItem3'},
+                                { id: 'beverageMenuItem4'},
+                                { id: 'beverageMenuItem5'},
+                                { id: 'beverageMenuItem6'}
+                            ];
+                    
+                            let originalTexts = {};
+                            let translatedTexts = {};
+                    
+                            toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+                            
                             let BeverageDivCoke = document.querySelector('div[data-name="코카콜라"]');
                             selectBeverageModal.style.display = 'flex';
                             BeverageDivCoke.classList.add('blinkingBorder');
@@ -267,48 +485,17 @@ payCartBtn.addEventListener('click', () => {
     audioCard.play();
 
     // 주문번호 표시
-    var orderRNumber = getOrderNumber();
-    orderNumber.innerText = orderRNumber; // 주문번호를 화면에 표시
 
     setTimeout(() => {
         cardPayModal.style.display = 'none';
         endModal.style.display = 'flex';
         selectorderNumModal.style.display = 'flex';
 
-        let audio1 = new Audio('/voice/macBasic2_orderNum.mp3');
-        audio1.play();
-        audio1.onended = function() {
-            // 주문번호를 읽기 위해 SpeechSynthesis API를 사용
-            let orderNum = orderNumber.innerText;
-            let msg = new SpeechSynthesisUtterance(orderNum);
-            msg.lang = 'ko-KR';
-            window.speechSynthesis.speak(msg);
-    
-            // 주문번호 읽기가 끝난 후 두 번째 오디오 파일 재생
-            msg.onend = function() {
-                let audio2 = new Audio('/voice/macBasic2_orderEnd.mp3');
-                audio2.play();
-            };
-        };
+        let audio123 = document.getElementById('audio123');
+        audio123.currentTime = 0;
+        audio123.play();
     }, 4000);
 });
-
-// 주문번호 생성 및 관리
-function getOrderNumber() {
-    let orderNumber = localStorage.getItem('orderNumber');
-    if (orderNumber === null) {
-        // 주문번호가 없으면 무작위 생성 (1~999)
-        orderNumber = Math.floor(Math.random() * 999) + 1;
-    } else {
-        // 주문번호가 있으면 1 증가 (1~999 범위 체크)
-        orderNumber = parseInt(orderNumber) + 1;
-        if (orderNumber > 999) {
-            orderNumber = 1; // 최대값 초과 시 1로 초기화
-        }
-    }
-    localStorage.setItem('orderNumber', orderNumber); // 주문번호 저장
-    return orderNumber;
-}
 
 selectorderNumModalBtn.addEventListener('click', () => {
     location.href = '/study'

@@ -2,15 +2,15 @@
 
 {% block content %}
     <nav class="topNav">
-        <h1>버거</h1>
-        <p>메뉴를 골라주세요.</p>
+        <h1 id="navH1Text">버거</h1>
+        <p id="navPText">메뉴를 골라주세요.</p>
     </nav>
 <div class="mainContent">
 {% for info in rows %}
     <div class="burgerItem menuItem" data-name="{{info.IMG_NAME}}" data-price="{{info.IMG_PRICE}}" data-path="{{info.IMG_GROUP+info.IMG_PATH}}">
         <img src="{{info.IMG_GROUP+info.IMG_PATH}}">
         <div class="description">
-            <h3>{{info.IMG_NAME}}</h3>
+            <h3 id="bugerNameText{{loop.index}}">{{info.IMG_NAME}}</h3>
             <p>￦{{info.IMG_PRICE}}</p>
         </div>
     </div>
@@ -21,7 +21,7 @@
     <div id="selectBugerBar" class="missionModal">
         <div class="missionModalContent">
             <img src="/123GIF/2.gif" alt="Animated GIF">
-            <div class="pContainer"><p><strong>1955버거</strong>를 선택해 주세요</p></div>
+            <div class="pContainer"><p id="selBugerText"><strong>1955버거</strong>를 선택해 주세요</p></div>
             <button id="selectBugerBtn">확인</button>
         </div>
     </div>

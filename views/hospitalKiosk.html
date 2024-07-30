@@ -14,7 +14,7 @@
                 <button id="headLearnBtRight">처음으로▶</button>
                 <!-- <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button> -->
             </div>
-            <h1>손주병원 <br>키오스크 실습 교육</h1>
+            <h1 id="title">손주병원 <br> 키오스크 실습 교육</h1>
             
             <div class="box">
                 <h2 id="difficultyTitle">난이도를 아래에서 선택해주세요</h2> <br>
@@ -32,48 +32,10 @@
             </div>
         </div>
         <footer>
-            <p>일단 이거 세번 해볼까요</p>
+            <p id="footerText">일단 이거 세번 해볼까요</p>
         </footer>
     </div>
-   
-    <script>
-        const headLearnBt = document.getElementById('headLearnBt');
-        headLearnBt.addEventListener('click', () => {
-            location.href = '/study';
-        });
-
-        const KioskHpBasic = document.getElementById('KioskHpBasic');
-        KioskHpBasic.addEventListener('click', () => {
-            location.href = '/hospitalB1';
-        });
-
-        const goToHospitalKiosk2 = document.getElementById('goToHospitalKiosk2');
-        goToHospitalKiosk2.addEventListener('click', () => {
-            location.href = '/hospitalKiosk2.html';
-        });
-
-        const headLearnBtRight = document.getElementById('headLearnBtRight')
-        headLearnBtRight.addEventListener('click', ()=>{
-            location.href = '/'
-        })
-        // document.getElementById('headImgBtn').addEventListener('click', () => {
-        //     fetch('/kiosk/save-page-info', { // 수정된 경로
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         credentials: 'include' // 세션 쿠키를 서버에 포함
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if (data.success) {
-        //             alert('페이지 정보가 저장되었습니다.');
-        //         } else {
-        //             alert(data.message); // 로그인하지 않은 경우의 메시지
-        //         }
-        //     })
-        //     .catch(error => console.error('Error:', error));
-        // });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/hospitalKiosk.js"></script>
 </body>
 </html>

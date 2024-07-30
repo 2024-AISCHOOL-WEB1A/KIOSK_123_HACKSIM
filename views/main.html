@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,17 +19,20 @@
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background: white;
             padding: 20px;
             border-radius: 5px;
             text-align: center;
         }
+
         .modal-content button {
             margin: 5px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -76,8 +80,8 @@
         </div>
     </div>
 
-    <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             axios.get('/user/session-status')
@@ -131,34 +135,8 @@
                 .catch(error => {
                     console.error('세션 상태 확인 중 오류 발생:', error);
                 });
-
-            // 번역 버튼 클릭 이벤트
-            document.getElementById('translateButton').addEventListener('click', async () => {
-                try {
-                    const response = await axios.post('/translate', {
-                        texts: [
-                            document.getElementById('titleText').innerText,
-                            document.getElementById('kioskTitle').innerHTML,
-                            document.querySelectorAll('.game-button')[0].innerText,
-                            document.getElementById('wordGameTitle').innerHTML,
-                            document.querySelectorAll('.game-button')[1].innerText,
-                            document.getElementById('loginTitle').innerHTML,
-                            document.querySelectorAll('.game-button')[2].innerText,
-                            document.getElementById('helpTitle').innerText,
-                            document.querySelectorAll('.game-button1')[0].innerText,
-                            // study.html에서 사용되는 텍스트 추가
-                            
-                        ]
-                    });
-
-                    const translations = response.data.translations;
-                    localStorage.setItem('translations', JSON.stringify(translations));
-                    location.href = '/study.html';
-                } catch (error) {
-                    console.error('번역 중 오류 발생:', error);
-                }
-            });
         });
     </script>
 </body>
+
 </html>
