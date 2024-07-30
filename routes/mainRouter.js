@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 const kioskRouter = require('./kioskRouter')
+const axios = require('axios')
+
 // 페이지 렌더링 관련 Router 작성
 router.use(express.static(path.join(__dirname, '../views')));
 router.get('/', (req, res) =>{
@@ -165,4 +167,18 @@ router.get('/macBasic2', (req, res) => {
     res.render('MacBasicKio_sub/macBasic2')
 })
 
+router.get('/test', (req, res) => {
+    res.render('Basic/test')
+})
+
+router.post('/send-flask', async (req, res) => {
+    try {
+        const data = req.body;
+        const response = await axios.post('http://localhost:5000/data', data);
+        res.send(response.data);
+    } catch (error) {
+        console.error('Error sending data to Flask server:', error);
+        res.status(500).send('Error sending data to Flask server');
+    }
+});
 module.exports = router
