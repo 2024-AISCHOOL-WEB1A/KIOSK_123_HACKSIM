@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기초 교육과 심화 교육</title>
     <link rel="stylesheet" href="/HosDeepKio/hospitalKiosk.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/main.js" defer></script>
 </head>
 <body>
     <div class="hospital-container">
@@ -17,7 +19,7 @@
             <h1 id="title">맥도날드 <br>키오스크 실습 교육</h1>
             
             <div class="box">
-                <h2 id="subtitle1">난이도를 아래에서 선택해주세요</h2> <br>
+                <h2 id="subtitle">난이도를 아래에서 선택해주세요</h2> <br>
                 <h3 id="description">기초: 음성 안내가 나옴<br>심화:자유롭게 키오스크 선택 가능</h3>
             </div>
         </header>
@@ -32,11 +34,9 @@
             </div>
         </div>
         <footer>
-            <p id="footerText1">일단 이거 세번 해볼까요?</p>
+            <p id="footerText">일단 이거 세번 해볼까요?</p>
         </footer>
     </div>
-    <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate to English</button>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="main.js"></script>
+    <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate</button>
 </body>
 </html>

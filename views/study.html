@@ -41,22 +41,76 @@
         </footer>
     </div>
     <button id="translateToggle" style="position: fixed; bottom: 10px; right: 10px;">Translate</button>
-    <script src="/main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const translations = JSON.parse(localStorage.getItem('translations'));
+    //study.html 번역부분
+const API_KEY = 'AIzaSyDTtd9JTFAIkuR4rwLjU1IRuL2WEO97rh0'; // 구글 번역 API 키를 여기에 입력하세요.
 
-            if (translations) {
-                document.getElementById('title').innerText = translations[0] || '일단 이거 세번만 해볼까요?';
-                document.getElementById('subtitle').innerText = translations[1] || '어떤 키오스크 학습을 진행하시겠습니까?';
-                document.getElementById('KioskMacStart').querySelector('p').innerText = translations[2] || '음식점';
-                document.getElementById('KioskHpStart').querySelector('p').innerText = translations[3] || '병원';
-                document.getElementById('KioskOpStart').querySelector('p').innerText = translations[4] || '행정';
-                document.getElementById('KioskTrStart').querySelector('p').innerText = translations[5] || '교통';
-                document.getElementById('footerText').innerText = translations[6] || '일단 이거 세번 해볼까요?';
+const elementsToTranslate = [
+    { id: 'title', text: '일단 이거 세번만 해볼까요?' },
+    { id: 'subtitle', text: '어떤 키오스크 학습을 진행하시겠습니까?' },
+    { id: 'KioskMacStart', text: '음식점' },
+    { id: 'KioskHpStart', text: '병원' },
+    { id: 'KioskOpStart', text: '행정' },
+    { id: 'KioskTrStart', text: '교통' },
+    { id: 'footerText', text: '일단 이거 세번 해볼까요?' }
+];
+
+let isTranslated = false;
+const originalTexts = {};
+const translatedTexts = {};
+
+// 번역 함수
+async function translateText(text, targetLang) {
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q: text, target: targetLang })
+    });
+    const data = await response.json();
+    return data.data.translations[0].translatedText;
+}
+
+// 번역 토글 함수
+async function toggleTranslation() {
+    for (const element of elementsToTranslate) {
+        const elem = document.getElementById(element.id);
+        const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
+
+        if (!isTranslated) {
+            // 원본 텍스트 저장
+            if (!originalTexts[element.id]) {
+                originalTexts[element.id] = textElem.innerText;
             }
-        });
-    </script>
+
+            // 번역된 텍스트 저장
+            if (!translatedTexts[element.id]) {
+                translatedTexts[element.id] = await translateText(originalTexts[element.id], 'en');
+            }
+
+            textElem.innerText = translatedTexts[element.id];
+        } else {
+            textElem.innerText = originalTexts[element.id];
+        }
+    }
+
+    isTranslated = !isTranslated;
+    // 현재 번역 상태를 로컬 스토리지에 저장
+    localStorage.setItem('isTranslated', JSON.stringify(isTranslated));
+}
+
+// 페이지 로드 시 번역 상태 복원
+document.addEventListener('DOMContentLoaded', function () {
+    const savedState = JSON.parse(localStorage.getItem('isTranslated'));
+    if (savedState) {
+        isTranslated = savedState;
+        toggleTranslation(); // 저장된 상태 적용
+    }
+});
+
+// 번역 버튼 클릭 이벤트 리스너
+document.getElementById('translateToggle').addEventListener('click', toggleTranslation);
+</script>
     <script>
         const KioskHpStart = document.getElementById('KioskHpStart');
         KioskHpStart.addEventListener('click', () =>{
