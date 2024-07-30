@@ -14,7 +14,7 @@
                 <button id="headLearnBtRight">처음으로▶</button>
                 <button id="headImgBtn"><img src="/pic/학습저장별.png" alt="" id="headImg"></button>
             </div>
-            <h1>손주병원</h1>
+            <h1 id="hTitle">손주병원</h1>
         </header>
         <div class="options">
             <div class="option">
@@ -135,6 +135,11 @@
 
         const headLearnBtRight = document.getElementById('headLearnBtRight')
         headLearnBtRight.addEventListener('click', ()=>{
+            location.href='/'
+        })
+
+        const hTitle = document.getElementById('hTitle')
+        hTitle.addEventListener('click', ()=>{
             location.href='/hospital'
         })
 
