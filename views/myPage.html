@@ -10,7 +10,7 @@
     <div class="container">
         <div class="header">
             <div class="profile">
-                <div class="profile-img-wrapper">
+                <div class="profile-img-wrapper" id="headImg">
                     <img src="./pic/123.png" alt="프로필 이미지">
                 </div>
                 <div class="profile-info">
@@ -25,5 +25,11 @@
             <a href="delete" id="deleteBtn">계정탈퇴</a>
         </div>
     </div>
+    <script>
+        const headImg = document.getElementById('headImg').addEventListener('click', ()=>{
+            location.href = '/'
+        })
+
+    </script>
 </body>
 </html>
