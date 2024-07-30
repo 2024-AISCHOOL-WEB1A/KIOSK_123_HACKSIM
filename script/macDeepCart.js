@@ -1,5 +1,3 @@
-// 장바구니?
-
 // 이전으로, 처음으로
 const headLearnBt = document.getElementById('headLearnBt')
 const headLearnBtRight = document.getElementById('headLearnBtRight')
@@ -339,10 +337,11 @@ $('#payCartBtn').on('click', () =>{
     setTimeout(() => {
         $('#cardPayModal').css('display', 'none');
         $('#endModal').css('display', 'flex');
+        $('#selectorderNumModal').css('display','flex');
         localStorage.removeItem('cart')
-    }, 3000);
+    }, 4000);
 })
 
-$('#goMainBtn').on('click', () => {
-    location.href = '/'
+$('#selectorderNumModalBtn').on('click', () => {
+    location.href = '/study'
 })

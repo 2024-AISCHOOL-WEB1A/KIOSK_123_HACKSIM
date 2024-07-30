@@ -102,28 +102,6 @@ window.onload = function() {
                 { id: 'columnBuger'},
                 { id: 'columnDessert'},
                 { id: 'paymentBtn'},
-                // { id: 'orderH1Text'},
-                // { id: 'orderBtnH1'},
-                // { id: 'orderBtnH2'},
-                // { id: 'orderCancel'},
-                // { id: 'setH1Text'},
-                // { id: 'sideCancel'},
-                // { id: 'beverageH1Text'},
-                // { id: 'beverageCancel'},
-                // { id: 'setEndH1'},
-                // { id: 'setEndH2'},
-                // { id: 'setEndH3'},
-                // { id: 'setEndH4'},
-                // { id: 'setEndH5'},
-                // { id: 'setBackBtn'},
-                // { id: 'setEndBtn'},
-                // { id: 'paymentTitle'},
-                // { id: 'paymentH1'},
-                // { id: 'paymentH2'},
-                // { id: 'paymentConH1'},
-                // { id: 'paycanBtn'},
-                // { id: 'payCartBtn'},
-                // { id: 'cardPayTitle'}
             ];
     
             let originalTexts = {};
@@ -234,30 +212,31 @@ window.addEventListener('load', () => {
     basicNum1.classList.remove('blinkingBorder');
     // 트랜스 버튼 값이 false라면 작동하게 if문
     waitForPageLoad().then(() => {
-        let elementsToTranslate = [
-            { id: 'navH1Text'},
-            { id: 'navPText'},
-            { id: 'bugerNameText1'},
-            { id: 'bugerNameText2'},
-            { id: 'bugerNameText3'},
-            { id: 'bugerNameText4'},
-            { id: 'bugerNameText5'},
-            { id: 'bugerNameText6'},
-            { id: 'bugerNameText7'},
-            { id: 'bugerNameText8'},
-            { id: 'bugerNameText9'},
-            { id: 'bugerNameText10'},
-            { id: 'bugerNameText11'},
-            { id: 'bugerNameText12'},
-            { id: 'bugerNameText13'},
-            { id: 'bugerNameText14'}
-        ];
+        if (localStorage.getItem('translationStatus') === 'true') {
+            let elementsToTranslate = [
+                { id: 'navH1Text'},
+                { id: 'navPText'},
+                { id: 'bugerNameText1'},
+                { id: 'bugerNameText2'},
+                { id: 'bugerNameText3'},
+                { id: 'bugerNameText4'},
+                { id: 'bugerNameText5'},
+                { id: 'bugerNameText6'},
+                { id: 'bugerNameText7'},
+                { id: 'bugerNameText8'},
+                { id: 'bugerNameText9'},
+                { id: 'bugerNameText10'},
+                { id: 'bugerNameText11'},
+                { id: 'bugerNameText12'},
+                { id: 'bugerNameText13'},
+                { id: 'bugerNameText14'}
+            ];
 
-        let originalTexts = {};
-        let translatedTexts = {};
+            let originalTexts = {};
+            let translatedTexts = {};
 
-        toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
-
+            toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+        }
         document.querySelector('div[data-name="1955버거"]').classList.add('blinkingBorder');
         selectBugerBar.style.display = 'flex';
     });
@@ -329,21 +308,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 setModal.style.display = 'flex';
             })
             .then(() => {
-                let elementsToTranslate = [
-                    { id: 'sideMenuItem0'},
-                    { id: 'sideMenuItem1'},
-                    { id: 'sideMenuItem2'},
-                    { id: 'sideMenuItem3'},
-                    { id: 'sideMenuItem4'},
-                    { id: 'sideMenuItem5'},
-                    { id: 'sideMenuItem6'},
-                    { id: 'sideMenuItem7'}
-                ];
-        
-                let originalTexts = {};
-                let translatedTexts = {};
-        
-                toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+                if (localStorage.getItem('translationStatus') === 'true') {
+                    let elementsToTranslate = [
+                        { id: 'sideMenuItem0'},
+                        { id: 'sideMenuItem1'},
+                        { id: 'sideMenuItem2'},
+                        { id: 'sideMenuItem3'},
+                        { id: 'sideMenuItem4'},
+                        { id: 'sideMenuItem5'},
+                        { id: 'sideMenuItem6'},
+                        { id: 'sideMenuItem7'}
+                    ];
+            
+                    let originalTexts = {};
+                    let translatedTexts = {};
+            
+                    toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+                }
 
                 selectSideModal.style.display = 'flex';
                 let SideDivFly = document.querySelector('div[data-name="후렌치후라이"]');
@@ -382,22 +363,22 @@ document.addEventListener('DOMContentLoaded', () => {
                             beverageModal.style.display = 'flex';
                         })
                         .then(() => {
-
-                            let elementsToTranslate = [
-                                { id: 'beverageMenuItem0'},
-                                { id: 'beverageMenuItem1'},
-                                { id: 'beverageMenuItem2'},
-                                { id: 'beverageMenuItem3'},
-                                { id: 'beverageMenuItem4'},
-                                { id: 'beverageMenuItem5'},
-                                { id: 'beverageMenuItem6'}
-                            ];
-                    
-                            let originalTexts = {};
-                            let translatedTexts = {};
-                    
-                            toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
-                            
+                            if (localStorage.getItem('translationStatus') === 'true') {
+                                let elementsToTranslate = [
+                                    { id: 'beverageMenuItem0'},
+                                    { id: 'beverageMenuItem1'},
+                                    { id: 'beverageMenuItem2'},
+                                    { id: 'beverageMenuItem3'},
+                                    { id: 'beverageMenuItem4'},
+                                    { id: 'beverageMenuItem5'},
+                                    { id: 'beverageMenuItem6'}
+                                ];
+                        
+                                let originalTexts = {};
+                                let translatedTexts = {};
+                        
+                                toggleTranslation(elementsToTranslate, originalTexts, translatedTexts)
+                            }
                             let BeverageDivCoke = document.querySelector('div[data-name="코카콜라"]');
                             selectBeverageModal.style.display = 'flex';
                             BeverageDivCoke.classList.add('blinkingBorder');

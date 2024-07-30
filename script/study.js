@@ -57,7 +57,7 @@ window.onload = function () {
                     const elem = document.getElementById(element.id)
                     const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
                     originalTexts[element.id] = textElem.innerHTML;
-
+                    
                     if (!translatedTexts[element.id]) {
                         translatedTexts[element.id] = await translateText(originalTexts[element.id], 'en');
                     }
