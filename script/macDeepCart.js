@@ -160,7 +160,6 @@ sideCancel.addEventListener('click', () =>{
 $(document).ready(function (){
     $(document).on('click', '.sideMenuItem', (event) => {
         setArray.push({NAME : $(event.currentTarget).find('h3').text(), PATH : $(event.currentTarget).data('path') })
-        console.log(setArray);
         fetch('/macKiosk/macSelectB')
             .then(response => response.json())
             .then(data => {
@@ -207,7 +206,6 @@ $(document).ready(function (){
             $('.setSubCon').empty(); // 기존 콘텐츠 삭제
 
             setArray.forEach(item => {
-                console.log(setArray.length);
                 let subItem = `
                     <div class="setSubItem">
                         <img src="${item.PATH}"class="setSubImg">

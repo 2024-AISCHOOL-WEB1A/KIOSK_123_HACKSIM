@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             toggleTranslation(); // 저장된 상태 적용
-            console.log(originalTexts);
         }else{
             for (const element of elementsToTranslate) {
                 const elem = document.getElementById(element.id)

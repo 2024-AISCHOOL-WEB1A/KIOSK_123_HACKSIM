@@ -66,7 +66,6 @@ async function toggleTranslation(elementsToTranslate, originalTexts, translatedT
         for (const element of elementsToTranslate) {
             const elem = document.getElementById(element.id)
             const textElem = elem.tagName === 'P' ? elem : elem.querySelector('p') || elem;
-            console.log(textElem);
             originalTexts[element.id] = textElem.innerHTML;
 
             if (!translatedTexts[element.id]) {
